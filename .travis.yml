@@ -1,0 +1,23 @@
+language: java
+jdk:
+- oraclejdk8
+branches:
+  only:
+  - master
+  - develop
+notifications:
+  email:
+    recipients:
+    - j.bernal@upm.es
+script:
+# Calidad codigo: Sonarcloud
+- mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify --settings settings.xml
+- mvn sonar:sonar -Dsonar.organization=miw-upm-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR --settings settings.xml
+# Unit Test & Integration Test
+- mvn verify --settings settings.xml
+# Deploy & Functional Testing
+- if [ $TRAVIS_TEST_RESULT == 0 ];
+     then  mvn verify -Ppreproduction --settings settings.xml; 
+     else  echo "ERRORES!!! ... se saltan los test de funcionalidad"; 
+  fi
+ 
