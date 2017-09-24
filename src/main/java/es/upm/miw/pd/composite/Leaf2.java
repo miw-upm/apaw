@@ -19,12 +19,12 @@ public class Leaf2 extends Component {
 
     @Override
     public void remove(Component cc) {
-        throw new UnsupportedOperationException("Operaci�n no soportada");
+        throw new UnsupportedOperationException("Operación no soportada");
     }
 
     @Override
     public void add(Component cc) {
-        throw new UnsupportedOperationException("Operaci�n no soportada");
+        throw new UnsupportedOperationException("Operación no soportada");
     }
 
     @Override
