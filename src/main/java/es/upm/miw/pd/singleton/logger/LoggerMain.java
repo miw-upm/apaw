@@ -1,5 +1,7 @@
 package es.upm.miw.pd.singleton.logger;
 
+import org.apache.logging.log4j.LogManager;
+
 public class LoggerMain {
 
     public void run() {
@@ -8,7 +10,7 @@ public class LoggerMain {
         Clase2 c2 = new Clase2(logger);
         c2.method1();
         c2.method2();
-        System.out.println(logger.getLogs());
+        LogManager.getLogger(this.getClass().getName()).info(logger.getLogs());
     }
 
     public static void main(String[] args) {

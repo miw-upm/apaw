@@ -27,7 +27,4 @@ public final class Logger {
         this.logs = new Date().toString() + "\n";
     }
 
-    public void print() {
-        System.out.print(this.logs);
-    }
 }
