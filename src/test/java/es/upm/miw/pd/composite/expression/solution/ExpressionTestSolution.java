@@ -12,7 +12,7 @@ import es.upm.miw.pd.composite.expression.solution.Number;
 import es.upm.miw.pd.composite.expression.solution.Subtraction;
 import es.upm.miw.pd.composite.expression.solution.Summation;
 
-public class ExpressionIT {
+public class ExpressionTestSolution {
     private Expression expression1, expression2, expression3, expression4, expression5, expression6;
 
     @Before

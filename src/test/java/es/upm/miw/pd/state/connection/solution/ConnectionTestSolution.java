@@ -7,7 +7,7 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
-public class ConnectionIT {
+public class ConnectionTestSolution {
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
