@@ -2,8 +2,9 @@ package es.upm.miw.webPattern.interceptingFilter;
 
 import es.upm.miw.webPattern.http.HttpRequest;
 import es.upm.miw.webPattern.http.HttpResponse;
+import es.upm.miw.webPattern.http.Server;
 
-public class FilterManager {
+public class FilterManager implements Server {
 
 	public void execute(HttpRequest request, HttpResponse response) {
 		// Se procesa el request y se establece el destino
@@ -24,4 +25,11 @@ public class FilterManager {
 		// Se pasa el control
 		filterChain.doFilter(request, response);
 	}
+
+    @Override
+    public HttpResponse submit(HttpRequest request) {
+        HttpResponse response = new HttpResponse();
+        this.execute(request, response);
+        return response;
+    }
 }

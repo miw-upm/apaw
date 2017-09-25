@@ -3,8 +3,9 @@ package es.upm.miw.webPattern.frontControllerApi;
 import es.upm.miw.webPattern.http.HttpRequest;
 import es.upm.miw.webPattern.http.HttpResponse;
 import es.upm.miw.webPattern.http.HttpStatus;
+import es.upm.miw.webPattern.http.Server;
 
-public class Dispatcher {
+public class Dispatcher implements Server {
 
     private Resource1 resource1 = new Resource1();
 
@@ -63,6 +64,27 @@ public class Dispatcher {
 
     public void doDelete(HttpRequest request, HttpResponse response) {
         responseError(response, "Path Error");
+    }
+
+    @Override
+    public HttpResponse submit(HttpRequest request) {
+        HttpResponse response = new HttpResponse();
+        switch (request.getMethod()) {
+        case POST:
+            doPost(request, response);
+            break;
+        case GET:
+            doGet(request, response);
+            break;
+        case PUT:
+            doPut(request, response);
+            break;
+        case DELETE:
+            doDelete(request, response);
+            break;
+        default:
+        }
+        return response;
     }
 
 }
