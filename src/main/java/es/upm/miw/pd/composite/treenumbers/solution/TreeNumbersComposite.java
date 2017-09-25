@@ -10,7 +10,7 @@ public class TreeNumbersComposite extends TreeNumbers {
 
     public TreeNumbersComposite(String nombre) {
         this.nombre = nombre;
-        this.lista = new ArrayList<TreeNumbers>();
+        this.lista = new ArrayList<>();
     }
 
     @Override

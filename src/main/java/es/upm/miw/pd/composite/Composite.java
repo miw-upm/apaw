@@ -5,17 +5,17 @@ public class Composite extends Component {
 
     public Composite(String name) {
         super(name);
-        this.list = new java.util.ArrayList<Component>();
+        this.list = new java.util.ArrayList<>();
     }
 
     @Override
     public String view(String head) {
-        String result = "";
-        result += head + "-" + this.getName() + ":" + "\n";
+        StringBuilder result = new StringBuilder();
+        result.append(head + "-" + this.getName() + ":" + "\n");
         for (Component item : list) {
-            result += item.view(head + "  ");
+            result.append(item.view(head + "  "));
         }
-        return result;
+        return result.toString();
     }
 
     @Override

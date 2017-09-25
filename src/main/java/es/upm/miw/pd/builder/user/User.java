@@ -60,8 +60,6 @@ public class User {
         this.familyName = familyName;
     }
 
-    // TODO Mas construtores...
-
     public String getNick() {
         return nick;
     }

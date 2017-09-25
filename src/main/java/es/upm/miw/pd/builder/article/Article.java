@@ -28,8 +28,6 @@ public class Article {
         this.phones = phones;
     }
 
-    // TODO Constructores
-
     public long getId() {
         return id;
     }

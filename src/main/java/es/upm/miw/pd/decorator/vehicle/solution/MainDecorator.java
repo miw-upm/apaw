@@ -1,5 +1,7 @@
 package es.upm.miw.pd.decorator.vehicle.solution;
 
+import org.apache.logging.log4j.LogManager;
+
 public final class MainDecorator {
     private MainDecorator() {
     }
@@ -10,8 +12,8 @@ public final class MainDecorator {
         Vehicle d2 = new MP3(d1);
         Vehicle d3 = new EDS(d2);
 
-        System.out.println("Price: " + d3.price());
-        System.out.println("Description: " + d3.description());
+        LogManager.getLogger().info("Price: " + d3.price());
+        LogManager.getLogger().info("Description: " + d3.description());
 
     }
 

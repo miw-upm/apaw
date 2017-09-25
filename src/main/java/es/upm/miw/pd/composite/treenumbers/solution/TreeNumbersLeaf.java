@@ -14,6 +14,7 @@ public class TreeNumbersLeaf extends TreeNumbers {
 
     @Override
     public void remove(TreeNumbers treeNumbers) {
+        //Do nothing because is a leaf
     }
 
     @Override
