@@ -6,8 +6,7 @@ public class Assertion {
         assert x >= 0 : "x debe se >= 0";
     }
 
-    public void defaultIf() {
-        int x = 1;
+    public void defaultIf(int x) {
         if (x == 0) {
             x++;
         } else if (x == 1) {
@@ -16,8 +15,7 @@ public class Assertion {
             assert false : "valor de x inesperado";
     }
 
-    public void checkCode() {
-        int x = 0;
+    public void checkCode(int x) {
         int y = x++ + 2;
         assert y == 2 : "inesperado, y debería ser 2";
     }

@@ -2,11 +2,14 @@ package es.upm.miw.doo.cohesion.lackof;
 
 //No cumple el: Single Responsibility Principle
 public class Mathematics {
-    private int x, y, z;
+    private int x;
+    private int y;
+    private int z;
 
     private double angle;
 
-    private int numerador, denominador;
+    private int numerador;
+    private int denominador;
 
     public Mathematics(int x, int y, int z) {
         this.x = x;
@@ -24,7 +27,7 @@ public class Mathematics {
     }
 
     public double module() {
-        return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+        return Math.sqrt((double)this.x * this.x + this.y * this.y + this.z * this.z);
     }
 
     public void addAngle(int angle) {
