@@ -18,7 +18,7 @@ public class Point {
 
     // error
     public double module(int x, int y) {
-        return Math.sqrt(x * x + y * y);
+        return Math.sqrt((double)x * x + y * y);
     }
 
     // error
@@ -45,7 +45,7 @@ public class Point {
     }
 
     public double module() {
-        return Math.sqrt(this.x * this.x + this.y * this.y);
+        return Math.sqrt((double)this.x * this.x + this.y * this.y);
     }
 
     @Override

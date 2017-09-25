@@ -8,7 +8,7 @@ public class Connection {
     private static final String UNSUPPORTED = "Acción no permitida... ";
 
     public static final int ACK = 0;
-       
+
     private State state;
 
     public Connection() {
@@ -25,6 +25,7 @@ public class Connection {
         } else if (this.state == State.STOPPED) {
             throw new UnsupportedOperationException(UNSUPPORTED);
         } else if (this.state == State.READY) {
+            // Empty on purpose
         } else if (this.state == State.WAITING) {
             throw new UnsupportedOperationException(UNSUPPORTED);
         } else
@@ -33,6 +34,7 @@ public class Connection {
 
     public void close() {
         if (this.state == State.CLOSED) {
+            // Empty on purpose
         } else if (this.state.equals(State.STOPPED)) {
             throw new UnsupportedOperationException(UNSUPPORTED);
         } else if (this.state == State.READY) {
@@ -48,6 +50,7 @@ public class Connection {
         if (this.state.equals(State.CLOSED)) {
             throw new UnsupportedOperationException(UNSUPPORTED);
         } else if (this.state == State.STOPPED) {
+            // Empty on purpose
         } else if (this.state == State.READY) {
             this.state = State.STOPPED;
         } else if (this.state == State.WAITING) {
@@ -63,6 +66,7 @@ public class Connection {
         } else if (this.state == State.STOPPED) {
             this.state = State.READY;
         } else if (this.state == State.READY) {
+            // Empty on purpose
         } else if (this.state == State.WAITING) {
             throw new UnsupportedOperationException(UNSUPPORTED);
         } else {

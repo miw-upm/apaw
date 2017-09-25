@@ -14,19 +14,17 @@ public class RandomReferencesFactory implements ReferencesFactory {
         this.references = new HashMap<>();
         random = new Random();
     }
+    // return references.computeIfAbsent(key, k -> reference++);
 
     @Override
     public int getReference(String key) {
-        Integer result = this.references.get(key);
-        if (result == null) {
+        return references.computeIfAbsent(key, k -> {
             int reference = random.nextInt();
             while (references.containsValue(reference)) {
                 reference++;
             }
-            this.references.put(key, reference);
-            result = reference;
-        }
-        return result;
+            return reference;
+        });
     }
 
     @Override
