@@ -10,9 +10,6 @@ public class Category {
 
     private String volatil;
 
-    public Category() {
-    }
-
     public int getId() {
         return id;
     }

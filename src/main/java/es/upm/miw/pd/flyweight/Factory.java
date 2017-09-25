@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Factory {
-    private final Map<String, FlyweightConcrete> map = new HashMap<String, FlyweightConcrete>();
+    private final Map<String, FlyweightConcrete> map = new HashMap<>();
 
     public FlyweightConcrete get(String key) {
         if (map.containsKey(key)) {

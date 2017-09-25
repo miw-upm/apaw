@@ -8,9 +8,6 @@ public class Phone {
 
     private int number;
 
-    public Phone() {
-    }
-
     public int getId() {
         return id;
     }

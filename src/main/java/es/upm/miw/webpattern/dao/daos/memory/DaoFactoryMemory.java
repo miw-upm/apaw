@@ -16,9 +16,6 @@ public class DaoFactoryMemory extends DaoFactory {
     private VehicleDao vehicleDao;
 
 
-    public DaoFactoryMemory() {
-    }
-
     @Override
     public UserDao getUserDao() {
         if (userDao == null) {

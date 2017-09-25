@@ -1,5 +1,6 @@
 package es.upm.miw.webpattern.dao.daos.memory;
 
+import java.util.Collections;
 import java.util.List;
 
 import es.upm.miw.webpattern.dao.daos.UserDao;
@@ -14,7 +15,7 @@ public class UserDaoMemory extends GenericMemoryDao<User, Integer> implements Us
 
     @Override
     public List<User> findByName(String name) {
-        return null;
+        return Collections.emptyList();  
     }
 
 }

@@ -14,13 +14,7 @@ public class ReferencesFactory {
     }
 
     public int getReference(String key) {
-        Integer result = this.references.get(key);
-        if (result == null) {
-            this.references.put(key, this.reference);
-            result = this.reference;
-            reference++;
-        }
-        return result;
+        return references.computeIfAbsent(key, k -> reference++);
     }
 
     public void removeReference(String key) {

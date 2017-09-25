@@ -16,7 +16,7 @@ public class FilterChain {
 
 	public FilterChain(Target target) {
 		this.target = target;
-		filters = new ArrayList<Filter>();
+		filters = new ArrayList<>();
 		iterator = filters.iterator();
 	}
 

@@ -8,9 +8,6 @@ public class Address {
     
     private String street;
 
-    public Address() {
-    }
-
     public int getId() {
         return id;
     }

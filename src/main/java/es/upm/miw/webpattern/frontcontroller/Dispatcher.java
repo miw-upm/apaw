@@ -7,6 +7,8 @@ import es.upm.miw.webpattern.http.Server;
 
 public class Dispatcher implements Server {
 
+    private static final String PATH_ERROR = "Path Error";
+
     private Resource1 resource1 = new Resource1();
 
     private Resource2 resource2 = new Resource2();
@@ -30,7 +32,7 @@ public class Dispatcher implements Server {
             response.setBody(result);
             break;
         default:
-            responseError(response, "Path Error");
+            responseError(response, PATH_ERROR);
             break;
         }
     }
@@ -49,21 +51,21 @@ public class Dispatcher implements Server {
             response.setBody(result);
             break;
         default:
-            responseError(response, "Path Error");
+            responseError(response, PATH_ERROR);
             break;
         }
     }
 
     public void doPut(HttpRequest request, HttpResponse response) {
-        responseError(response, "Path Error");
+        responseError(response, PATH_ERROR);
     }
 
     public void doPatch(HttpRequest request, HttpResponse response) {
-        responseError(response, "Path Error");
+        responseError(response, PATH_ERROR);
     }
 
     public void doDelete(HttpRequest request, HttpResponse response) {
-        responseError(response, "Path Error");
+        responseError(response, PATH_ERROR);
     }
 
     @Override

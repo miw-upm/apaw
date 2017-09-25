@@ -12,9 +12,6 @@ public class Vehicle {
 
     private List<User> users;
 
-    public Vehicle() {
-    }
-
     public int getId() {
         return id;
     }

@@ -2,9 +2,6 @@ package es.upm.miw.pd.singleton.logger.solution;
 
 public class Clase2 {
 
-    public Clase2() {
-    }
-
     public void method1() {
         // ...
         Logger.getLogger().addLog("Clase2:method1");

@@ -14,14 +14,8 @@ public class SequentialReferencesFactory implements ReferencesFactory {
     }
 
     @Override
-    public int getReference(String key) {
-        Integer result = this.references.get(key);
-        if (result == null) {
-            this.references.put(key, this.reference);
-            result = this.reference;
-            reference++;
-        }
-        return result;
+    public int getReference(String key) {      
+        return references.computeIfAbsent(key, k -> reference++);
     }
 
     @Override

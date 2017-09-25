@@ -27,11 +27,11 @@ public class HttpRequest extends HttpBase {
 
 	public String pathRoot(int level) {
 		String[] paths = path.split("/");
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < level; i++) {
-			result += paths[i];
+			result.append(paths[i]);
 		}
-		return result;
+		return result.toString();
 	}
 
 	public String[] paths() {

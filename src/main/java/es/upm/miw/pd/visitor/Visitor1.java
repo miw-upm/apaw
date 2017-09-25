@@ -1,15 +1,17 @@
 package es.upm.miw.pd.visitor;
 
+import org.apache.logging.log4j.LogManager;
+
 public class Visitor1 extends Visitor {
 
     @Override
     public void visitElementA(ElementA e) {
-        System.out.println("Visitador 1 --> elemento: " + e.getAttributeA());
+        LogManager.getLogger(this.getClass().getName()).info("Visitador 1 --> elemento: " + e.getAttributeA());
     }
 
     @Override
     public void visitElementB(ElementB e) {
-        System.out.println("Visitador 1 --> elemento: " + e.getAttributeB());
+        LogManager.getLogger(this.getClass().getName()).info("Visitador 1 --> elemento: " + e.getAttributeB());
     }
 
 }
