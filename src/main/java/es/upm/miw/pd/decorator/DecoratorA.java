@@ -1,16 +1,13 @@
 package es.upm.miw.pd.decorator;
 
-import org.apache.logging.log4j.LogManager;
-
 public class DecoratorA extends Decorator {
 
-    public DecoratorA(Component c) {
-        super(c);
+    public DecoratorA(Component component) {
+        super(component);
     }
 
     @Override
-    public void view() {
-        LogManager.getLogger(this.getClass().getName()).info(">>> ");
-        this.getC().view();
+    public String view() {
+        return ">>> "+this.getComponent().view();
     }
 }

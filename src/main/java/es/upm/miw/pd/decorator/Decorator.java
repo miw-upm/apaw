@@ -1,13 +1,14 @@
 package es.upm.miw.pd.decorator;
 
 public abstract class Decorator extends Component {
-    private Component c;
 
-    public Decorator(Component c) {
-        this.c = c;
+    private Component component;
+
+    public Decorator(Component component) {
+        this.component = component;
     }
 
-    public Component getC() {
-        return c;
+    public Component getComponent() {
+        return component;
     }
 }
