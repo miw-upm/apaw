@@ -13,12 +13,12 @@ public class Model extends Vehicle {
 
     @Override
     public int price() {
-        return this.price;
+        return price;
     }
 
     @Override
     public String description() {
-        return this.description + ": ";
+        return description + ":";
     }
 
 }

@@ -1,6 +1,7 @@
 package es.upm.miw.pd.decorator.vehicle.solution;
 
 public class GPS extends Extra {
+
     private static final int PRICE = 123;
 
     private static final String DESCRIPTION = "GPS";
