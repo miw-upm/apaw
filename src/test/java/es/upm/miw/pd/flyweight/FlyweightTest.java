@@ -15,13 +15,18 @@ public class FlyweightTest {
     }
 
     @Test
+    public void testGet() {
+        assertEquals("ocho", factory.get("ocho").getIntrinseco());
+    }
+
+    @Test
     public void testSameObject() {
         assertSame(factory.get("ocho"), factory.get("ocho"));
     }
-    
+
     @Test
     public void testOperation() {
         assertEquals("--ocho--", factory.get("ocho").operation("--"));
     }
-    
+
 }
