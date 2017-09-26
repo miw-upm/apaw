@@ -2,28 +2,35 @@ package es.upm.miw.pd.abstractfactory;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import es.upm.miw.pd.abstractfactory.AbstractFactory;
-import es.upm.miw.pd.abstractfactory.ConcreteFactory1;
+import es.upm.miw.pd.abstractfactory.concrete1.Concrete1Factory;
+import es.upm.miw.pd.abstractfactory.concrete2.Concrete2Factory;
 
 public class AbstractFactoryTest {
 
-    private AbstractFactory abstractFactory;
-    
-    @Before
-    public void before() {
-        abstractFactory = new ConcreteFactory1();
+    @Test
+    public void testProductAOfConcrete1Factory() {
+        AbstractFactory.setAbstractFactory(new Concrete1Factory());
+        assertEquals("ProductA1", AbstractFactory.getAbstractFactory().getProductA().view());
+    }
+
+    @Test
+    public void testProductBOfConcrete1Factory() {
+        AbstractFactory.setAbstractFactory(new Concrete1Factory());
+        assertEquals("ProductB1", AbstractFactory.getAbstractFactory().getProductB().view());
     }
     
     @Test
-    public void testProductA() {
-        assertEquals("ProductA1",abstractFactory.createProductA().view());
+    public void testProductAOfConcrete2Factory() {
+        AbstractFactory.setAbstractFactory(new Concrete2Factory());
+        assertEquals("ProductA2", AbstractFactory.getAbstractFactory().getProductA().view());
     }
-    
+
     @Test
-    public void testProductB() {
-        assertEquals("ProductB1",abstractFactory.createProductB().view());
+    public void testProductBOfConcrete2Factory() {
+        AbstractFactory.setAbstractFactory(new Concrete2Factory());
+        assertEquals("ProductB2", AbstractFactory.getAbstractFactory().getProductB().view());
     }
 }
