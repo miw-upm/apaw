@@ -1,7 +1,8 @@
 package es.upm.miw.pd.visitor;
 
-public abstract class Visitor {
-    public abstract void visitElementA(ElementA e);
+public interface Visitor {
 
-    public abstract void visitElementB(ElementB e);
+    void visitElementA(ElementA e);
+
+    void visitElementB(ElementB e);
 }

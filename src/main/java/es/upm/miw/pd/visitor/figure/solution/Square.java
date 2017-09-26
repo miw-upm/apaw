@@ -1,4 +1,4 @@
-package es.upm.miw.pd.visitor.figure;
+package es.upm.miw.pd.visitor.figure.solution;
 
 public class Square extends Figure {
 
@@ -9,14 +9,13 @@ public class Square extends Figure {
         this.side = side;
     }
 
-    @Override
-    public double area() {
-        return side * side;
+    public double getSide() {
+        return side;
     }
 
     @Override
-    public double numberOfSides() {
-        return 4;
+    public void accept(FigureVisitor v) {
+        v.visitSquare(this);
     }
 
 }

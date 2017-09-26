@@ -1,4 +1,4 @@
-package es.upm.miw.pd.visitor.figure;
+package es.upm.miw.pd.visitor.figure.solution;
 
 public abstract class Figure {
 
@@ -12,8 +12,6 @@ public abstract class Figure {
         return name;
     }
 
-    public abstract double area();
-
-    public abstract double numberOfSides();
+    public abstract void accept(FigureVisitor figureVisitor);
 
 }

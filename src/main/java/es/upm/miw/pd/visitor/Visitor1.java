@@ -2,7 +2,7 @@ package es.upm.miw.pd.visitor;
 
 import org.apache.logging.log4j.LogManager;
 
-public class Visitor1 extends Visitor {
+public class Visitor1 implements Visitor {
 
     @Override
     public void visitElementA(ElementA e) {

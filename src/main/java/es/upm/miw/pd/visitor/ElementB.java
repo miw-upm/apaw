@@ -1,23 +1,20 @@
 package es.upm.miw.pd.visitor;
 
 public class ElementB implements Element {
+
     private String attributeB;
 
     public ElementB() {
-        this.setAttributeB("B");
+        attributeB = "B";
     }
 
     public String getAttributeB() {
-        return this.attributeB;
-    }
-
-    public void setAttributeB(String attributeB) {
-        this.attributeB = attributeB;
+        return attributeB;
     }
 
     @Override
-    public void accept(Visitor v) {
-        v.visitElementB(this);
+    public void accept(Visitor visitor) {
+        visitor.visitElementB(this);
     }
 
 }
