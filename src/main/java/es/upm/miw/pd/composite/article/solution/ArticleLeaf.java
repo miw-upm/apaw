@@ -16,10 +16,12 @@ public class ArticleLeaf extends ArticleComponent {
 
     @Override
     public void add(ArticleComponent articleComponent) {
+     // Do nothing because is leaf
     }
 
     @Override
     public void remove(ArticleComponent articleComponent) {
+        // Do nothing because is leaf
     }
 
     public Article getArticle() {

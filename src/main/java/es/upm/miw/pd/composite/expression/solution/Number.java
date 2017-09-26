@@ -15,7 +15,7 @@ public class Number extends Expression {
 
     @Override
     public String toString() {
-        return "" + this.value;
+        return String.valueOf(this.value);
     }
 
 }

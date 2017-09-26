@@ -14,7 +14,6 @@ public class RandomReferencesFactory implements ReferencesFactory {
         this.references = new HashMap<>();
         random = new Random();
     }
-    // return references.computeIfAbsent(key, k -> reference++);
 
     @Override
     public int getReference(String key) {
