@@ -6,6 +6,6 @@ import es.upm.miw.webpattern.dao.entities.User;
 
 public interface UserDao extends GenericDao<User, Integer> {
     
-    public List<User> findByName(String name);
+    List<User> findByName(String name);
 
 }

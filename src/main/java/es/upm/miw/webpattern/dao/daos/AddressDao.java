@@ -6,5 +6,5 @@ import es.upm.miw.webpattern.dao.entities.Address;
 
 public interface AddressDao extends GenericDao<Address, Integer>{
 
-    public List<Address> findByCityAndStreet(String city, String street);
+   List<Address> findByCityAndStreet(String city, String street);
 }
