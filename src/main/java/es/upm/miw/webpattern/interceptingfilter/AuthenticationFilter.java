@@ -12,7 +12,7 @@ public class AuthenticationFilter extends Filter {
 	public void doFilter(HttpRequest request, HttpResponse response, FilterChain filterChain) {
 		// PRE-PROCESS
 	    LogManager.getLogger(this.getClass().getName()).info("Authenticating pre-process...");
-		if ("public".equals(request.pathRoot(1))) {
+		if ("public".equals(request.paths()[0])) {
 			// si esta autorizado se continua con la cadena de filtros
 			filterChain.doFilter(request, response);
 		} else {

@@ -25,15 +25,6 @@ public class HttpRequest extends HttpBase {
 		return path;
 	}
 
-	public String pathRoot(int level) {
-		String[] paths = path.split("/");
-		StringBuilder result = new StringBuilder();
-		for (int i = 0; i < level; i++) {
-			result.append(paths[i]);
-		}
-		return result.toString();
-	}
-
 	public String[] paths() {
 		return path.split("/");
 	}

@@ -32,14 +32,12 @@ public class FrontControllerApiFunctionalTesting {
     @Test
     public void Resource1Method2Test() {
         HttpRequest request = new HttpRequest("path1", HttpMethod.POST);
-        request.addQueryParam("param", "value");
         httpClientService.submit(request);
     }
     
     @Test
     public void Resource1Method3Test() {
         HttpRequest request = new HttpRequest("path1/sub", HttpMethod.POST);
-        request.addQueryParam("param", "value");
         httpClientService.submit(request);
     }
 

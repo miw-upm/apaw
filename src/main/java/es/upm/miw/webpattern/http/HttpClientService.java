@@ -16,10 +16,11 @@ public class HttpClientService {
         logger.info(request.toString());
         HttpResponse response = server.submit(request);
         logger.info(response);
-        logger.info("---------------------------------------ooo----------------------------------------");
+        logger.info("--------------------ooo------------------------");
         if (response.getStatus().isError()) {
             throw new HttpException(response.getStatus().toString());
+        } else {
+            return response;
         }
-        return response;
     }
 }

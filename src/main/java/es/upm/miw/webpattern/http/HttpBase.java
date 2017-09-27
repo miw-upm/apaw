@@ -42,7 +42,17 @@ public class HttpBase {
 
     @Override
     public String toString() {
-        return "   headerParams=" + headerParams + ", cookies=" + cookies + ", body=" + body;
+        StringBuilder stringBuilder = new StringBuilder();
+        if (!headerParams.isEmpty()) {
+            stringBuilder.append("  headerParams=" + headerParams);
+        }
+        if (!cookies.isEmpty()) {
+            stringBuilder.append(", cookies=" + cookies);
+        }
+        if (body != null) {
+            stringBuilder.append(", body=" + body);
+        }
+        return stringBuilder.toString();
     }
 
 }
