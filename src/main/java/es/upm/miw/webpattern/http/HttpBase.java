@@ -20,7 +20,7 @@ public class HttpBase {
         return cookies;
     }
 
-    public void addCookies(String key, String value) {
+    public void addCookie(String key, String value) {
         cookies.put(key, value);
     }
 
