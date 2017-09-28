@@ -20,21 +20,32 @@ public class FrontControllerApiFunctionalTesting {
 
     @Before
     public void before() {
-        httpClientService= new HttpClientService(new Dispatcher());
+        httpClientService = new HttpClientService(new Dispatcher());
     }
+
     @Test
     public void Resource1Method1Test() {
         HttpRequest request = new HttpRequest("path1", HttpMethod.GET);
         request.addQueryParam("param", "value");
+        request.addQueryParam("param2", "2");
         httpClientService.submit(request);
     }
     
+    @Test
+    public void Resource1Method1HttpExceptionTest() {
+        exception.expect(HttpException.class);
+        HttpRequest request = new HttpRequest("path1", HttpMethod.GET);
+        request.addQueryParam("param", "value");
+        request.addQueryParam("param2", "noInteger");
+        httpClientService.submit(request);
+    }
+
     @Test
     public void Resource1Method2Test() {
         HttpRequest request = new HttpRequest("path1", HttpMethod.POST);
         httpClientService.submit(request);
     }
-    
+
     @Test
     public void Resource1Method3Test() {
         HttpRequest request = new HttpRequest("path1/sub", HttpMethod.POST);
@@ -47,8 +58,7 @@ public class FrontControllerApiFunctionalTesting {
         request.addQueryParam("param", "value");
         httpClientService.submit(request);
     }
-    
-    
+
     @Test
     public void notResourceHttpExceptionTest() {
         exception.expect(HttpException.class);
@@ -56,5 +66,5 @@ public class FrontControllerApiFunctionalTesting {
         request.addQueryParam("param", "value");
         httpClientService.submit(request);
     }
-   
+
 }

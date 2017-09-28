@@ -9,6 +9,8 @@ public class Dispatcher implements Server {
 
     private static final String PATH_ERROR = "Path Error";
 
+    private static final String INTEGER_ERROR = "Integer Error";
+
     private Resource1 resource1 = new Resource1();
 
     private Resource2 resource2 = new Resource2();
@@ -23,8 +25,13 @@ public class Dispatcher implements Server {
         switch (request.getPath()) {
         case "path1":
             // ConInjectar parámetros...
-            result = resource1.method1(request.getParams().get("param"));
-            response.setBody(result);
+            try {
+                int param2 = Integer.parseInt(request.getParams().get("param2"));
+                result = resource1.method1(request.getParams().get("param"), param2);
+                response.setBody(result);
+            } catch (Exception e) {
+                responseError(response, INTEGER_ERROR);
+            }
             break;
         case "path2":
             // Injectar parámetros...
