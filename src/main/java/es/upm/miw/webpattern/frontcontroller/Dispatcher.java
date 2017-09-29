@@ -24,7 +24,7 @@ public class Dispatcher implements Server {
         String result;
         switch (request.getPath()) {
         case "path1":
-            // ConInjectar parámetros...
+            // Injectar parámetros...
             try {
                 int param2 = Integer.parseInt(request.getParams().get("param2"));
                 result = resource1.method1(request.getParams().get("param"), param2);
