@@ -1,17 +1,17 @@
 package es.upm.miw.pd.ioc.singleton;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class ClazzTest {
+class ClazzTest {
 
-    @Before
-    public void before() {
+    @BeforeEach
+    void before() {
         ReferencesFactory.setReferencesFactory(new RandomReferencesFactory());
     }
 
     @Test
-    public void testMethod() {
+    void testMethod() {
         Clazz clazz = new Clazz();
         clazz.method("10");
         clazz.method("11");

@@ -1,30 +1,26 @@
 package es.upm.miw.webpattern.frontcontroller;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import es.upm.miw.webpattern.frontcontroller.Dispatcher;
 import es.upm.miw.webpattern.http.HttpClientService;
 import es.upm.miw.webpattern.http.HttpException;
 import es.upm.miw.webpattern.http.HttpMethod;
 import es.upm.miw.webpattern.http.HttpRequest;
 
-public class FrontControllerApiFunctionalTesting {
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+class FrontControllerApiFunctionalTesting {
 
     private HttpClientService httpClientService;
 
-    @Rule
-    public ExpectedException exception = ExpectedException.none();
-
-    @Before
-    public void before() {
+    @BeforeEach
+    void before() {
         httpClientService = new HttpClientService(new Dispatcher());
     }
 
     @Test
-    public void Resource1Method1Test() {
+    void Resource1Method1Test() {
         HttpRequest request = new HttpRequest("path1", HttpMethod.GET);
         request.addQueryParam("param", "value");
         request.addQueryParam("param2", "2");
@@ -32,39 +28,37 @@ public class FrontControllerApiFunctionalTesting {
     }
     
     @Test
-    public void Resource1Method1HttpExceptionTest() {
-        exception.expect(HttpException.class);
+    void Resource1Method1HttpExceptionTest() {
         HttpRequest request = new HttpRequest("path1", HttpMethod.GET);
         request.addQueryParam("param", "value");
         request.addQueryParam("param2", "noInteger");
-        httpClientService.submit(request);
+        assertThrows(HttpException.class, () -> httpClientService.submit(request));
     }
 
     @Test
-    public void Resource1Method2Test() {
+    void Resource1Method2Test() {
         HttpRequest request = new HttpRequest("path1", HttpMethod.POST);
         httpClientService.submit(request);
     }
 
     @Test
-    public void Resource1Method3Test() {
+    void Resource1Method3Test() {
         HttpRequest request = new HttpRequest("path1/sub", HttpMethod.POST);
         httpClientService.submit(request);
     }
 
     @Test
-    public void Resource2Method1Test() {
+    void Resource2Method1Test() {
         HttpRequest request = new HttpRequest("path2", HttpMethod.GET);
         request.addQueryParam("param", "value");
         httpClientService.submit(request);
     }
 
     @Test
-    public void notResourceHttpExceptionTest() {
-        exception.expect(HttpException.class);
+    void notResourceHttpExceptionTest() {
         HttpRequest request = new HttpRequest("no", HttpMethod.GET);
         request.addQueryParam("param", "value");
-        httpClientService.submit(request);
+        assertThrows(HttpException.class, () -> httpClientService.submit(request));
     }
 
 }

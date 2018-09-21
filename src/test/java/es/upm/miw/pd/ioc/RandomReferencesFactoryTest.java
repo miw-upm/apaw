@@ -1,28 +1,29 @@
 package es.upm.miw.pd.ioc;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class RandomReferencesFactoryTest {
+class RandomReferencesFactoryTest {
 
-    RandomReferencesFactory randomReferencesFactory;
+    private RandomReferencesFactory randomReferencesFactory;
 
-    @Before
-    public void before() {
+    @BeforeEach
+    void before() {
         randomReferencesFactory = new RandomReferencesFactory();
     }
 
     @Test
-    public void testGetReference() {
+    void testGetReference() {
         int key = randomReferencesFactory.getReference("0");
         assertFalse(0 == key);
         assertEquals(key, randomReferencesFactory.getReference("0"));
     }
 
     @Test
-    public void testRemoveReference() {
+    void testRemoveReference() {
         int key = randomReferencesFactory.getReference("0");
         randomReferencesFactory.removeReference("0");
         assertFalse(key == randomReferencesFactory.getReference("0"));

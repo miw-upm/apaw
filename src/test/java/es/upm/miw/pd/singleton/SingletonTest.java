@@ -1,18 +1,19 @@
 package es.upm.miw.pd.singleton;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
-public class SingletonTest {
+
+ class SingletonTest {
     @Test
-    public void testIsSingleton() {
+    void testIsSingleton() {
         assertSame(Singleton.getSingleton(), Singleton.getSingleton());
     }
     
     @Test
-    public void testSingletonNotNull() {
+    void testSingletonNotNull() {
         assertNotNull(Singleton.getSingleton());
     }
 

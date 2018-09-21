@@ -1,18 +1,18 @@
 package es.upm.miw.pd.builder.user;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class UserTest {
+class UserTest {
 
     @Test
-    public void testUserIntStringStringStringIntIntStringListOfString(){
+     void testUserIntStringStringStringIntIntStringListOfString(){
         List<String> tags = new ArrayList<>();
         tags.add("Director");
         tags.add("Socio");
@@ -29,14 +29,13 @@ public class UserTest {
     }
 
     @Test
-    public void testTagContainsFalseNullTags(){
-        List<String> tags = null;
-        User user = new User(1, "Paco", null, null, -1, -1, null, tags);
+    void testTagContainsFalseNullTags(){
+        User user = new User(1, "Paco", null, null, -1, -1, null, null);
         assertFalse(user.tagContains("Not"));
     }
     
     @Test
-    public void testTagContainsFalse(){
+    void testTagContainsFalse(){
         List<String> tags = new ArrayList<>();
         tags.add("Director");
         tags.add("Socio");
@@ -47,7 +46,7 @@ public class UserTest {
     }
     
     @Test
-    public void testTagContainsTrue(){
+    void testTagContainsTrue(){
         List<String> tags = new ArrayList<>();
         tags.add("Director");
         tags.add("Socio");

@@ -1,17 +1,15 @@
 package es.upm.miw.pd.composite.expression.solution;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import es.upm.miw.pd.composite.expression.solution.Division;
-
-public class ExpressionTest {
+class ExpressionTest {
     private Expression exp1, exp2, exp3, exp4, exp5, exp6;
 
-    @Before
-    public void before() {
+    @BeforeEach
+    void before() {
         this.exp1 = new Number(4);
         this.exp2 = new Summation(this.exp1, new Number(2));
         this.exp3 = new Subtraction(this.exp1, new Number(3));
@@ -23,37 +21,37 @@ public class ExpressionTest {
     }
 
     @Test
-    public void testNumber() {
+    void testNumber() {
         assertEquals(4, this.exp1.operate());
     }
 
     @Test
-    public void TestSummation() {
+    void TestSummation() {
         assertEquals(6, this.exp2.operate());
     }
 
     @Test
-    public void testSubtraction() {
+    void testSubtraction() {
         assertEquals(1, this.exp3.operate());
     }
 
     @Test
-    public void testMultiplication() {
+    void testMultiplication() {
         assertEquals(8, this.exp4.operate());
     }
 
     @Test
-    public void testDivision() {
+    void testDivision() {
         assertEquals(1, this.exp5.operate());
     }
 
     @Test
-    public void testExpressionComposite() {
+    void testExpressionComposite() {
         assertEquals(1, this.exp6.operate());
     }
 
     @Test
-    public void testToString() {
+    void testToString() {
         assertEquals("((3-((4/2)*3))+4)", this.exp6.toString());
     }
 }

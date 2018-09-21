@@ -1,20 +1,20 @@
 package es.upm.miw.pd.singleton.logger;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import es.upm.miw.pd.singleton.logger.solution.Logger;
 
-public class LoggerTest {
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+
+class LoggerTest {
     @Test
-    public void testIsSingleton() {
+    void testIsSingleton() {
         assertSame(Logger.getLogger(), Logger.getLogger());
     }
 
     @Test
-    public void testSingletonNotNull() {
+    void testSingletonNotNull() {
         assertNotNull(Logger.getLogger());
     }
     

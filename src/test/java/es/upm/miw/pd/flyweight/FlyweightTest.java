@@ -1,31 +1,32 @@
 package es.upm.miw.pd.flyweight;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
-public class FlyweightTest {
-    Factory factory;
+class FlyweightTest {
 
-    @Before
-    public void before() {
+    private Factory factory;
+
+    @BeforeEach
+    void before() {
         factory = new Factory();
     }
 
     @Test
-    public void testGet() {
+    void testGet() {
         assertEquals("ocho", factory.get("ocho").getIntrinseco());
     }
 
     @Test
-    public void testSameObject() {
+    void testSameObject() {
         assertSame(factory.get("ocho"), factory.get("ocho"));
     }
 
     @Test
-    public void testOperation() {
+    void testOperation() {
         assertEquals("--ocho--", factory.get("ocho").operation("--"));
     }
 

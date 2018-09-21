@@ -1,20 +1,20 @@
 package es.upm.miw.pd.ioc;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class ClazzIoCTest {
+class ClazzIoCTest {
 
-    ClazzIoC clazzIoC;
+    private ClazzIoC clazzIoC;
 
-    @Before
-    public void before() {
+    @BeforeEach
+    void before() {
         clazzIoC = new ClazzIoC();
         clazzIoC.setReferencesFactory(new RandomReferencesFactory());
     }
 
     @Test
-    public void testMethod() {
+    void testMethod() {
         clazzIoC.method("10");
         clazzIoC.method("11");
     }
