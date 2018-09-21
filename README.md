@@ -7,17 +7,21 @@
 
 [![Build Status](https://travis-ci.org/miw-upm/APAW-pd.svg?branch=develop)](https://travis-ci.org/miw-upm/APAW-pd)
 
-[![Quality Gate](https://sonarcloud.io/api/badges/gate?key=es.upm.miw:APAW-pd)](https://sonarcloud.io/dashboard/index/es.upm.miw:APAW-pd)
+![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3AAPAW-pd&metric=alert_status)
 
 ### Tecnologías necesarias
 * Java
 * Maven
-* Eclipse
 * GitHub
 * Travis-ci
 * Sonarcloud
 
-### Importar el proyecto mediante Eclipse
-1. Clonar mediante Eclipse este repositorio en la máquina local: https://youtu.be/rQNixJQQ25g
-1. Importar el repositorio clonado: https://youtu.be/yYvD8ZJtWwI
-1. Crear en Eclipse las ramas locales asociadas a las remotas
+### Clonar en repositorio en tu equipo mediante consola:
+1. Situarse en una carpeta raíz donde se encuentran los proyectos, mediante la consola: **>cd %ruta-de-la-carpeta%**
+1. Clonar el repositorio, se visualizará el contenido de la rama por defecto: **>git clone https://github.com/miw-upm/APAW-pd**
+
+### Importar el proyecto mediante IntelliJ IDEA
+1. **Import Project**, y seleccionar la carpeta del proyecto
+1. marcar **Create Project from external model**, elegir **Maven**
+1. **Next** … **Finish**
+

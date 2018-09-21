@@ -21,72 +21,14 @@
 		<!-- Maven -->
 		<maven.compiler.version>3.5</maven.compiler.version>
 		<!-- Maven. Test de Integración -->
-		<maven.failsafe.version>2.19.1</maven.failsafe.version>
+		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+		<maven-failsafe-plugin.version>2.21.0</maven-failsafe-plugin.version>
 		<!-- Pruebas -->
-		<junit.version>4.11</junit.version>
+		<junit.jupiter.version>5.2.0</junit.jupiter.version>
+		<junit.platform.version>1.2.0</junit.platform.version>
 		<!-- Logs -->
-		<log4j.version>2.3</log4j.version>
+		<log4j.version>2.11.0</log4j.version>
 	</properties>
-
-	<profiles>
-		<!-- Maven will apply this by default as we set in $HOME/.m2/settings.xml -->
-		<!-- Default: -Denvironment.type=develop -->
-		<profile>
-			<id>develop</id>
-			<activation>
-				<property>
-					<name>environment.type</name>
-					<value>develop</value>
-				</property>
-			</activation>
-			<properties>
-				<logs.level.root>debug</logs.level.root>
-				<integration.test.skip>false</integration.test.skip>
-			</properties>
-		</profile>
-		<!-- mvn install -Denvironment.type=preproduction -->
-		<profile>
-			<id>preproduction</id>
-			<activation>
-				<property>
-					<name>environment.type</name>
-					<value>preproduction</value>
-				</property>
-			</activation>
-			<properties>
-				<logs.level.root>info</logs.level.root>
-				<integration.test.skip>true</integration.test.skip>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>${maven.failsafe.version}</version>
-						<configuration>
-							<includes>
-								<include>**/*FunctionalTesting</include>
-							</includes>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<!-- mvn install -Denvironment.type=production -->
-		<profile>
-			<id>production</id>
-			<activation>
-				<property>
-					<name>environment.type</name>
-					<value>production</value>
-				</property>
-			</activation>
-			<properties>
-				<logs.level.root>error</logs.level.root>
-				<integration.test.skip>false</integration.test.skip>
-			</properties>
-		</profile>
-	</profiles>
 
 	<dependencies>
 		<!-- Logs -->
@@ -107,18 +49,13 @@
 		</dependency>
 		<!-- Test -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -131,31 +68,33 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.junit.platform</groupId>
+						<artifactId>junit-platform-surefire-provider</artifactId>
+						<version>${junit.platform.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>${maven.failsafe.version}</version>
-				<configuration>
-					<includes>
-						<include>**/*IT.java</include>
-					</includes>
-				</configuration>
+				<version>${maven-failsafe-plugin.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.junit.platform</groupId>
+						<artifactId>junit-platform-surefire-provider</artifactId>
+						<version>${junit.platform.version}</version>
+					</dependency>
+				</dependencies>
 				<executions>
 					<execution>
-						<id>integration-test</id>
 						<goals>
 							<goal>integration-test</goal>
-						</goals>
-						<configuration>
-							<skip>false</skip>
-						</configuration>
-					</execution>
-					<execution>
-						<id>verify</id>
-						<goals>
 							<goal>verify</goal>
 						</goals>
-						<configuration>
-							<skip>false</skip>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
