@@ -9,7 +9,7 @@ public class TreeNumbersLeaf extends TreeNumbers {
 
     @Override
     public void add(TreeNumbers treeNumbers) {
-        throw new UnsupportedOperationException("Operación no soportada");
+        throw new UnsupportedOperationException("Unsupported operation in leaf");
     }
 
     @Override
@@ -28,13 +28,13 @@ public class TreeNumbersLeaf extends TreeNumbers {
     }
 
     @Override
-    public int numberOfTreeNumbers() {
+    public int number() {
         return 1;
     }
-    
+
     @Override
     public String toString() {
-        return "Hoja[" + valor + "]";
+        return "Leaf[" + valor + "]";
     }
 
 }

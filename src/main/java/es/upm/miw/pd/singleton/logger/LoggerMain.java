@@ -4,6 +4,10 @@ import org.apache.logging.log4j.LogManager;
 
 public class LoggerMain {
 
+    public static void main(String[] args) {
+        new LoggerMain().run();
+    }
+
     public void run() {
         Logger logger = new Logger();
         new Clazz1().method1(logger);
@@ -11,10 +15,6 @@ public class LoggerMain {
         c2.method1();
         c2.method2();
         LogManager.getLogger(this.getClass().getName()).info(logger.getLogs());
-    }
-
-    public static void main(String[] args) {
-        new LoggerMain().run();
     }
 
 }

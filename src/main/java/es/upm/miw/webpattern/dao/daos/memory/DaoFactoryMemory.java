@@ -1,14 +1,9 @@
 package es.upm.miw.webpattern.dao.daos.memory;
 
-import es.upm.miw.webpattern.dao.daos.AddressDao;
-import es.upm.miw.webpattern.dao.daos.CategoryDao;
-import es.upm.miw.webpattern.dao.daos.DaoFactory;
-import es.upm.miw.webpattern.dao.daos.PhoneDao;
-import es.upm.miw.webpattern.dao.daos.UserDao;
-import es.upm.miw.webpattern.dao.daos.VehicleDao;
+import es.upm.miw.webpattern.dao.daos.*;
 
 public class DaoFactoryMemory extends DaoFactory {
-    
+
     private AddressDao addressDao;
     private CategoryDao categoryDao;
     private PhoneDao phoneDao;
@@ -46,7 +41,7 @@ public class DaoFactoryMemory extends DaoFactory {
             phoneDao = new PhoneDaoMemory();
         }
         return phoneDao;
-   }
+    }
 
     @Override
     public VehicleDao getVehicleDao() {

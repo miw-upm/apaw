@@ -3,12 +3,9 @@ package es.upm.miw.pd.state.connection;
 import org.apache.logging.log4j.LogManager;
 
 public class Connection {
-    private static final String IMPOSSIBLE = "estado imposible";
-
-    private static final String UNSUPPORTED = "Acción no permitida... ";
-
     public static final int ACK = 0;
-
+    private static final String IMPOSSIBLE = "estado imposible";
+    private static final String UNSUPPORTED = "Acción no permitida... ";
     private State state;
 
     public Connection() {

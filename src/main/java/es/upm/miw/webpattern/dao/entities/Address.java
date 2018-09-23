@@ -3,9 +3,9 @@ package es.upm.miw.webpattern.dao.entities;
 public class Address {
 
     private int id;
-    
+
     private String city;
-    
+
     private String street;
 
     public int getId() {
@@ -31,5 +31,5 @@ public class Address {
     public void setStreet(String street) {
         this.street = street;
     }
-    
+
 }

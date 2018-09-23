@@ -23,43 +23,43 @@ public class Dispatcher implements Server {
     public void doGet(HttpRequest request, HttpResponse response) {
         String result;
         switch (request.getPath()) {
-        case "path1":
-            // Injectar parámetros...
-            try {
-                int param2 = Integer.parseInt(request.getParams().get("param2"));
-                result = resource1.method1(request.getParams().get("param"), param2);
+            case "path1":
+                // Injectar parámetros...
+                try {
+                    int param2 = Integer.parseInt(request.getParams().get("param2"));
+                    result = resource1.method1(request.getParams().get("param"), param2);
+                    response.setBody(result);
+                } catch (Exception e) {
+                    responseError(response, INTEGER_ERROR);
+                }
+                break;
+            case "path2":
+                // Injectar parámetros...
+                result = resource2.method1();
                 response.setBody(result);
-            } catch (Exception e) {
-                responseError(response, INTEGER_ERROR);
-            }
-            break;
-        case "path2":
-            // Injectar parámetros...
-            result = resource2.method1();
-            response.setBody(result);
-            break;
-        default:
-            responseError(response, PATH_ERROR);
-            break;
+                break;
+            default:
+                responseError(response, PATH_ERROR);
+                break;
         }
     }
 
     public void doPost(HttpRequest request, HttpResponse response) {
         String result;
         switch (request.getPath()) {
-        case "path1":
-            // Injectar parámetros...
-            result = resource1.method2();
-            response.setBody(result);
-            break;
-        case "path1/sub":
-            // Injectar parámetros...
-            result = resource1.method3();
-            response.setBody(result);
-            break;
-        default:
-            responseError(response, PATH_ERROR);
-            break;
+            case "path1":
+                // Injectar parámetros...
+                result = resource1.method2();
+                response.setBody(result);
+                break;
+            case "path1/sub":
+                // Injectar parámetros...
+                result = resource1.method3();
+                response.setBody(result);
+                break;
+            default:
+                responseError(response, PATH_ERROR);
+                break;
         }
     }
 
@@ -79,19 +79,19 @@ public class Dispatcher implements Server {
     public HttpResponse submit(HttpRequest request) {
         HttpResponse response = new HttpResponse();
         switch (request.getMethod()) {
-        case POST:
-            doPost(request, response);
-            break;
-        case GET:
-            doGet(request, response);
-            break;
-        case PUT:
-            doPut(request, response);
-            break;
-        case DELETE:
-            doDelete(request, response);
-            break;
-        default:
+            case POST:
+                doPost(request, response);
+                break;
+            case GET:
+                doGet(request, response);
+                break;
+            case PUT:
+                doPut(request, response);
+                break;
+            case DELETE:
+                doDelete(request, response);
+                break;
+            default:
         }
         return response;
     }

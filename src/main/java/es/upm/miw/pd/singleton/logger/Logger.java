@@ -2,7 +2,7 @@ package es.upm.miw.pd.singleton.logger;
 
 import java.util.Date;
 
-public final class Logger{
+public final class Logger {
     private String logs;
 
     public Logger() {

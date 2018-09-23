@@ -2,47 +2,47 @@ package es.upm.miw.pd.composite.treenumbers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class TreeNumbers {
+
     private Integer number;
 
     private String name;
 
-    private List<TreeNumbers> tree;
+    private List<TreeNumbers> treeNumbersList;
 
     public TreeNumbers(String name) {
         this.name = name;
-        this.tree = new ArrayList<>();
+        this.treeNumbersList = new ArrayList<>();
     }
 
     public TreeNumbers(Integer number) {
         this.number = number;
-        this.tree = null;
+        this.treeNumbersList = null;
     }
 
     public boolean isComposite() {
-        return tree != null;
+        return treeNumbersList != null;
     }
 
     public void add(TreeNumbers treeNumbers) {
-        assert treeNumbers != null;
         if (!this.isComposite()) {
-            throw new UnsupportedOperationException("Operación no soportada");
+            throw new UnsupportedOperationException("Unsupported operation in leaf");
         } else {
-            this.tree.add(treeNumbers);
+            this.treeNumbersList.add(treeNumbers);
         }
     }
 
     public void remove(TreeNumbers treeNumbers) {
-        assert treeNumbers != null;
         if (this.isComposite()) {
-            this.tree.remove(treeNumbers);
+            this.treeNumbersList.remove(treeNumbers);
         }
     }
 
-    public int numberOfTreeNumbers() {
+    public int number() {
         if (this.isComposite()) {
-            return this.tree.size();
+            return this.treeNumbersList.size();
         } else {
             return 1;
         }
@@ -50,11 +50,7 @@ public class TreeNumbers {
 
     public int sum() {
         if (this.isComposite()) {
-            int result = 0;
-            for (TreeNumbers node : this.tree) {
-                result += node.sum();
-            }
-            return result;
+            return this.treeNumbersList.stream().mapToInt(TreeNumbers::sum).sum();
         } else {
             return this.number;
         }
@@ -62,14 +58,7 @@ public class TreeNumbers {
 
     public int higher() {
         if (this.isComposite()) {
-            int result = Integer.MIN_VALUE;
-            for (TreeNumbers treeNumbers : this.tree) {
-                int higher = treeNumbers.higher();
-                if (higher > result) {
-                    result = higher;
-                }
-            }
-            return result;
+            return this.treeNumbersList.stream().mapToInt(TreeNumbers::higher).max().orElseThrow(NoSuchElementException::new);
         } else {
             return this.number;
         }

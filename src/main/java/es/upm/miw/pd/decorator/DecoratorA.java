@@ -8,6 +8,6 @@ public class DecoratorA extends Decorator {
 
     @Override
     public String view() {
-        return ">>> "+this.getComponent().view();
+        return ">>> " + this.getComponent().view();
     }
 }

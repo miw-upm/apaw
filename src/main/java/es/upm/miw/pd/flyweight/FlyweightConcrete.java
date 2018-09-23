@@ -12,6 +12,6 @@ public class FlyweightConcrete {
     }
 
     public String operation(String extrinsic) {
-       return extrinsic + this.intrinsic + extrinsic;
+        return extrinsic + this.intrinsic + extrinsic;
     }
 }

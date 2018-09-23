@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Invoker {
-    
+
     private Map<String, Order> orders;
 
     public Invoker() {

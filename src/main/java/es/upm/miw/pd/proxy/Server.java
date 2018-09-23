@@ -2,7 +2,7 @@ package es.upm.miw.pd.proxy;
 
 import java.util.Random;
 
-public class Server implements Service{
+public class Server implements Service {
     private Random random;
 
     public Server() {

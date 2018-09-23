@@ -1,7 +1,7 @@
 package es.upm.miw.pd.visitor.figure;
 
 public class Triangle extends Figure {
-    
+
     private double base;
 
     private double height;

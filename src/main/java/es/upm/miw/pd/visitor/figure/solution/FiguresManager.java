@@ -22,7 +22,7 @@ public class FiguresManager {
     }
 
     public double totalNumberOfSides() {
-        NumberOfSidesVisitor numberOfSidesVisitor= new NumberOfSidesVisitor();
+        NumberOfSidesVisitor numberOfSidesVisitor = new NumberOfSidesVisitor();
         numberOfSidesVisitor.process(figures);
         return numberOfSidesVisitor.getTotalNumberOfSides();
     }

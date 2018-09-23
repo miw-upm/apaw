@@ -6,7 +6,7 @@ public class ProductA1 implements ProductA {
 
     @Override
     public String view() {
-       return "ProductA1";
+        return "ProductA1";
     }
 
 }

@@ -1,7 +1,7 @@
 package es.upm.miw.pd.command;
 
 public class Order1 implements Order {
-    
+
     private Receptor receptor;
 
     public Order1(Receptor receptor) {

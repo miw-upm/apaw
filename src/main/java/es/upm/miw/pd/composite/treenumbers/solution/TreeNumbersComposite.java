@@ -2,58 +2,47 @@ package es.upm.miw.pd.composite.treenumbers.solution;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class TreeNumbersComposite extends TreeNumbers {
-    private String nombre;
 
-    private List<TreeNumbers> lista;
+    private String name;
 
-    public TreeNumbersComposite(String nombre) {
-        this.nombre = nombre;
-        this.lista = new ArrayList<>();
+    private List<TreeNumbers> treeNumbersList;
+
+    public TreeNumbersComposite(String name) {
+        this.name = name;
+        this.treeNumbersList = new ArrayList<>();
     }
 
     @Override
     public void add(TreeNumbers treeNumbers) {
-        assert treeNumbers != null;
-        this.lista.add(treeNumbers);
+        this.treeNumbersList.add(treeNumbers);
     }
 
     @Override
     public void remove(TreeNumbers treeNumbers) {
-        assert treeNumbers != null;
-        this.lista.remove(treeNumbers);
+        this.treeNumbersList.remove(treeNumbers);
     }
 
     @Override
     public int sum() {
-        int result = 0;
-        for (TreeNumbers treeNumbers : this.lista) {
-            result += treeNumbers.sum();
-        }
-        return result;
+        return this.treeNumbersList.stream().mapToInt(TreeNumbers::sum).sum();
     }
 
     @Override
     public int higher() {
-        int result = Integer.MIN_VALUE;
-        for (TreeNumbers treeNumbers : this.lista) {
-            int higher = treeNumbers.higher();
-            if (higher > result) {
-                result = higher;
-            }
-        }
-        return result;
+        return this.treeNumbersList.stream().mapToInt(TreeNumbers::higher).max().orElseThrow(NoSuchElementException::new);
     }
 
     @Override
-    public int numberOfTreeNumbers() {
-        return this.lista.size();
+    public int number() {
+        return this.treeNumbersList.size();
     }
 
     @Override
     public String toString() {
-        return "[" + this.nombre + "]";
+        return "[" + this.name + "]";
     }
 
 }

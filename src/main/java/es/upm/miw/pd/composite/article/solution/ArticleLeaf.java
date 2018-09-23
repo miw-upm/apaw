@@ -4,8 +4,8 @@ public class ArticleLeaf extends ArticleComponent {
 
     private Article article;
 
-    public ArticleLeaf(String icon, Article article) {
-        super(icon);
+    public ArticleLeaf(Article article) {
+        super(article.getReference());
         this.article = article;
     }
 
@@ -16,7 +16,7 @@ public class ArticleLeaf extends ArticleComponent {
 
     @Override
     public void add(ArticleComponent articleComponent) {
-     // Do nothing because is leaf
+        // Do nothing because is leaf
     }
 
     @Override

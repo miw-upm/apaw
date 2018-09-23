@@ -10,6 +10,6 @@ public class ObserverB implements Observer {
 
     @Override
     public void update() {
-       System.out.println("Observer B: sujeto a cambiado: " + this.subject.getState());
+        System.out.println("Observer B: sujeto a cambiado: " + this.subject.getState());
     }
 }

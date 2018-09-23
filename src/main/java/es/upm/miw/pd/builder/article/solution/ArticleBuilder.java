@@ -1,10 +1,10 @@
 package es.upm.miw.pd.builder.article.solution;
 
+import es.upm.miw.pd.builder.article.Article;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
-import es.upm.miw.pd.builder.article.Article;
 
 public class ArticleBuilder {
 

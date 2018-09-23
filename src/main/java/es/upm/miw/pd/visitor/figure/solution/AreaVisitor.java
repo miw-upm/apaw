@@ -22,5 +22,5 @@ public class AreaVisitor extends FigureVisitor {
     public double getTotalArea() {
         return totalArea;
     }
-    
+
 }

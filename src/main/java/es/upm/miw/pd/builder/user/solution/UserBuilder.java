@@ -1,9 +1,9 @@
 package es.upm.miw.pd.builder.user.solution;
 
+import es.upm.miw.pd.builder.user.User;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import es.upm.miw.pd.builder.user.User;
 
 public class UserBuilder {
 
@@ -81,8 +81,8 @@ public class UserBuilder {
         return this.id(1).nick("uno" + suffix).name("name" + suffix).familyName("family" + suffix).adult().phone(666666666)
                 .tag(suffix + "a").tag(suffix + "b");
     }
-    
-    public UserBuilder byDefault(){
+
+    public UserBuilder byDefault() {
         return this.byDefault("default");
     }
 

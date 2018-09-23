@@ -2,7 +2,7 @@ package es.upm.miw.pd.abstractfactory;
 
 public abstract class AbstractFactory {
     private static AbstractFactory abstractFactory;
-    
+
     public static AbstractFactory getAbstractFactory() {
         return abstractFactory;
     }

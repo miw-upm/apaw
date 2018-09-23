@@ -7,8 +7,8 @@ public class ArticleComposite extends ArticleComponent {
 
     List<ArticleComponent> articleComponentList;
 
-    public ArticleComposite(String icon) {
-        super(icon);
+    public ArticleComposite(String name) {
+        super(name);
         articleComponentList = new ArrayList<>();
     }
 

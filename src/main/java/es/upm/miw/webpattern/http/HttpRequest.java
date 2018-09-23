@@ -5,58 +5,58 @@ import java.util.Map;
 
 public class HttpRequest extends HttpBase {
 
-	private String path;
+    private String path;
 
-	private HttpMethod method;
+    private HttpMethod method;
 
-	private Map<String, String> queryParams;
+    private Map<String, String> queryParams;
 
-	public HttpRequest(String path, HttpMethod method) {
-		this.path = path;
-		this.method = method;
-		queryParams = new HashMap<>();
-	}
+    public HttpRequest(String path, HttpMethod method) {
+        this.path = path;
+        this.method = method;
+        queryParams = new HashMap<>();
+    }
 
-	public HttpRequest() {
-		this("", HttpMethod.GET);
-	}
+    public HttpRequest() {
+        this("", HttpMethod.GET);
+    }
 
-	public String getPath() {
-		return path;
-	}
+    public String getPath() {
+        return path;
+    }
 
-	public String[] paths() {
-		return path.split("/");
-	}
+    public void setPath(String path) {
+        this.path = path;
+    }
 
-	public void setPath(String path) {
-		this.path = path;
-	}
+    public String[] paths() {
+        return path.split("/");
+    }
 
-	public HttpMethod getMethod() {
-		return method;
-	}
+    public HttpMethod getMethod() {
+        return method;
+    }
 
-	public void setMethod(HttpMethod method) {
-		this.method = method;
-	}
+    public void setMethod(HttpMethod method) {
+        this.method = method;
+    }
 
-	public Map<String, String> getParams() {
-		return queryParams;
-	}
+    public Map<String, String> getParams() {
+        return queryParams;
+    }
 
-	public void addQueryParam(String key, String value) {
-		queryParams.put(key, value);
-	}
+    public void addQueryParam(String key, String value) {
+        queryParams.put(key, value);
+    }
 
-	public void clearQueryParams() {
-		queryParams.clear();
-	}
+    public void clearQueryParams() {
+        queryParams.clear();
+    }
 
-	@Override
-	public String toString() {
-		return method.toString() + " /" + path + this.queryParams() + "   " + super.toString();
-	}
+    @Override
+    public String toString() {
+        return method.toString() + " /" + path + this.queryParams() + "   " + super.toString();
+    }
 
     private String queryParams() {
         StringBuilder query = new StringBuilder();

@@ -1,9 +1,9 @@
 package es.upm.miw.pd.composite.article;
 
 public abstract class Product {
-    
+
     private int id;
-    
+
     private String reference;
 
     public Product(int id, String reference) {

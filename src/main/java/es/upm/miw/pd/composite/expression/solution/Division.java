@@ -6,9 +6,9 @@ public class Division extends Operation {
         super(expression1, expression2);
     }
 
-     @Override
+    @Override
     public int operate() {
-         return this.getExpression1().operate() / this.getExpression2().operate();
+        return this.getExpression1().operate() / this.getExpression2().operate();
     }
 
     @Override
