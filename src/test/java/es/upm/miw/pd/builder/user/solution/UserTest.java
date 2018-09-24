@@ -2,17 +2,13 @@ package es.upm.miw.pd.builder.user.solution;
 
 import org.junit.jupiter.api.Test;
 
-import es.upm.miw.pd.builder.user.User;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class UserTest {
+public class UserTest {
 
     @Test
-    void testUserIntStringStringStringIntIntStringListOfString() {
-        User user = new UserBuilder().id(1).nick("Paco").name("Jose").familyName("De Miguel").phone(666666666).adult()
+    void testFull() {
+        User user = User.builder(1,"Paco").name("Jose").familyName("De Miguel").phone(666666666).adult()
                 .profession("Profesor").tag("Director").tag("socio").tag("Consejo").build();
         assertEquals(1, user.getId());
         assertEquals("Paco", user.getNick());
@@ -22,25 +18,6 @@ class UserTest {
         assertEquals(666666666, user.getPhone());
         assertEquals("Profesor", user.getProfession());
         assertEquals(3, user.getTags().size());
-    }
-
-    @Test
-    void testTagContainsFalseNullTags() {
-        User user = new UserBuilder().id(1).nick("Paco").build();
-        assertFalse(user.tagContains("Not"));
-    }
-
-    @Test
-    void testTagContainsFalse() {
-        User user = new UserBuilder().id(1).nick("Paco").tag("Director").tag("Socio").phone(666666666).build();
-        assertFalse(user.tagContains("Not"));
-    }
-
-    @Test
-    void testTagContainsTrue() {
-        User user = new UserBuilder().byDefault().tag("Director").tag("Socio").build();
-        assertTrue(user.tagContains("Director"));
-        assertTrue(user.tagContains("Socio"));
     }
 
 }

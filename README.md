@@ -7,7 +7,9 @@
 
 [![Build Status](https://travis-ci.org/miw-upm/APAW-pd.svg?branch=develop)](https://travis-ci.org/miw-upm/APAW-pd)
 
+<!---
 ![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3AAPAW-pd&metric=alert_status)
+-->
 
 ### Tecnologías necesarias
 * Java

@@ -21,13 +21,11 @@ public class User {
     private List<String> tags;
 
     public User(int id, String nick) {
-        super();
         this.id = id;
         this.nick = nick;
     }
 
     public User(int id, String nick, String name, String familyName, int age, int phone, String profession, List<String> tags) {
-        super();
         this.id = id;
         this.nick = nick;
         this.name = name;
@@ -39,21 +37,18 @@ public class User {
     }
 
     public User(int id, String nick, String name) {
-        super();
         this.id = id;
         this.nick = nick;
         this.name = name;
     }
 
     public User(int id, String nick, int phone) {
-        super();
         this.id = id;
         this.nick = nick;
         this.phone = phone;
     }
 
     public User(int id, String nick, String name, String familyName) {
-        super();
         this.id = id;
         this.nick = nick;
         this.name = name;
@@ -121,11 +116,7 @@ public class User {
     }
 
     public boolean tagContains(String tag) {
-        if (tags == null) {
-            return false;
-        } else {
-            return tags.contains(tag);
-        }
+        return !(this.tags == null) && tags.contains(tag);
     }
 
 }

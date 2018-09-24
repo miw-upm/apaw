@@ -1,5 +1,7 @@
 package es.upm.miw.pd.proxy;
 
+import org.apache.logging.log4j.LogManager;
+
 import java.util.Random;
 
 public class Server implements Service {
@@ -12,8 +14,8 @@ public class Server implements Service {
     public void service() {
         try {
             Thread.sleep(Math.round(this.random.nextDouble() * 3000));
-        } catch (InterruptedException ignored) {
-            ignored.toString();
+        } catch (InterruptedException ie) {
+            LogManager.getLogger(this.getClass()).error("Sleep Interrupted");
         }
     }
 

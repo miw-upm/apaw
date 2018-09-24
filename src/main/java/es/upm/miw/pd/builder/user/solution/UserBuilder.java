@@ -7,36 +7,18 @@ import java.util.List;
 
 public class UserBuilder {
 
-    private int id;
-
-    private String nick;
+    private static int reference = 1;
 
     private List<String> tags;
 
     private User user;
 
     public UserBuilder(int id, String nick) {
-        this.id = id;
-        this.nick = nick;
         this.user = new User(id, nick);
     }
 
     public UserBuilder() {
-        this(0, "");
-    }
-
-    public UserBuilder id(int id) {
-        this.id = id;
-        this.user = new User(id, nick);
-        this.user.setTags(tags);
-        return this;
-    }
-
-    public UserBuilder nick(String nick) {
-        this.nick = nick;
-        this.user = new User(id, nick);
-        this.user.setTags(tags);
-        return this;
+        this(reference, "nick" + reference);
     }
 
     public UserBuilder name(String name) {
@@ -77,16 +59,14 @@ public class UserBuilder {
         return this;
     }
 
-    public UserBuilder byDefault(String suffix) {
-        return this.id(1).nick("uno" + suffix).name("name" + suffix).familyName("family" + suffix).adult().phone(666666666)
-                .tag(suffix + "a").tag(suffix + "b");
-    }
-
     public UserBuilder byDefault() {
-        return this.byDefault("default");
+        UserBuilder userBuilder = new UserBuilder();
+        return userBuilder.name("name" + reference).familyName("family" + reference).adult().phone(reference)
+                .tag(reference + "a").tag(reference + "b");
     }
 
     public User build() {
+        reference++;
         return this.user;
     }
 
