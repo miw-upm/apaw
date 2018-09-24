@@ -86,7 +86,7 @@ public class Connection {
         }
     }
 
-    public void receive(int respuesta) {
+    public void receive(int response) {
         if (this.state == State.CLOSED) {
             throw new UnsupportedOperationException(UNSUPPORTED);
         } else if (this.state == State.STOPPED) {
@@ -94,7 +94,7 @@ public class Connection {
         } else if (this.state == State.READY) {
             throw new UnsupportedOperationException(UNSUPPORTED);
         } else if (this.state == State.WAITING) {
-            if (respuesta == ACK) {
+            if (response == ACK) {
                 this.state = State.READY;
             } else {
                 this.state = State.CLOSED;
