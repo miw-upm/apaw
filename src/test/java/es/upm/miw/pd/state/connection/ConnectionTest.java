@@ -34,22 +34,22 @@ class ConnectionTest {
 
     @Test
     void testClosedNotSupportedStop() {
-        assertThrows(UnsupportedOperationException.class, () ->  this.connection.stop());
+        assertThrows(UnsupportedOperationException.class, () -> this.connection.stop());
     }
 
     @Test
     void testClosedNotSupportedStart() {
-        assertThrows(UnsupportedOperationException.class, () ->  this.connection.start());
+        assertThrows(UnsupportedOperationException.class, () -> this.connection.start());
     }
 
     @Test
     void testClosedNotSupportedSubmit() {
-        assertThrows(UnsupportedOperationException.class, () ->   this.connection.submit(""));
+        assertThrows(UnsupportedOperationException.class, () -> this.connection.submit(""));
     }
 
     @Test
     void testClosedNotSupportedReceive() {
-        assertThrows(UnsupportedOperationException.class, () ->  this.connection.receive(Connection.ACK));
+        assertThrows(UnsupportedOperationException.class, () -> this.connection.receive(Connection.ACK));
     }
 
     @Test
@@ -90,21 +90,21 @@ class ConnectionTest {
     @Test
     void testReadyNotSupportedReceive() {
         this.connection.open();
-        assertThrows(UnsupportedOperationException.class, () ->  this.connection.receive(Connection.ACK));
+        assertThrows(UnsupportedOperationException.class, () -> this.connection.receive(Connection.ACK));
     }
 
     @Test
     void testStopedNotSupportedOpen() {
         this.connection.open();
         this.connection.stop();
-        assertThrows(UnsupportedOperationException.class, () ->  this.connection.open());
+        assertThrows(UnsupportedOperationException.class, () -> this.connection.open());
     }
 
     @Test
     void testStopedNotSupportedClose() {
         this.connection.open();
         this.connection.stop();
-        assertThrows(UnsupportedOperationException.class, () ->  this.connection.close());
+        assertThrows(UnsupportedOperationException.class, () -> this.connection.close());
     }
 
     @Test

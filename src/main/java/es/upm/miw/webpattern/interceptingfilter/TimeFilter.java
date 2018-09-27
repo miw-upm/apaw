@@ -13,6 +13,7 @@ public class TimeFilter extends Filter {
         // PRE-PROCESS
         long requestTime = new Date().getTime();
         LogManager.getLogger(this.getClass().getName()).info("Time pre-process: " + new Date());
+
         filterChain.doFilter(request, response);
 
         // POST-PROCESS

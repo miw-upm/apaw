@@ -1,7 +1,6 @@
 package es.upm.miw.pd.decorator;
 
 import org.apache.logging.log4j.LogManager;
-
 import org.junit.jupiter.api.Test;
 
 class DecoratorTest {

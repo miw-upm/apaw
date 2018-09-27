@@ -1,44 +1,39 @@
 package es.upm.miw.webpattern.interceptingfilter;
 
+import es.upm.miw.webpattern.http.Client;
+import es.upm.miw.webpattern.http.HttpException;
+import es.upm.miw.webpattern.http.HttpRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import es.upm.miw.webpattern.http.HttpClientService;
-import es.upm.miw.webpattern.http.HttpException;
-import es.upm.miw.webpattern.http.HttpMethod;
-import es.upm.miw.webpattern.http.HttpRequest;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class InterceptingFilterFunctionalTesting {
-    
-    private HttpClientService httpClientService;
+
+    private Client client;
 
     @BeforeEach
     void before() {
-        httpClientService= new HttpClientService(new FilterManager());
+        this.client = new Client(new FilterManager());
     }
 
     @Test
     void publicPathTest() {
-        HttpRequest request = new HttpRequest("public", HttpMethod.GET);
-        request.addQueryParam("param", "value");
-        httpClientService.submit(request);
+        HttpRequest request = HttpRequest.builder("/public").param("param", "value").get();
+        this.client.submit(request);
     }
-    
+
     @Test
     void publicDebugPathTest() {
-        HttpRequest request = new HttpRequest("public/debug", HttpMethod.GET);
-        request.addQueryParam("param", "value");
-        httpClientService.submit(request);
+        HttpRequest request = HttpRequest.builder("/public").path("/debug").param("param", "value").get();
+        this.client.submit(request);
     }
-    
+
     @Test
     void noPublicPathAuthorizationExceptionTest() {
-        HttpRequest request = new HttpRequest("noPublic", HttpMethod.GET);
-        request.addQueryParam("param", "value");
-        assertThrows(HttpException.class, () -> httpClientService.submit(request));
+        HttpRequest request = HttpRequest.builder("/noPublic").param("param", "value").get();
+        assertThrows(HttpException.class, () -> this.client.submit(request));
     }
-    
-   
+
+
 }

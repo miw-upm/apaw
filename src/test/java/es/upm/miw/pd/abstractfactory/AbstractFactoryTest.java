@@ -1,9 +1,8 @@
 package es.upm.miw.pd.abstractfactory;
 
-import org.junit.jupiter.api.Test;
-
 import es.upm.miw.pd.abstractfactory.concrete1.Concrete1Factory;
 import es.upm.miw.pd.abstractfactory.concrete2.Concrete2Factory;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,7 +19,7 @@ class AbstractFactoryTest {
         AbstractFactory.setAbstractFactory(new Concrete1Factory());
         assertEquals("ProductB1", AbstractFactory.getAbstractFactory().getProductB().view());
     }
-    
+
     @Test
     void testProductAOfConcrete2Factory() {
         AbstractFactory.setAbstractFactory(new Concrete2Factory());

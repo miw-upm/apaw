@@ -23,7 +23,7 @@ public class Dispatcher implements Server {
     public void doGet(HttpRequest request, HttpResponse response) {
         String result;
         switch (request.getPath()) {
-            case "path1":
+            case "/path1":
                 // Injectar parámetros...
                 try {
                     int param2 = Integer.parseInt(request.getParams().get("param2"));
@@ -33,7 +33,7 @@ public class Dispatcher implements Server {
                     responseError(response, INTEGER_ERROR);
                 }
                 break;
-            case "path2":
+            case "/path2":
                 // Injectar parámetros...
                 result = resource2.method1();
                 response.setBody(result);
@@ -47,12 +47,12 @@ public class Dispatcher implements Server {
     public void doPost(HttpRequest request, HttpResponse response) {
         String result;
         switch (request.getPath()) {
-            case "path1":
+            case "/path1":
                 // Injectar parámetros...
                 result = resource1.method2();
                 response.setBody(result);
                 break;
-            case "path1/sub":
+            case "/path1/sub":
                 // Injectar parámetros...
                 result = resource1.method3();
                 response.setBody(result);

@@ -1,13 +1,8 @@
 package es.upm.miw.pd.vehicle.solution;
 
+import es.upm.miw.pd.decorator.vehicle.solution.*;
 import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Test;
-
-import es.upm.miw.pd.decorator.vehicle.solution.EDS;
-import es.upm.miw.pd.decorator.vehicle.solution.GPS;
-import es.upm.miw.pd.decorator.vehicle.solution.MP3;
-import es.upm.miw.pd.decorator.vehicle.solution.Model;
-import es.upm.miw.pd.decorator.vehicle.solution.Vehicle;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

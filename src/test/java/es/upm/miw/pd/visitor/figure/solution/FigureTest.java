@@ -14,17 +14,17 @@ class FigureTest {
         figuresManager = new FiguresManager();
         figuresManager.add(new Circle("circle", 4.0));
         figuresManager.add(new Triangle("triangle", 2.0, 2.0));
-        figuresManager.add(new Square("square", 3.0));        
+        figuresManager.add(new Square("square", 3.0));
     }
 
     @Test
     void testTotalArea() {
-        assertEquals(61.265, figuresManager.totalArea(),10e-3);
+        assertEquals(61.265, figuresManager.totalArea(), 10e-3);
     }
-    
+
     @Test
     void testTotalNumberOfSides() {
-        assertEquals(Double.POSITIVE_INFINITY, figuresManager.totalNumberOfSides(),10e-3);
+        assertEquals(Double.POSITIVE_INFINITY, figuresManager.totalNumberOfSides(), 10e-3);
     }
 
 }

@@ -10,6 +10,7 @@ public class DebugFilter extends Filter {
     public void doFilter(HttpRequest request, HttpResponse response, FilterChain filterChain) {
         //PRE-PROCESS
         LogManager.getLogger(this.getClass().getName()).info("Debuging pre-process...");
+
         filterChain.doFilter(request, response);
 
         //POST-PROCESS

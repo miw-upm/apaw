@@ -8,7 +8,7 @@ public class UserTest {
 
     @Test
     void testFull() {
-        User user = User.builder(1,"Paco").name("Jose").familyName("De Miguel").phone(666666666).adult()
+        User user = User.builder(1, "Paco").name("Jose").familyName("De Miguel").phone(666666666).adult()
                 .profession("Profesor").tag("Director").tag("socio").tag("Consejo").build();
         assertEquals(1, user.getId());
         assertEquals("Paco", user.getNick());

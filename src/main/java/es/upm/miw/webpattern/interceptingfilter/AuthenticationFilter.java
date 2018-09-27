@@ -11,12 +11,12 @@ public class AuthenticationFilter extends Filter {
     public void doFilter(HttpRequest request, HttpResponse response, FilterChain filterChain) {
         // PRE-PROCESS
         LogManager.getLogger(this.getClass().getName()).info("Authenticating pre-process...");
-        if ("public".equals(request.paths()[0])) {
-            // si esta autorizado se continua con la cadena de filtros
-            filterChain.doFilter(request, response);
+        if ("public".equals(request.getPath(0))) {
+            filterChain.doFilter(request, response); // si esta autorizado se continua con la cadena de filtros
         } else {
             response.setStatus(HttpStatus.UNAUTHORIZED);
-            response.addHeaderParam("auth", "AuthenticationFilter");
+            response.setBody("Unsuccessful Authentication Filter");
+            // se aborta la cadena de filtros
         }
 
         // POST-PROCESS

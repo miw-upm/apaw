@@ -5,14 +5,12 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class UserTest {
 
     @Test
-     void testUserIntStringStringStringIntIntStringListOfString(){
+    void testUserIntStringStringStringIntIntStringListOfString() {
         List<String> tags = new ArrayList<>();
         tags.add("Director");
         tags.add("Socio");
@@ -29,13 +27,13 @@ class UserTest {
     }
 
     @Test
-    void testTagContainsFalseNullTags(){
+    void testTagContainsFalseNullTags() {
         User user = new User(1, "Paco", null, null, -1, -1, null, null);
         assertFalse(user.tagContains("Not"));
     }
-    
+
     @Test
-    void testTagContainsFalse(){
+    void testTagContainsFalse() {
         List<String> tags = new ArrayList<>();
         tags.add("Director");
         tags.add("Socio");
@@ -44,9 +42,9 @@ class UserTest {
         user.setTags(tags);
         assertFalse(user.tagContains("Not"));
     }
-    
+
     @Test
-    void testTagContainsTrue(){
+    void testTagContainsTrue() {
         List<String> tags = new ArrayList<>();
         tags.add("Director");
         tags.add("Socio");

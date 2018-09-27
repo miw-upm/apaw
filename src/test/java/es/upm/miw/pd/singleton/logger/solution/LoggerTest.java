@@ -15,5 +15,5 @@ class LoggerTest {
     void testSingletonNotNull() {
         assertNotNull(Logger.getLogger());
     }
-    
+
 }

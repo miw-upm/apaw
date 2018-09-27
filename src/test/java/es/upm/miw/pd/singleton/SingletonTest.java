@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 
- class SingletonTest {
+class SingletonTest {
     @Test
     void testIsSingleton() {
         assertSame(Singleton.getInstance(), Singleton.getInstance());
     }
-    
+
     @Test
     void testSingletonNotNull() {
         assertNotNull(Singleton.getInstance());
