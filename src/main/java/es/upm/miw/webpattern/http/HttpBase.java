@@ -7,21 +7,10 @@ public class HttpBase {
 
     private Map<String, String> headerParams;
 
-    private Map<String, String> cookies;
-
-    private String body;
+    private Object body;
 
     public HttpBase() {
-        cookies = new HashMap<>();
         headerParams = new HashMap<>();
-    }
-
-    public Map<String, String> getCookies() {
-        return cookies;
-    }
-
-    public void addCookie(String key, String value) {
-        cookies.put(key, value);
     }
 
     public Map<String, String> getHeaderParams() {
@@ -32,11 +21,11 @@ public class HttpBase {
         headerParams.put(key, value);
     }
 
-    public String getBody() {
+    public Object getBody() {
         return body;
     }
 
-    public void setBody(String body) {
+    public void setBody(Object body) {
         this.body = body;
     }
 
@@ -45,9 +34,6 @@ public class HttpBase {
         StringBuilder stringBuilder = new StringBuilder();
         if (!headerParams.isEmpty()) {
             stringBuilder.append("  headerParams=" + headerParams);
-        }
-        if (!cookies.isEmpty()) {
-            stringBuilder.append(", cookies=" + cookies);
         }
         if (body != null) {
             stringBuilder.append(", body=" + body);

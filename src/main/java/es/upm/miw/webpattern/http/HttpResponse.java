@@ -18,7 +18,8 @@ public class HttpResponse extends HttpBase {
 
     @Override
     public String toString() {
-        return "HTTP/1.1 " + status.getCode() + " " + status.toString() + super.toString();
+        return status.toString() + super.toString();
     }
 
 }
+
