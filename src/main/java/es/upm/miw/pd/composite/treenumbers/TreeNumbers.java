@@ -40,7 +40,7 @@ public class TreeNumbers {
         }
     }
 
-    public int number() {
+    public int numberOfNodes() {
         if (this.isComposite()) {
             return this.treeNumbersList.size();
         } else {

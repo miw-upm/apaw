@@ -15,9 +15,16 @@ class ExpressionTest {
         this.exp3 = new Subtraction(this.exp1, new Number(3));
         this.exp4 = new Multiplication(this.exp1, new Number(2));
         this.exp5 = new Division(this.exp1, new Number(3));
-        // ((3-((4/2)*3))+4)
-        this.exp6 = new Summation(new Subtraction(new Number(3), new Multiplication(new Division(this.exp1, new Number(2)), new Number(3))),
-                this.exp1);
+        this.exp6 = new Summation(
+                new Subtraction(
+                        new Number(3),
+                        new Multiplication(
+                                new Division(this.exp1, new Number(2)),
+                                new Number(3)
+                        )
+                ),
+                this.exp1
+        );// ((3-((4/2)*3))+4)
     }
 
     @Test

@@ -41,13 +41,13 @@ class TreeNumbersTest {
 
     @Test
     void testNumberOfTreeNumbersIfLeaf() {
-        assertEquals(1, this.leaf.number());
+        assertEquals(1, this.leaf.numberOfNodes());
     }
 
     @Test
     void testNumberOfTreeNumbersIfComposite() {
-        assertEquals(3, this.root.number());
-        assertEquals(2, this.sub11.number());
+        assertEquals(3, this.root.numberOfNodes());
+        assertEquals(2, this.sub11.numberOfNodes());
     }
 
     @Test
