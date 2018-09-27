@@ -8,16 +8,14 @@ package es.upm.miw.pd.singleton;
  * </p>
  */
 public final class Singleton {
-    // Aqui se crea para creación temprana
-    private static Singleton singleton = null;
+    private static Singleton singleton = null; // = new Singleton() //: creación temprana
 
     private Singleton() {
     }
 
-    public static Singleton getSingleton() {
-        // Creación perezosa
+    public static Singleton getInstance() {
         if (Singleton.singleton == null) {
-            Singleton.singleton = new Singleton();
+            Singleton.singleton = new Singleton(); // Creación perezosa
         }
         return Singleton.singleton;
     }

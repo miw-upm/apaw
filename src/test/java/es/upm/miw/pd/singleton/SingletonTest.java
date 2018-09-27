@@ -9,12 +9,12 @@ import static org.junit.jupiter.api.Assertions.assertSame;
  class SingletonTest {
     @Test
     void testIsSingleton() {
-        assertSame(Singleton.getSingleton(), Singleton.getSingleton());
+        assertSame(Singleton.getInstance(), Singleton.getInstance());
     }
     
     @Test
     void testSingletonNotNull() {
-        assertNotNull(Singleton.getSingleton());
+        assertNotNull(Singleton.getInstance());
     }
 
 }
