@@ -9,18 +9,25 @@ public class Dispatcher implements Server {
 
     private static final String PATH_ERROR = "Path Error";
 
+    private static final String METHOD_ERROR = "Method Error";
+
     private static final String INTEGER_ERROR = "Integer Error";
 
-    private Resource1 resource1 = new Resource1();
+    private Resource1 resource1;
 
-    private Resource2 resource2 = new Resource2();
+    private Resource2 resource2;
+
+    public Dispatcher() {
+        this.resource1 = new Resource1();
+        this.resource2 = new Resource2();
+    }
 
     private void responseError(HttpResponse response, String msg) {
         response.setBody("{\"error\":\"" + msg + "\"}");
         response.setStatus(HttpStatus.BAD_REQUEST);
     }
 
-    public void doGet(HttpRequest request, HttpResponse response) {
+    private void doGet(HttpRequest request, HttpResponse response) {
         String result;
         switch (request.getPath()) {
             case "/path1":
@@ -44,7 +51,7 @@ public class Dispatcher implements Server {
         }
     }
 
-    public void doPost(HttpRequest request, HttpResponse response) {
+    private void doPost(HttpRequest request, HttpResponse response) {
         String result;
         switch (request.getPath()) {
             case "/path1":
@@ -63,16 +70,16 @@ public class Dispatcher implements Server {
         }
     }
 
-    public void doPut(HttpRequest request, HttpResponse response) {
-        responseError(response, PATH_ERROR);
+    private void doPut(HttpRequest request, HttpResponse response) {
+        responseError(response, METHOD_ERROR);
     }
 
-    public void doPatch(HttpRequest request, HttpResponse response) {
-        responseError(response, PATH_ERROR);
+    private void doPatch(HttpRequest request, HttpResponse response) {
+        responseError(response, METHOD_ERROR);
     }
 
-    public void doDelete(HttpRequest request, HttpResponse response) {
-        responseError(response, PATH_ERROR);
+    private void doDelete(HttpRequest request, HttpResponse response) {
+        responseError(response, METHOD_ERROR);
     }
 
     @Override
@@ -87,6 +94,9 @@ public class Dispatcher implements Server {
                 break;
             case PUT:
                 doPut(request, response);
+                break;
+            case PATCH:
+                doPatch(request, response);
                 break;
             case DELETE:
                 doDelete(request, response);

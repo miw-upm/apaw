@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 
 import java.util.Date;
 
-public class TimeFilter extends Filter {
+public class TimeFilter implements Filter {
 
     @Override
     public void doFilter(HttpRequest request, HttpResponse response, FilterChain filterChain) {

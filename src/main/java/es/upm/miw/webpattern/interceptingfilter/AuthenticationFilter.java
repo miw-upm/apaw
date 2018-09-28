@@ -5,7 +5,7 @@ import es.upm.miw.webpattern.http.HttpResponse;
 import es.upm.miw.webpattern.http.HttpStatus;
 import org.apache.logging.log4j.LogManager;
 
-public class AuthenticationFilter extends Filter {
+public class AuthenticationFilter implements Filter {
 
     @Override
     public void doFilter(HttpRequest request, HttpResponse response, FilterChain filterChain) {

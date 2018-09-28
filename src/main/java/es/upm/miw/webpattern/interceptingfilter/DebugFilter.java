@@ -4,7 +4,7 @@ import es.upm.miw.webpattern.http.HttpRequest;
 import es.upm.miw.webpattern.http.HttpResponse;
 import org.apache.logging.log4j.LogManager;
 
-public class DebugFilter extends Filter {
+public class DebugFilter implements Filter {
 
     @Override
     public void doFilter(HttpRequest request, HttpResponse response, FilterChain filterChain) {
