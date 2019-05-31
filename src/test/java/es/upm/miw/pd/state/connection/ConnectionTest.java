@@ -60,7 +60,7 @@ class ConnectionTest {
     }
 
     @Test
-    void testRadyClose() {
+    void testReadyClose() {
         this.connection.open();
         this.connection.close();
         assertEquals(State.CLOSED, this.connection.getState());
@@ -94,21 +94,21 @@ class ConnectionTest {
     }
 
     @Test
-    void testStopedNotSupportedOpen() {
+    void testStoppedNotSupportedOpen() {
         this.connection.open();
         this.connection.stop();
         assertThrows(UnsupportedOperationException.class, () -> this.connection.open());
     }
 
     @Test
-    void testStopedNotSupportedClose() {
+    void testStoppedNotSupportedClose() {
         this.connection.open();
         this.connection.stop();
         assertThrows(UnsupportedOperationException.class, () -> this.connection.close());
     }
 
     @Test
-    void testStopedStop() {
+    void testStoppedStop() {
         this.connection.open();
         this.connection.stop();
         this.connection.stop();
@@ -116,7 +116,7 @@ class ConnectionTest {
     }
 
     @Test
-    void testStopedStart() {
+    void testStoppedStart() {
         this.connection.open();
         this.connection.stop();
         this.connection.start();
@@ -124,14 +124,14 @@ class ConnectionTest {
     }
 
     @Test
-    void testStopedNotSupportedSubmit() {
+    void testStoppedNotSupportedSubmit() {
         this.connection.open();
         this.connection.stop();
         assertThrows(UnsupportedOperationException.class, () -> this.connection.submit(""));
     }
 
     @Test
-    void testStopedNotSupportedReceive() {
+    void testStoppedNotSupportedReceive() {
         this.connection.open();
         this.connection.stop();
         assertThrows(UnsupportedOperationException.class, () -> this.connection.receive(Connection.ACK));

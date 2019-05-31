@@ -1,18 +1,18 @@
 package es.upm.miw.pd.ioc;
 
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class RandomReferencesFactory implements ReferencesFactory {
 
     private Map<String, Integer> references;
 
-    private Random random;
+    private SecureRandom random;
 
     public RandomReferencesFactory() {
         this.references = new HashMap<>();
-        random = new Random();
+        random = new SecureRandom();
     }
 
     @Override

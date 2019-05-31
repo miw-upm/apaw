@@ -1,14 +1,13 @@
 package es.upm.miw.pd.composite.treenumbers.solution;
 
-public abstract class TreeNumbers {
+public interface TreeNumbers {
+    void add(TreeNumbers treeNumbers);
 
-    public abstract void add(TreeNumbers treeNumbers);
+    void remove(TreeNumbers treeNumbers);
 
-    public abstract void remove(TreeNumbers treeNumbers);
+    int number();
 
-    public abstract int number();
+    int sum();
 
-    public abstract int sum();
-
-    public abstract int higher();
+    int higher();
 }

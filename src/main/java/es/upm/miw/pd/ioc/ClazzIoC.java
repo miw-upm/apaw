@@ -6,8 +6,8 @@ public class ClazzIoC {
 
     private ReferencesFactory referencesFactory;
 
-    // Se inyecta la referencia con este método
-    public void setReferencesFactory(ReferencesFactory referencesFactory) {
+
+    public void setReferencesFactory(ReferencesFactory referencesFactory) { // Se inyecta la referencia
         this.referencesFactory = referencesFactory;
     }
 

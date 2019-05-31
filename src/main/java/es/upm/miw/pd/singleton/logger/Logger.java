@@ -3,6 +3,7 @@ package es.upm.miw.pd.singleton.logger;
 import java.util.Date;
 
 public final class Logger {
+
     private String logs;
 
     public Logger() {
@@ -10,7 +11,7 @@ public final class Logger {
     }
 
     public String getLogs() {
-        return logs;
+        return this.logs;
     }
 
     public void addLog(String log) {

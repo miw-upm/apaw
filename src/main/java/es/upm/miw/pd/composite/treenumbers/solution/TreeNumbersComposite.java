@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class TreeNumbersComposite extends TreeNumbers {
+public class TreeNumbersComposite implements TreeNumbers {
 
     private String name;
 

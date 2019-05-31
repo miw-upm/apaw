@@ -21,11 +21,8 @@ public class Article {
 
     private BigDecimal wholesalePrice;
 
-    public Article(long id, List<Long> phones) {
-        assert phones != null;
-        assert !phones.isEmpty();
+    public Article(long id) {
         this.id = id;
-        this.phones = phones;
     }
 
     public long getId() {

@@ -8,7 +8,7 @@ package es.upm.miw.pd.singleton;
  * </p>
  */
 public final class Singleton {
-    private static Singleton singleton = null; // = new Singleton() //: creación temprana
+    private static Singleton singleton = null; // = new Singleton() // creación temprana
 
     private Singleton() {
     }

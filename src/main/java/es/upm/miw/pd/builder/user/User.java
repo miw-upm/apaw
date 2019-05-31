@@ -26,8 +26,7 @@ public class User {
     }
 
     public User(int id, String nick, String name, String familyName, int age, int phone, String profession, List<String> tags) {
-        this.id = id;
-        this.nick = nick;
+        this(id, nick);
         this.name = name;
         this.familyName = familyName;
         this.age = age;
@@ -37,23 +36,14 @@ public class User {
     }
 
     public User(int id, String nick, String name) {
-        this.id = id;
-        this.nick = nick;
+        this(id, nick);
         this.name = name;
     }
 
-    public User(int id, String nick, int phone) {
-        this.id = id;
-        this.nick = nick;
-        this.phone = phone;
+    public User(int id, String nick, String name, String familyName, int phone) {
+        this(id, nick, name, familyName, 0, phone, null, null);
     }
 
-    public User(int id, String nick, String name, String familyName) {
-        this.id = id;
-        this.nick = nick;
-        this.name = name;
-        this.familyName = familyName;
-    }
 
     public String getNick() {
         return nick;
@@ -116,7 +106,7 @@ public class User {
     }
 
     public boolean tagContains(String tag) {
-        return !(this.tags == null) && tags.contains(tag);
+        return this.tags != null && tags.contains(tag);
     }
 
 }

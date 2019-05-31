@@ -8,7 +8,6 @@ public class Clazz3 {
     }
 
     public void method1() {
-        // ...
         this.logger.addLog("Clazz3:method1");
     }
 

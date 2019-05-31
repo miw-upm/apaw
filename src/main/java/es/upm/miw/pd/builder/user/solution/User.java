@@ -91,7 +91,7 @@ public class User {
     }
 
     public boolean tagContains(String tag) {
-        return !(this.tags == null) && tags.contains(tag);
+        return this.tags != null && tags.contains(tag);
     }
 
     public static class Builder {

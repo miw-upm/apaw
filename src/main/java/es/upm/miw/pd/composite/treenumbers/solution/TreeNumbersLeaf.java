@@ -1,6 +1,6 @@
 package es.upm.miw.pd.composite.treenumbers.solution;
 
-public class TreeNumbersLeaf extends TreeNumbers {
+public class TreeNumbersLeaf implements TreeNumbers {
     private int valor;
 
     public TreeNumbersLeaf(int valor) {

@@ -1,6 +1,6 @@
 package es.upm.miw.pd.composite.expression.solution;
 
-public abstract class Operation extends Expression {
+public abstract class Operation implements Expression {
 
     private Expression expression1;
 

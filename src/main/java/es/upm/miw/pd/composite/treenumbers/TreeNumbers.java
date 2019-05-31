@@ -66,7 +66,10 @@ public class TreeNumbers {
 
     @Override
     public String toString() {
-        return "NumberTree[" + name + "]";
+        return "TreeNumbers{" +
+                "number=" + number +
+                ", name='" + name + '\'' +
+                ", treeNumbersList=" + treeNumbersList +
+                '}';
     }
-
 }

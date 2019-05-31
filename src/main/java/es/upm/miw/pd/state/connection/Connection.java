@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 
 public class Connection {
     public static final int ACK = 0;
-    private static final String IMPOSSIBLE = "estado imposible";
+    private static final String IMPOSSIBLE = "getState imposible";
     private static final String UNSUPPORTED = "Acción no permitida... ";
     private State state;
 
@@ -77,7 +77,7 @@ public class Connection {
         } else if (this.state == State.STOPPED) {
             throw new UnsupportedOperationException(UNSUPPORTED);
         } else if (this.state == State.READY) {
-            LogManager.getLogger(this.getClass().getName()).info(msg);
+            LogManager.getLogger(this.getClass()).info(msg);
             this.state = State.WAITING;
         } else if (this.state == State.WAITING) {
             throw new UnsupportedOperationException(UNSUPPORTED);

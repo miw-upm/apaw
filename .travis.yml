@@ -11,7 +11,6 @@ notifications:
     - j.bernal@upm.es
 script:
 # Unit Test & Integration Test
-- mvn verify
-# Calidad codigo: Sonarcloud
 - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify
+# Calidad codigo: Sonarcloud
 - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=miw-upm-github -Dsonar.login=$SONAR

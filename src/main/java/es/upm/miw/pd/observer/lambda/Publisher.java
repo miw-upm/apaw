@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class Observable {
+public class Publisher {
 
     private List<Consumer<String>> consumers;
 
-    public Observable() {
+    public Publisher() {
         this.consumers = new ArrayList<>();
     }
 
@@ -22,6 +22,6 @@ public class Observable {
     }
 
     public void accept(String data) {
-        this.consumers.forEach(c -> c.accept(data));
+        this.consumers.forEach(consumer -> consumer.accept(data));
     }
 }
