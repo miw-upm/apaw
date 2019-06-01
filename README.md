@@ -25,3 +25,10 @@
 1. Marcar **Create Project from external model**, elegir **Maven**
 1. **Next** … **Finish**
 
+### :book: Diapositivas
+* [Diapositivas de Patrones](docs/miw-apaw-diapositivas-pd.pdf)   
+* [Diapositivas de Patrones Web](docs/miw-apaw-diapositivas-web.pdf)
+
+### :movie_camera: Videos (www.youtube.com/miw-upm)
+* [Videos](https://www.youtube.com/playlist?list=PLj2IVmcP-_QNaYYCV7kWMpEBvoXu0JPt-)
+

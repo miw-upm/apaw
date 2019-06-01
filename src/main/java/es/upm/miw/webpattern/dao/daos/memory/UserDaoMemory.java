@@ -6,10 +6,10 @@ import es.upm.miw.webpattern.dao.entities.User;
 import java.util.Collections;
 import java.util.List;
 
-public class UserDaoMemory extends GenericMemoryDao<User, Integer> implements UserDao {
+public class UserDaoMemory extends GenericMemoryDao<User, String> implements UserDao {
 
     @Override
-    protected Integer getId(User entity) {
+    protected String getId(User entity) {
         return entity.getId();
     }
 
@@ -17,5 +17,4 @@ public class UserDaoMemory extends GenericMemoryDao<User, Integer> implements Us
     public List<User> findByName(String name) {
         return Collections.emptyList();
     }
-
 }

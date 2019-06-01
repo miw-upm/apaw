@@ -1,5 +1,7 @@
 package es.upm.miw.pd.observer;
 
+import org.apache.logging.log4j.LogManager;
+
 public class ObserverB implements Observer {
     private Subject subject;
 
@@ -10,6 +12,6 @@ public class ObserverB implements Observer {
 
     @Override
     public void update() {
-        System.out.println("Observer B: sujeto a cambiado: " + this.subject.getState());
+        LogManager.getLogger(this.getClass()).info("Observer B: sujeto a cambiado: " + this.subject.getState());
     }
 }

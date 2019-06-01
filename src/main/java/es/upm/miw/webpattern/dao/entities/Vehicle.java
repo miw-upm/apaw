@@ -1,31 +1,27 @@
 package es.upm.miw.webpattern.dao.entities;
 
-import java.util.List;
-
 public class Vehicle {
 
-    private int id;
+    private String id;
 
-    private int identification;
+    private String type;
 
     private String description;
 
-    private List<User> users;
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getIdentification() {
-        return identification;
+    public String getType() {
+        return type;
     }
 
-    public void setIdentification(int identification) {
-        this.identification = identification;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getDescription() {
@@ -36,12 +32,12 @@ public class Vehicle {
         this.description = description;
     }
 
-    public List<User> getUsers() {
-        return users;
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id='" + id + '\'' +
+                ", type='" + type + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
 }

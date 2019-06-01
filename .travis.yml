@@ -1,10 +1,9 @@
 language: java
-jdk:
-- oraclejdk8
 branches:
   only:
-  - master
-  - develop
+    - develop
+    - /^release-[0-999].[0-999]$/
+    - master
 notifications:
   email:
     recipients:

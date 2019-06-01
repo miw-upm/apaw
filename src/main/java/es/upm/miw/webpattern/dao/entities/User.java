@@ -4,7 +4,7 @@ import java.util.List;
 
 public class User {
 
-    private int id;
+    private String id;
 
     private String name;
 
@@ -12,17 +12,13 @@ public class User {
 
     private Address address;
 
-    private Category category;
-
     private List<Phone> phones;
 
-    private List<Vehicle> vehicles;
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    protected void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -50,14 +46,6 @@ public class User {
         this.address = address;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     public List<Phone> getPhones() {
         return phones;
     }
@@ -66,12 +54,14 @@ public class User {
         this.phones = phones;
     }
 
-    public List<Vehicle> getVehicles() {
-        return vehicles;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", address=" + address +
+                ", phones=" + phones +
+                '}';
     }
-
-    public void setVehicles(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
-
 }

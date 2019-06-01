@@ -15,11 +15,19 @@ public class Lambda {
     }
 
     public Function<String, Integer> function() { // apply(T):R
+        return msg -> Integer.parseInt(msg);
+    }
+
+    public Function<String, Integer> function2() { // apply(T):R
         return Integer::new;
     }
 
     public Predicate<String> functionPredicate() { // test(T):boolean
         return "two"::equals;
+    }
+
+    public Predicate<String> functionPredicate2() { // test(T):boolean
+        return msg -> "two".equals(msg);
     }
 
     public Supplier<String> functionSupplier() { // get(): T

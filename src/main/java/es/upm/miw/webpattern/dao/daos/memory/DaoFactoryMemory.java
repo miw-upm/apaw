@@ -4,35 +4,18 @@ import es.upm.miw.webpattern.dao.daos.*;
 
 public class DaoFactoryMemory extends DaoFactory {
 
-    private AddressDao addressDao;
-    private CategoryDao categoryDao;
+    private GroupDao groupDao;
     private PhoneDao phoneDao;
+    private SuggestionDao suggestionDao;
     private UserDao userDao;
     private VehicleDao vehicleDao;
 
-
     @Override
-    public UserDao getUserDao() {
-        if (userDao == null) {
-            userDao = new UserDaoMemory();
+    public GroupDao getGroupDao() {
+        if (groupDao == null) {
+            groupDao = new GroupDaoMemory();
         }
-        return userDao;
-    }
-
-    @Override
-    public AddressDao getAddressDao() {
-        if (addressDao == null) {
-            addressDao = new AddressDaoMemory();
-        }
-        return addressDao;
-    }
-
-    @Override
-    public CategoryDao getCategoryDao() {
-        if (categoryDao == null) {
-            categoryDao = new CategoryDaoMemory();
-        }
-        return categoryDao;
+        return groupDao;
     }
 
     @Override
@@ -44,11 +27,26 @@ public class DaoFactoryMemory extends DaoFactory {
     }
 
     @Override
+    public SuggestionDao getSuggestionDao() {
+        if (suggestionDao == null) {
+            suggestionDao = new SuggestionDaoMemory();
+        }
+        return suggestionDao;
+    }
+
+    @Override
+    public UserDao getUserDao() {
+        if (userDao == null) {
+            userDao = new UserDaoMemory();
+        }
+        return userDao;
+    }
+
+    @Override
     public VehicleDao getVehicleDao() {
         if (vehicleDao == null) {
             vehicleDao = new VehicleDaoMemory();
         }
         return vehicleDao;
     }
-
 }

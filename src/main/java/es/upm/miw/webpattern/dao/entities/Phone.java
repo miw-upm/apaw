@@ -2,26 +2,18 @@ package es.upm.miw.webpattern.dao.entities;
 
 public class Phone {
 
-    private int id;
-
-    private String type;
+    private String id;
 
     private int number;
 
-    public int getId() {
+    private String type;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public int getNumber() {
@@ -32,4 +24,20 @@ public class Phone {
         this.number = number;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Phone{" +
+                "id='" + id + '\'' +
+                ", number=" + number +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

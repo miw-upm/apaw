@@ -13,14 +13,13 @@ public abstract class DaoFactory {
         DaoFactory.factory = factory;
     }
 
-    public abstract UserDao getUserDao();
-
-    public abstract AddressDao getAddressDao();
-
-    public abstract CategoryDao getCategoryDao();
+    public abstract GroupDao getGroupDao();
 
     public abstract PhoneDao getPhoneDao();
 
-    public abstract VehicleDao getVehicleDao();
+    public abstract SuggestionDao getSuggestionDao();
 
+    public abstract UserDao getUserDao();
+
+    public abstract VehicleDao getVehicleDao();
 }
