@@ -2,11 +2,12 @@ package es.upm.miw.pd.observer.project_reactor;
 
 import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Test;
+import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 class ReactiveProgrammingTest {
-
     @Test
     void testMonoEmpty() {
         new ReactiveProgramming().monoEmpty().subscribe(
@@ -17,16 +18,12 @@ class ReactiveProgrammingTest {
     }
 
     @Test
-    void testMonoEmptyBlock() {
-        new ReactiveProgramming().monoEmpty().block();
-        LogManager.getLogger(this.getClass()).info("Finish... testMonoEmptyBlock");
-    }
-
-    @Test
     void testMonoOne() {
+        LogManager.getLogger(this.getClass()).info("Before Mono.just...");
         new ReactiveProgramming().monoOne().subscribe(
                 msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg)
         );
+        LogManager.getLogger(this.getClass()).info("... After Mono.just");
     }
 
     @Test
@@ -39,71 +36,83 @@ class ReactiveProgrammingTest {
     }
 
     @Test
-    void testMonoDelay() throws InterruptedException {
-        new ReactiveProgramming().monoDelay().subscribe(
-                msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg),
-                throwable -> LogManager.getLogger(this.getClass()).info("Error: " + throwable.getMessage()),
-                () -> LogManager.getLogger(this.getClass()).info("Completed")
-        );
-        LogManager.getLogger(this.getClass()).info("----------- Subscribed -------------sleep...");
-        TimeUnit.SECONDS.sleep(5);
+    void testMonoDelayBlock() {
+        LogManager.getLogger(this.getClass()).info("Before Mono.delay...");
+        String msg = new ReactiveProgramming().monoDelay().block();
+        LogManager.getLogger(this.getClass()).info("... After Mono.delay. msg:" + msg);
     }
 
     @Test
-    void testFluxDemo() throws InterruptedException {
-        new ReactiveProgramming().fluxDemo().subscribe(
-                msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg),
-                throwable -> LogManager.getLogger(this.getClass()).info("Error: " + throwable.getMessage()),
-                () -> LogManager.getLogger(this.getClass()).info("Completed")
-        );
-        TimeUnit.SECONDS.sleep(7);
+    void testMonoDelay() {
+        LogManager.getLogger(this.getClass()).info("Before Mono.delay...");
+        Mono<String> publisher = new ReactiveProgramming().monoDelay();
+        publisher.subscribe(msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg));
+        LogManager.getLogger(this.getClass()).info("... After Mono.delay");
+        publisher.block();
+    }
+
+    @Test
+    void testMonoDelayStepVerifier() {
+        StepVerifier
+                .create(new ReactiveProgramming().monoDelay())
+                .expectNext("One")
+                .expectComplete()
+                .verify();
+    }
+
+    @Test
+    void testFluxDemoStepVerifier() {
+        StepVerifier
+                .create(new ReactiveProgramming().fluxDemo())
+                .expectNext("A0", "A1", "A2")
+                .expectNextMatches(name -> name.startsWith("A")) //A3
+                .expectNextCount(4) //A4..7
+                .expectComplete()
+                .verify();
     }
 
     @Test
     void testFluxDemoLimitByFlow() {
-        new ReactiveProgramming().fluxLimitByFlow().subscribe(
-                msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg),
-                throwable -> LogManager.getLogger(this.getClass()).info("Error: " + throwable.getMessage()),
-                () -> LogManager.getLogger(this.getClass()).info("Completed")
-        );
+        StepVerifier
+                .create(new ReactiveProgramming().fluxLimitByFlow())
+                .expectNext("B0", "B1", "B2")
+                .expectComplete()
+                .verify();
     }
 
     @Test
     void testFluxDelayLimitByTime() throws InterruptedException {
-        new ReactiveProgramming().fluxLimitByTime().subscribe(
-                msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg),
-                throwable -> LogManager.getLogger(this.getClass()).info("Error: " + throwable.getMessage()),
-                () -> LogManager.getLogger(this.getClass()).info("Completed")
-        );
-        TimeUnit.SECONDS.sleep(5);
-
+        StepVerifier
+                .create(new ReactiveProgramming().fluxLimitByTime())
+                .thenConsumeWhile(msg -> true)
+                .expectComplete()
+                .verify(Duration.ofSeconds(2));
     }
 
     @Test
-    void testFluxesMerge() throws InterruptedException {
-        new ReactiveProgramming().fluxesMerge().subscribe(
-                msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg),
-                throwable -> LogManager.getLogger(this.getClass()).info("Error: " + throwable.getMessage()),
-                () -> LogManager.getLogger(this.getClass()).info("Completed")
-        );
-        TimeUnit.SECONDS.sleep(5);
+    void testFluxDelayLimitByTimeBlock() {
+        String last = new ReactiveProgramming().fluxLimitByTime().blockLast();
+        LogManager.getLogger(this.getClass()).info("Completed, last:" + last);
+    }
+
+
+    @Test
+    void testFluxesConcat() {
+        StepVerifier
+                .create(new ReactiveProgramming().fluxesConcat())
+                .expectNext("A0", "A1", "A2", "A3")
+                .thenConsumeWhile(msg -> true)
+                .expectComplete()
+                .verify();
     }
 
     @Test
-    void testFluxesSyncBlock() {
-        new ReactiveProgramming().fluxesSync().block(); // wait for finish
-        LogManager.getLogger(this.getClass()).info("----------- Finish... ");
-    }
-
-    @Test
-    void testFluxesSync() throws InterruptedException {
-        new ReactiveProgramming().fluxesSync().subscribe(
-                msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg),
-                throwable -> LogManager.getLogger(this.getClass()).info("Error: " + throwable.getMessage()),
-                () -> LogManager.getLogger(this.getClass()).info("Completed")
-        );
-        LogManager.getLogger(this.getClass()).info("----------- Subscribed... sleep...");
-        TimeUnit.SECONDS.sleep(5);
+    void testFluxesMerge() {
+        StepVerifier
+                .create(new ReactiveProgramming().fluxesMerge())
+                .expectNext("A0", "A1", "B0", "A2")
+                .thenCancel()
+                .verify();
     }
 
 }

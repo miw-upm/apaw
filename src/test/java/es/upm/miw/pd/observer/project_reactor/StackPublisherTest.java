@@ -1,7 +1,7 @@
 package es.upm.miw.pd.observer.project_reactor;
 
-import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Test;
+import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,12 +10,6 @@ class StackPublisherTest {
     @Test
     void testStack() {
         StackPublisher stackPublisher = new StackPublisher();
-
-        stackPublisher.publisher().subscribe(
-                msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg), //onNext
-                throwable -> LogManager.getLogger(this.getClass()).info("Error: " + throwable.getMessage()), //onError
-                () -> LogManager.getLogger(this.getClass()).info("Completed") //onComplete
-        );
         stackPublisher.add("one");
         stackPublisher.add("two");
         stackPublisher.add("three");
@@ -25,5 +19,16 @@ class StackPublisherTest {
         stackPublisher.add("four");
     }
 
-
+    @Test
+    void testStackPublisher() {
+        StackPublisher stackPublisher = new StackPublisher();
+        StepVerifier
+                .create(stackPublisher.publisher())
+                .then(() -> stackPublisher.add("One"))
+                .expectNext("One")
+                .then(() -> stackPublisher.add("Two"))
+                .expectNext("Two")
+                .thenCancel()
+                .verify();
+    }
 }
