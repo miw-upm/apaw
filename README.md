@@ -79,6 +79,7 @@ Indicar como texto en la subida de la práctica las siguientes URLs:
       * Repasar nombres de clases, métodos, atributos, parámetros y variables.
    * Sencillez del código.
       * Simplificar el código.
+      * Eliminar comentarios.
       * Estructuras anidadas: <3.
       * Complejidad ciclomática: <8-12.
    * Métricas.
