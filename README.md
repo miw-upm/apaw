@@ -31,37 +31,34 @@
 
 ### :book: Diapositivas (/docs)
 * [Diapositivas de Patrones](docs/miw-apaw-diapositivas-pd.pdf)   
-* [Diapositivas de Patrones Web](docs/miw-apaw-diapositivas-web.pdf)
-* [Diapositivas de practica_themes](docs/miw-apaw-diapositivas-ep-themes.pdf)
+* [Diapositivas de Arquitectura](docs/miw-apaw-diapositivas-architecture.pdf)
+* [Diapositivas de la práctica Themes](docs/miw-apaw-diapositivas-ep-themes.pdf) 
 
 ### :movie_camera: Videos (www.youtube.com/miw-upm)
-* [Videos](https://www.youtube.com/playlist?list=PLj2IVmcP-_QNaYYCV7kWMpEBvoXu0JPt-)
-
-### :page_with_curl: Enunciado de la práctica
-* Nombre del proyecto: **apaw-ep-_nombre-apellido_**.
-* Detalles del enunciado en la entrega: `APAW. EP. Diagrama de Clases & API (0%)(OBLIGATORIO)`, junto con su `retroalimentación`.
-   * **Crear el proyecto local y remoto**. **Issue#**. Preparar un proyecto de gestión (tipo **Scrum**) en GitHub.
-   * **Issue#**. Crear el ecosistema completo y las 8 end-points en el proyecto de gestión. **Hito: viernes, 4 de octubre, 16:00**.
-   * **8 x Issues#**. Se deben implementar un **API con 8 end-points**, cada **end-point** asociado a un **issue#** diferente. Deberá tener un GET, PUT, PATCH, DELETE, POST con relación 0..1, POST con relación 0..n y una búsqueda (query). Se debe aplicar la arquitectura dada en la retroalimentación (**layers** VS **resources**).
-      * **Issue#**. **1ª liberación (v1.0.0-release)**, una vez cerrado el **4º end-point**.
-      * **Issue#**. **2ª liberación (v1.1.0-release)**, una vez cerrado el **8º end-point**.
-   * **Issue#**. Aplicar el patrón **Builder**.
-   * **Issue#**. Aplicar el patrón **Composite**.
-   * **Issue#**. Aplicar el patrón **Observer**.
-   * **Issue#**. **3ª liberación (v1.2.0-release)**, una vez cerrado los patrones.
-   * Además, se podrán utilizar las issues adicionales que se consideren convenientes.
+* Lista de reproducción: **APAW (Curso 2019-20). Arquitectura y Patrones para Aplicaciones Web**
 
 ### :dvd: Material de apoyo de la práctica
 *  [Plantilla de la práctica en: _docs/apaw-ep-template.zip_](docs/apaw-ep-template.zip).
 *  [Proyecto de ejemplo: _https://github.com/miw-upm/apaw-ep-themes_](https://github.com/miw-upm/apaw-ep-themes)
 
+### :page_with_curl: Enunciado de la práctica
+* Nombre del proyecto: **apaw-ep-_nombre-apellido_**.
+* Todo el software deberá estar en ingles.
+* Detalles del enunciado en la entrega: `APAW. EP. Diagrama de Clases & API (0%)(OBLIGATORIO)`, junto con su `retroalimentación`.
+* Crear el proyecto local y remoto a partir de la plantilla dada, con el ecosistema completo (Travis-CI, Sonarcloud, Better Code Hub & Heroku, con badges con links).
+* Preparar un proyecto de gestión (tipo **Scrum**) en GitHub, con los 8 end-points, las liberaciones y los patrones.
+* **8 x Issues#**. Se deben implementar un **API con los 8 end-points** dada en la retroalimentación,
+cada **end-point** asociado a un **issue#** diferente, se desarrollarán de forma secuencial.
+Se debe aplicar la arquitectura dada en la retroalimentación (**layers** VS **resources**).
+   * **Issue#**. **1ª liberación (v1.0.0-release)**, una vez cerrado el **8º end-point**.
+* **Issue#**. Aplicar el patrón **Builder** a la clase dada en la retroalimentación.
+* **Issue#**. Aplicar el patrón **Composite** a la clase dada en la retroalimentación.
+* **Issue#**. Aplicar el patrón **Observer** a la clase dada en la retroalimentación.
+   * **Issue#**. **2ª liberación (v1.1.0-release)**, una vez cerrado los patrones.
+* Además, se podrán utilizar las issues adicionales que se consideren convenientes.
+
 ### :clap: Entraga de la práctica
-Indicar como texto en la subida de la práctica las siguientes URLs:
-* URL de GitHub.
-* URL de Travis-CI.
-* URL de Sonarcloud.
-* URL de Better Code Hub.
-* URL del despliegue en Heroku.
+Indicar como texto en la subida la **URL de GitHub**
 > **NOTA. Acordarse de dar al botón de envío**
 
 ### :ballot_box_with_check: Criterios de evaluación (ver rúbrica)
