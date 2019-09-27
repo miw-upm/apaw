@@ -42,19 +42,40 @@
 *  [Proyecto de ejemplo: _https://github.com/miw-upm/apaw-ep-themes_](https://github.com/miw-upm/apaw-ep-themes)
 
 ### :page_with_curl: Enunciado de la práctica
-* Nombre del proyecto: **apaw-ep-_nombre-apellido_**.
+* Nombre del proyecto: :point_up:**apaw-ep-_nombre-apellido_**, :couple: **apaw-ep-_n-apellido-n-apellido_**, :family: **apaw-ep-_n-apellido-n-apellido-n-apellido_**
 * Todo el software deberá estar en ingles.
-* Detalles del enunciado en la entrega: `APAW. EP. Diagrama de Clases & API (0%)(OBLIGATORIO)`, junto con su `retroalimentación`.
+* **Modelo del dominio**. Práctica: `APAW. EP. Diagrama de Clases & API (0%)(OBLIGATORIO)`, junto con su `retroalimentación`.
+   * End-points: al menos un GET, POST, PUT, PATCH, DELETE & /search?q=
+   * :point_up: 5 documentos.
+      * Cada documento: >=2 atributos + [id:String].
+      * Total >= 15 atributos, con al menos LocalDateTime, Boolean, Integer.
+      * Relaciones: 1 sin relación, 1..n, n..1, 1..1 o n..n.
+      * 8 end-points.
+      * 2 Releases.
+      * Patrones: Builder, Composite & Observer.
+   * :couple: 6 documentos.
+      * Cada documento: >=3 atributos + [id:String].
+      * Total >= 23 atributos, con al menos LocalDateTime, Boolean, Integer, Double.
+      * Relaciones: 1 sin relación, 1..n, n..1 & n..n.
+      * 14 end-points (2x7).
+      * 2 Releases (2x1).
+      * Patrones: Builder, Composite & 2X-Observer (a repartir).
+   * :family: 7 documentos.
+      * Cada documento: >=3 atributos + [id:String].
+      * Total >= 28 atributos, con al menos LocalDateTime, Boolean, Integer, Double.
+      * Relaciones: 1 sin relación, 1..n, n..1 & n..n.
+      * 21 end-points (3x7).
+      * 3 Releases (3x1).
+      * Patrones: Singleton, Builder, Composite & 3X-Observer (a repartir).
 * Crear el proyecto local y remoto a partir de la plantilla dada, con el ecosistema completo (Travis-CI, Sonarcloud, Better Code Hub & Heroku, con badges con links).
-* Preparar un proyecto de gestión (tipo **Scrum**) en GitHub, con los 8 end-points, las liberaciones y los patrones.
-* **8 x Issues#**. Se deben implementar un **API con los 8 end-points** dada en la retroalimentación,
-cada **end-point** asociado a un **issue#** diferente, se desarrollarán de forma secuencial.
+* Preparar un proyecto de gestión (tipo **Scrum**) en GitHub, con los end-points, las liberaciones y los patrones.
+* Se deben implementar un **API con los end-points** dada en la retroalimentación,
+cada **end-point** asociado a un **issue#** diferente, cada miembro del equipo lo hace de forma secuencial.
 Se debe aplicar la arquitectura dada en la retroalimentación (**layers** VS **resources**).
-   * **Issue#**. **1ª liberación (v1.0.0-release)**, una vez cerrado el **8º end-point**.
-* **Issue#**. Aplicar el patrón **Builder** a la clase dada en la retroalimentación.
-* **Issue#**. Aplicar el patrón **Composite** a la clase dada en la retroalimentación.
-* **Issue#**. Aplicar el patrón **Observer** a la clase dada en la retroalimentación.
-   * **Issue#**. **2ª liberación (v1.1.0-release)**, una vez cerrado los patrones.
+   * :point_up: & :couple: **Issue#**. **1ª liberación (v1.0.0-release)**, una vez cerrado los **end-points**.
+   * :family: **Issue#**. **1ª liberación** & **2ª liberación**, a mitad y al final de los **end-points**.
+* Aplicar patrones, a repartir entre el equipo y un **issue#** por patrón.
+* **Issue#**. **última liberación (v1.x.0-release)**, una vez cerrado los patrones.
 * Además, se podrán utilizar las issues adicionales que se consideren convenientes.
 
 ### :clap: Entraga de la práctica
