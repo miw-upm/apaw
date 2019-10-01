@@ -6,7 +6,7 @@ import reactor.test.StepVerifier;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-class StockFactoryTest {
+class StockFactoryPublisherTest {
 
     @Test
     void testAdd() {
@@ -31,4 +31,29 @@ class StockFactoryTest {
                 .thenCancel()
                 .verify();
     }
+
+    @Test
+    void testPeriodicFluxOfNegativeStockPublisher() {
+        StockFactoryPublisher stockFactoryPublisher = new StockFactoryPublisher();
+        stockFactoryPublisher.sum(10, -5);
+        stockFactoryPublisher.sum(12, -5);
+        stockFactoryPublisher.periodicFluxOfNegativeStockPublisher().subscribe(msg -> System.out.println(msg));
+        stockFactoryPublisher.periodicFluxOfNegativeStockPublisher().blockLast();
+    }
+
+    @Test
+    void testStockOf5NegativeReferencesPublisher() {
+        StockFactoryPublisher stockFactoryPublisher = new StockFactoryPublisher();
+        StepVerifier
+                .create(stockFactoryPublisher.stockOf5NegativeReferencesPublisher())
+                .then(() -> stockFactoryPublisher.sum(10, -5))
+                .then(() -> stockFactoryPublisher.sum(11, -6))
+                .then(() -> stockFactoryPublisher.sum(12, -4))
+                .then(() -> stockFactoryPublisher.sum(13, -2))
+                .then(() -> stockFactoryPublisher.sum(14, -3))
+                .expectNext(5L)
+                .thenCancel()
+                .verify();
+    }
+
 }
