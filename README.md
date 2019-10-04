@@ -64,7 +64,7 @@
       * Cada documento: >=3 atributos + [id:String].
       * Total >= 28 atributos, con al menos LocalDateTime, Boolean, Integer, Double.
       * Relaciones: 1 sin relación, 1..n, n..1 & n..n.
-      * 21 end-points (3x7).
+      * 18 end-points (3x6).
       * 3 Releases (3x1).
       * Patrones: Singleton, Builder, Composite & 3X-Observer (a repartir).
 * Crear el proyecto local y remoto a partir de la plantilla dada, con el ecosistema completo (Travis-CI, Sonarcloud, Better Code Hub & Heroku, con badges con links).
