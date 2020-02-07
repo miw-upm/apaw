@@ -8,7 +8,11 @@ import java.time.Duration;
 
 public class ReactiveProgramming {
 
-    public Mono<Void> monoEmpty() {
+    public Mono<Void> monoVoidEmpty() {
+        return Mono.empty();
+    }
+
+    public Mono<String> monoStringEmpty() {
         return Mono.empty();
     }
 
@@ -20,8 +24,32 @@ public class ReactiveProgramming {
         return Mono.error(new RuntimeException("mono-error"));
     }
 
+    public Mono<String> changeFromMono01ToMonoError1(Mono<String> mono) {
+        return mono.switchIfEmpty(Mono.error(new RuntimeException("mono-error")));
+    }
+
+    public Mono<Void> changeFromMono01ToMono0Error(Mono<String> mono) {
+        return mono.handle((item, sink) -> sink.error(new RuntimeException("mono-error")));
+    }
+
     public Mono<String> monoDelay() {
         return Mono.delay(Duration.ofSeconds(1)).map(value -> "One");
+    }
+
+    public Mono<Void> emptySynchronize(Mono<?>... monoList) {
+        return Mono.when(monoList);
+    }
+
+    public Mono<String> synchronizeWithZip(Mono<String> mono, Mono<String> event) {
+        return mono.zipWith(event, (p1, p2) -> p1);
+    }
+
+    public Flux<String> synchronizeWithEvent(Mono<String> mono, Mono<String> event) {
+        return mono.mergeWith(event);
+    }
+
+    public Flux<String> concatEventWithMono(Mono<String> event, Mono<String> mono) {
+        return event.concatWith(mono);
     }
 
     public Flux<String> fluxDemo() {
