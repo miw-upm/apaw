@@ -4,7 +4,7 @@ import java.util.List;
 
 public class User {
 
-    private int id;
+    private String id;
 
     private String nick;
 
@@ -20,12 +20,12 @@ public class User {
 
     private List<String> tags;
 
-    public User(int id, String nick) {
+    public User(String id, String nick) {
         this.id = id;
         this.nick = nick;
     }
 
-    public User(int id, String nick, String name, String familyName, int age, int phone, String profession, List<String> tags) {
+    public User(String id, String nick, String name, String familyName, int age, int phone, String profession, List<String> tags) {
         this(id, nick);
         this.name = name;
         this.familyName = familyName;
@@ -35,12 +35,12 @@ public class User {
         this.tags = tags;
     }
 
-    public User(int id, String nick, String name) {
+    public User(String id, String nick, String name) {
         this(id, nick);
         this.name = name;
     }
 
-    public User(int id, String nick, String name, String familyName, int phone) {
+    public User(String id, String nick, String name, String familyName, int phone) {
         this(id, nick, name, familyName, 0, phone, null, null);
     }
 
@@ -101,12 +101,21 @@ public class User {
         this.tags = tags;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public boolean tagContains(String tag) {
-        return this.tags != null && tags.contains(tag);
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", nick='" + nick + '\'' +
+                ", name='" + name + '\'' +
+                ", familyName='" + familyName + '\'' +
+                ", age=" + age +
+                ", phone=" + phone +
+                ", profession='" + profession + '\'' +
+                ", tags=" + tags +
+                '}';
     }
-
 }

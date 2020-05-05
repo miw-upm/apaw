@@ -17,7 +17,7 @@ class LambdaTest {
     @Test
     void testFunction() {
         List<Integer> list1 = Stream.of("1", "2", "3").map(new Lambda().function()).collect(Collectors.toList());
-        List<Integer> list2 = Stream.of("1", "2", "3").map(Integer::new).collect(Collectors.toList());
+        List<Integer> list2 = Stream.of("1", "2", "3").map(Integer::valueOf).collect(Collectors.toList());
         LogManager.getLogger(this.getClass()).info("Function: " + list1 + ", " + list2);
     }
 

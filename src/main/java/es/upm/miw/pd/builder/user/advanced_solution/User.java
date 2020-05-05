@@ -1,4 +1,4 @@
-package es.upm.miw.pd.builder.user.solution;
+package es.upm.miw.pd.builder.user.advanced_solution;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +25,8 @@ public class User {
         //empty
     }
 
-    public static Builder builder(String id, String nick, String name) {
-        return new Builder(id, nick, name);
+    public static UserBuilders.Id builder() {
+        return new Builder();
     }
 
     public String getNick() {
@@ -93,47 +93,58 @@ public class User {
         return this.tags != null && tags.contains(tag);
     }
 
-    public static class Builder {
+    public static class Builder implements UserBuilders.Id, UserBuilders.Name, UserBuilders.Nick, UserBuilders.Optionals {
 
         private User user;
 
-        private Builder(String id, String nick, String name) {
+        public Builder() {
             this.user = new User();
-            this.user.id = id;
-            this.user.nick = nick;
-            this.user.name = name;
         }
 
-        public Builder name(String name) {
+        @Override
+        public UserBuilders.Nick id(String id) {
+            this.user.id = id;
+            return this;
+        }
+
+        @Override
+        public UserBuilders.Name nick(String nick) {
+            this.user.nick = nick;
+            return this;
+        }
+
+        @Override
+        public UserBuilders.Optionals name(String name) {
             this.user.name = name;
             return this;
         }
 
-        public Builder familyName(String familyName) {
+        @Override
+        public UserBuilders.Optionals familyName(String familyName) {
             this.user.familyName = familyName;
             return this;
         }
 
-        public Builder age(int age) {
+        @Override
+        public UserBuilders.Optionals age(int age) {
             this.user.age = age;
             return this;
         }
 
-        public Builder adult() {
-            return this.age(18);
-        }
-
-        public Builder phone(int phone) {
+        @Override
+        public UserBuilders.Optionals phone(int phone) {
             this.user.phone = phone;
             return this;
         }
 
-        public Builder profession(String profession) {
+        @Override
+        public UserBuilders.Optionals profession(String profession) {
             this.user.profession = profession;
             return this;
         }
 
-        public Builder tag(String tag) {
+        @Override
+        public UserBuilders.Optionals tag(String tag) {
             if (this.user.tags == null) {
                 this.user.tags = new ArrayList<String>();
             }
@@ -141,6 +152,7 @@ public class User {
             return this;
         }
 
+        @Override
         public User build() {
             return this.user;
         }

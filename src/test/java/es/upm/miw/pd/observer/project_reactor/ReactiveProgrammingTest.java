@@ -129,7 +129,6 @@ class ReactiveProgrammingTest {
         StepVerifier
                 .create(new ReactiveProgramming().synchronizeWithZip(
                         Mono.just("one"), Mono.empty()))
-                .expectNext("one")
                 .expectComplete()
                 .verify();
     }

@@ -1,4 +1,4 @@
-package es.upm.miw.pd.builder.user.solution;
+package es.upm.miw.pd.builder.user.advanced_solution;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,8 +8,18 @@ public class UserTest {
 
     @Test
     void testFull() {
-        User user = User.builder("1", "Paco", "Jose").familyName("De Miguel").phone(666666666).adult()
-                .profession("Profesor").tag("Director").tag("socio").tag("Consejo").build();
+        User user = User.builder()
+                .id("1")
+                .nick("Paco")
+                .name("Jose")
+                .familyName("De Miguel")
+                .phone(666666666)
+                .age(18)
+                .profession("Profesor")
+                .tag("Director")
+                .tag("socio")
+                .tag("Consejo")
+                .build();
         assertEquals("1", user.getId());
         assertEquals("Paco", user.getNick());
         assertEquals("Jose", user.getName());
