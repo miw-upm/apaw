@@ -1,6 +1,6 @@
 ## [Máster en Ingeniería Web por la Universidad Politécnica de Madrid (miw-upm)](http://miw.etsisi.upm.es)
 ## Arquitectura y Patrones para Aplicaciones Web
-> Este proyecto es un apoyo docente de la asignatura
+> Este proyecto es un apoyo docente de la asignatura. Cada release liberada corresponde al código utilizado en clase del curso indicado
 
 ### Estado del código
 
@@ -9,89 +9,55 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/miw-upm/apaw?branch=develop)](https://bettercodehub.com/)
 
 ### Tecnologías necesarias
-* Java
-* Maven
-* Spring
-* GitHub
-* Travis-ci
-* Sonarcloud
-* Bettercodehub
-* Heroku
+`Java` `Maven` `GitHub` `Travis-ci` `Sonarcloud` `Better Code Hub` `Slack` `Spring-boot` `Heroku` `OpenAPI`
 
 ### :gear: Instalación del proyecto
-1. Clonar en repositorio en tu equipo mediante consola:
-  1. Situarse en una carpeta raíz donde se encuentran los proyectos, mediante la consola:  
-     **>cd %ruta-de-la-carpeta%**
-  1. Clonar el repositorio, se visualizará el contenido de la rama por defecto:  
-     **>git clone https://github.com/miw-upm/apaw**
+1. Clonar el repositorio en tu equipo, **mediante consola**:
+```sh
+> cd <folder path>
+> git clone https://github.com/miw-upm/apaw
+```
+2. Importar el proyecto mediante **IntelliJ IDEA**
+   1. **Import Project**, y seleccionar la carpeta del proyecto.
+   1. Marcar **Create Project from external model**, elegir **Maven**.
+   1. **Next** … **Finish**.
 
-2. Importar el proyecto mediante IntelliJ IDEA
-  1. **Import Project**, y seleccionar la carpeta del proyecto
-  1. Marcar **Create Project from external model**, elegir **Maven**
-  1. **Next** … **Finish**
 
 ### :book: Diapositivas (/docs)
-* [Diapositivas de Patrones](docs/miw-apaw-diapositivas-pd.pdf)   
-* [Diapositivas de Arquitectura](docs/miw-apaw-diapositivas-architecture.pdf)
-* [Diapositivas de la práctica Themes](docs/miw-apaw-diapositivas-ep-themes.pdf) 
+* [Diapositivas en docs/miw-apaw-slides.pdf](docs/miw-apaw-slides.pdf)   
 
 ### :movie_camera: Videos (www.youtube.com/miw-upm)
-* Lista de reproducción: **APAW (Curso 2019-20). Arquitectura y Patrones para Aplicaciones Web**
-
-### :dvd: Material de apoyo de la práctica
-*  [Plantilla de la práctica en: _docs/apaw-ep-template.zip_](docs/apaw-ep-template.zip).
-*  [Proyecto de ejemplo: _https://github.com/miw-upm/apaw-ep-themes_](https://github.com/miw-upm/apaw-ep-themes)
+* Lista de reproducción: **APAW (Curso 2020-21). Arquitectura y Patrones para Aplicaciones Web**
 
 ### :page_with_curl: Enunciado de la práctica
-* Nombre del proyecto: :point_up:**apaw-ep-_nombre-apellido_**, :couple: **apaw-ep-_n-apellido-n-apellido_**, :family: **apaw-ep-_n-apellido-n-apellido-n-apellido_**
-* Todo el software deberá estar en ingles.
-* **Modelo del dominio**. Práctica: `APAW. EP. Diagrama de Clases & API (0%)(OBLIGATORIO)`, junto con su `retroalimentación`.
-   * End-points: al menos un GET, POST, PUT, PATCH, DELETE & /search?q=
-   * :point_up: 5 documentos.
-      * Cada documento: >=2 atributos + [id:String].
-      * Total >= 15 atributos, con al menos LocalDateTime, Boolean, Integer.
-      * Relaciones: 1 sin relación, 1..n, n..1, 1..1 o n..n.
-      * 8 end-points.
-      * 2 Releases.
-      * Patrones: Builder, Composite & Observer.
-   * :couple: 6 documentos.
-      * Cada documento: >=3 atributos + [id:String].
-      * Total >= 23 atributos, con al menos LocalDateTime, Boolean, Integer, Double.
-      * Relaciones: 1 sin relación, 1..n, n..1 & n..n.
-      * 14 end-points (2x7).
-      * 2 Releases (2x1).
-      * Patrones: Builder, Composite & 2X-Observer (a repartir).
-   * :family: 7 documentos.
-      * Cada documento: >=3 atributos + [id:String].
-      * Total >= 28 atributos, con al menos LocalDateTime, Boolean, Integer, Double.
-      * Relaciones: 1 sin relación, 1..n, n..1 & n..n.
-      * 18 end-points (3x6).
-      * 3 Releases (3x1).
-      * Patrones: Singleton, Builder, Composite & 3X-Observer (a repartir).
-* Crear el proyecto local y remoto a partir de la plantilla dada, con el ecosistema completo (Travis-CI, Sonarcloud, Better Code Hub & Heroku, con badges con links).
-* Preparar un proyecto de gestión (tipo **Scrum**) en GitHub, con los end-points, las liberaciones y los patrones.
-* Se deben implementar un **API con los end-points** dada en la retroalimentación,
-cada **end-point** asociado a un **issue#** diferente, cada miembro del equipo lo hace de forma secuencial.
-Se debe aplicar la arquitectura dada en la retroalimentación (**layers** VS **resources**).
-   * :point_up: & :couple: **Issue#**. **1ª liberación (v1.0.0-release)**, una vez cerrado los **end-points**.
-   * :family: **Issue#**. **1ª liberación** & **2ª liberación**, a mitad y al final de los **end-points**.
-* Aplicar patrones, a repartir entre el equipo y un **issue#** por patrón.
-* **Issue#**. **última liberación (v1.x.0-release)**, una vez cerrado los patrones.
-* Además, se podrán utilizar las issues adicionales que se consideren convenientes.
+> La practica consiste en ampliar de forma colaborativa una aplicación: https://github.com/miw-upm/apaw-practice.  
+> **NOTA. Todo el software deberá estar en ingles.**
 
-### :clap: Entraga de la práctica
-Indicar como texto en la subida la **URL de GitHub**
-> **NOTA. Acordarse de dar al botón de envío**
+#### 1. Clonar el proyecto y crear una etiqueta en GitHub con el nombre de la ampliación,
+por ejemplo: `story:sport`, `story:team`... no puede haber repetidas
 
-### :ballot_box_with_check: Criterios de evaluación (ver rúbrica)
-* Completud y corrección de lo entregado respecto al enunciado.
-* Adecuación de la temporalidad de desarrollo según el enunciado.
-* Mantenimiento de calidad del código (Travis-CI, Sonar, Better Code Hub,...).
-* Uso correcto del flujo de trabajo ramificado (Git Workflow).
-* Commits correctos y completos.
-* Gestión adecuada y completa (Scrum, uso de issues, estimación, tiempo real...) durante el desarrollo.
-* Planificación temporal adecuada y equilibrada en el desarrollo.
-* Calidad del código. Todos los aspectos vistos en teoría, y poniendo espeacial enfásis en:
+#### 2. Diseñar el Modelo de Entidades (1 pto) 
+Crear un **:one: issue#** para resolverlo y una vez finalizado e incorporado a **develop**, se debe avisar al profesor mediante **Slack**,
+si es correcto el **profesor cerrará** la tarea y se podrá continuar, sino, se resolverá mediante el foro del issue en GitHub
+
+* Crear 4 documentos. No puede haber 2 documentos con el mismo nombre en toda la aplicación.
+   * Cada documento: >=2 atributos + [id:String].
+   * Total >= 16 atributos, con al menos LocalDateTime, Boolean y uno numérico (Integer, Double, Long o BigDecimal).
+   * Los atributos para manejo de dinero deben ser BigDecimal.
+   * Relaciones necesarias: 1..n, n..1 y n..n.
+* Crear los DAOs (Repositorios).
+* Crear una clase para poblar las BD: **Seeder&lt;_Story_>Service** e integrarlo con **DatabaseSeederService**.
+
+#### 3. Crear 5 end-points (mediante :two:..:six: issue#): **GET, POST, PUT, PATCH Y DELETE** repartidos entre los documentos (PATCH: 1 pto, resto: 0,75 ptos)
+
+#### 4. Una vez finalizado los cinco issues anteriores, se debe avisar al profesor por **Slack**, y el profesor añadirá (5 ptos):
+* :seven:..:eight: issues# para realizar end-points de búsquedas.
+* :nine:..:keycap_ten: issues# con la aplicación de dos patrones.
+
+### :white_check_mark: Criterios de evaluación
+* Uso correcto del flujo de trabajo ramificado. **Hasta -3 ptos**. 
+* Adecuación de la temporalidad de desarrollo según el enunciado. **Hasta -3 ptos**. 
+* Mantenimiento de calidad del código según Travis-CI y Sonar. Cobertura >= 80%. **Hasta -3 ptos**. Todos los aspectos vistos en teoría, y poniendo espeacial enfásis en:
    * Formatear.
       * Herramienta del IDE.
       * Líneas en blanco.
@@ -105,9 +71,14 @@ Indicar como texto en la subida la **URL de GitHub**
    * Métricas.
       * Paquete: <20 clases.
       * Clases: <500-200 líneas, <20 métodos.
-      * Métodos: <3-5 parámetros, <15 líneas.
-      * Cobertura de test: >80%.
+      * Métodos: <3-4 parámetros, <15 líneas.
    * Eliminar redundancias (copy & paste).
    * Eliminar código muerto.
    * Tratamiento de errores. 
    * Calidad de la arquitectura (GRASP, SOLID, **patrones**...).
+* Gestión adecuada, completa y equlibrada (estimación, tiempo real...) durante el desarrollo. **Hasta -2 ptos**. 
+* Uso del ingles. **Hasta -1 pto**.
+
+### :clap: Entraga de la práctica
+Indicar como texto en la subida en nombre de la historía y la cuenta de GitHub.
+> **NOTA. Acordarse de dar al botón de envío.**

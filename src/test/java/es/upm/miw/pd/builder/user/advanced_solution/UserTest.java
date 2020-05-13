@@ -30,4 +30,14 @@ public class UserTest {
         assertEquals(3, user.getTags().size());
     }
 
+    @Test
+    void testPartial() {
+        User user = User.builder().id("1").nick("Paco").name("Jose").tag("Director").age(18).build();
+        assertEquals("1", user.getId());
+        assertEquals("Paco", user.getNick());
+        assertEquals("Jose", user.getName());
+        assertEquals(18, user.getAge());
+        assertEquals(1, user.getTags().size());
+    }
+
 }

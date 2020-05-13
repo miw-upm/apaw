@@ -8,7 +8,6 @@ public interface UserBuilders {
 
     interface Nick {
         Name nick(String nick);
-
     }
 
     interface Name {

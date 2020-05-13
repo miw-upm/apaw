@@ -12,11 +12,11 @@ public class FiguresManager {
     }
 
     public Figure getFigure() {
-        return figure;
+        return this.figure;
     }
 
     public FigureType getType() {
-        return type;
+        return this.type;
     }
 
     public void createFigure() {
