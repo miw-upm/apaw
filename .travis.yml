@@ -8,8 +8,7 @@ notifications:
   email:
     recipients:
     - j.bernal@upm.es
+install:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-# Unit Test & Integration Test
-- mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify
-# Calidad codigo: Sonarcloud
-- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=miw-upm-github -Dsonar.login=$SONAR
+  - mvn verify sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=miw-upm-github -Dsonar.login=$SONAR

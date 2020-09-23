@@ -98,7 +98,7 @@ class ReactiveServiceTest {
         StepVerifier
                 .create(new ReactiveService().merge(Flux.just("0", "1"), Flux.just("2", "3")))
                 .expectNextMatches(item -> "0".equals(item) || "2".equals(item))
-                .expectNext("3")
+                .expectNextCount(3)
                 .expectComplete()
                 .verify();
     }
