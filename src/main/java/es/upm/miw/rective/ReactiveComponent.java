@@ -7,8 +7,8 @@ public class ReactiveComponent {
 
     public void endOfChain(Flux<Integer> flux) {
         flux.subscribe(
-                msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg), //onNext
-                throwable -> LogManager.getLogger(this.getClass()).info("Error: " + throwable.getMessage()), //onError
+                msg -> LogManager.getLogger(this.getClass()).info("Consumer: {}", msg), //onNext
+                throwable -> LogManager.getLogger(this.getClass()).info("Error: {}", throwable.getMessage()), //onError
                 () -> LogManager.getLogger(this.getClass()).info("Completed") //onComplete
         );
     }

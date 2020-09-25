@@ -1,8 +1,0 @@
-{
-  "_id": "key-1",
-  "type": "tipo",
-  "user": DBRef(
-  "user",
-  "user-key-1"
-  )
-}

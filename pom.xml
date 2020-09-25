@@ -51,9 +51,9 @@
 		<!-- coverage report -->
 		<jacoco.version>0.8.5</jacoco.version>
 		<!-- Logs -->
-		<log4j.version>2.13.2</log4j.version>
+        <log4j.version>2.13.3</log4j.version>
 		<!-- project reactor -->
-		<projectreactor.version>3.3.5.RELEASE</projectreactor.version>
+        <projectreactor.version>3.3.10.RELEASE</projectreactor.version>
 	</properties>
 
 	<dependencies>

@@ -33,12 +33,15 @@
 > La practica consiste en ampliar de forma colaborativa una aplicación: https://github.com/miw-upm/apaw-practice.  
 > **NOTA. Todo el software deberá estar en ingles.**
 
-#### 1. Clonar el proyecto y crear una etiqueta en GitHub con el nombre de la ampliación,
-por ejemplo: `story:sport`, `story:team`... no puede haber repetidas
+#### 1. Clonar el proyecto y crear una etiqueta en GitHub con el nombre de la ampliación
+Por ejemplo: `story:sport`, `story:team`... no puede haber repetidas. En todos los issues# creados, se deberá asociar dicha etiqueta,
+además de la etiquite de estimación (puntos).
 
 #### 2. Diseñar el Modelo de Entidades (1 pto) 
-Crear un **:one: issue#** para resolverlo y una vez finalizado e incorporado a **develop**, se debe avisar al profesor mediante **Slack**,
-si es correcto el **profesor cerrará** la tarea y se podrá continuar, sino, se resolverá mediante el foro del issue en GitHub
+Crear un **:one: issue#** (por ejemplo: **Team entities model**) para resolverlo 
+y una vez finalizado e incorporado a **develop** y añadido el tiempo consumido, 
+se debe avisar al profesor mediante **Slack**,
+si es correcto el **profesor cerrará** la tarea y se podrá continuar, sino, se resolverá mediante el foro del issue en GitHub.
 
 * Crear 4 documentos. No puede haber 2 documentos con el mismo nombre en toda la aplicación.
    * Cada documento: >=2 atributos + [id:String].
@@ -76,7 +79,7 @@ si es correcto el **profesor cerrará** la tarea y se podrá continuar, sino, se
    * Eliminar código muerto.
    * Tratamiento de errores. 
    * Calidad de la arquitectura (GRASP, SOLID, **patrones**...).
-* Gestión adecuada, completa y equlibrada (estimación, tiempo real...) durante el desarrollo. **Hasta -2 ptos**. 
+* Gestión adecuada, completa y equilibrada (estimación, tiempo real...) durante el desarrollo. **Hasta -3 ptos**. 
 * Uso del ingles. **Hasta -1 pto**.
 
 ### :clap: Entraga de la práctica
