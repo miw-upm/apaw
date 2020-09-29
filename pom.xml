@@ -5,7 +5,7 @@
 
 	<artifactId>apaw</artifactId>
 	<groupId>es.upm.miw</groupId>
-	<version>1.4.0-SNAPSHOT</version>
+    <version>1.4.0-Release</version>
 	<packaging>jar</packaging>
 
 	<name>${project.groupId}.${project.artifactId}</name>
