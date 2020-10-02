@@ -6,9 +6,20 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class ReactiveServiceTest {
+
+    @Test
+    void testConvertToIntegerSynchronous() {
+        assertEquals(Arrays.asList(1, 2, 3),
+                new ReactiveService().convertToInteger(Stream.of("1", "2", "3")).collect(Collectors.toList())
+        );
+    }
 
     @Test
     void testConvertToInteger() {

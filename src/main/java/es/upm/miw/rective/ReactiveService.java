@@ -8,6 +8,10 @@ import java.util.stream.Stream;
 
 public class ReactiveService {
 
+    public Stream<Integer> convertToInteger(Stream<String> stream) {
+        return stream.map(Integer::valueOf);
+    }
+
     public Flux<Integer> convertToInteger(Flux<String> flux) {
         return flux.map(Integer::valueOf);
     }
