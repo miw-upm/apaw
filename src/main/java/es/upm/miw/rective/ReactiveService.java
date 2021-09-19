@@ -4,6 +4,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.util.function.Tuple2;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -15,6 +16,10 @@ public class ReactiveService {
 
     public Flux<Integer> convertToInteger(Flux<String> flux) {
         return flux.map(Integer::valueOf);
+    }
+
+    public Flux<Integer> convertToIntegerFlatMap(Flux<String> flux) {
+        return flux.flatMap(string -> Mono.just(Integer.valueOf(string)));
     }
 
     public Mono<Integer> transformToNumber(Mono<String> mono) {
@@ -81,6 +86,43 @@ public class ReactiveService {
 
     public Mono<Integer> sum(Flux<Integer> flux) {
         return flux.reduce(0, Integer::sum);
+    }
+
+    public Mono<User> chain(User user) {
+        Mono<Void> delay = Flux.interval(Duration.ofMillis(150))
+                .doOnNext(value -> System.out.println(">> delay: " + value))
+                .take(5)
+                .then();
+        Mono<User> userMono = Mono.just("666").delayElement(Duration.ofMillis(100))
+                .map(mobile -> {
+                    System.out.println(">> delayMobile: " + mobile);
+                    user.setMobile(mobile);
+                    return user;
+                });
+        Mono<Void> noRun = Mono.just("666").delayElement(Duration.ofMillis(100))
+                .doOnNext(value -> System.out.println(">> noRun: " + value))
+                .then();
+        Mono<Void> neitherRun = this.subUser(user).then(); //Si se realiza la llamada
+
+        Mono<User> user2Mono = userMono
+                .flatMap(this::subUser);
+
+        return Mono.when(delay).then(user2Mono)
+                .doOnNext(user1 -> System.out.println(">> user1: " + user1));
+    }
+
+    private Mono<User> subUser(User user) {
+        System.out.println(">> subUser: " + user);
+        return Mono.just(user).delayElement(Duration.ofMillis(100));
+    }
+
+    public Mono<User> justOrEmpty(String mobile) {
+        return Mono.justOrEmpty(mobile)
+                .map(mobile2 -> {
+                    User user = new User();
+                    user.setMobile(mobile2);
+                    return user;
+                });
     }
 
 }

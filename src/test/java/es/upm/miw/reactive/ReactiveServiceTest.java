@@ -1,6 +1,7 @@
 package es.upm.miw.reactive;
 
 import es.upm.miw.rective.ReactiveService;
+import es.upm.miw.rective.User;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -25,6 +26,16 @@ class ReactiveServiceTest {
     void testConvertToInteger() {
         StepVerifier
                 .create(new ReactiveService().convertToInteger(Flux.just("2", "4", "9")))
+                .expectNext(2)
+                .expectNext(4, 9)
+                .expectComplete()
+                .verify();
+    }
+
+    @Test
+    void testConvertToIntegerFlatMap() {
+        StepVerifier
+                .create(new ReactiveService().convertToIntegerFlatMap(Flux.just("2", "4", "9")))
                 .expectNext(2)
                 .expectNext(4, 9)
                 .expectComplete()
@@ -199,5 +210,20 @@ class ReactiveServiceTest {
                 .verify();
     }
 
+    @Test
+    void testChain() {
+        StepVerifier
+                .create(new ReactiveService().chain(new User()))
+                .consumeNextWith(user -> System.out.println(user.getMobile()))
+                .verifyComplete();
+    }
+
+    @Test
+    void testJustOrEmpty() {
+        StepVerifier
+                .create(new ReactiveService().justOrEmpty(null))
+                //.consumeNextWith(System.out::println)
+                .verifyComplete();
+    }
 
 }

@@ -3,8 +3,7 @@
 > Este proyecto es un apoyo docente de la asignatura. Cada release liberada corresponde al código utilizado en clase del curso indicado
 
 ### Estado del código
-
-[![Build Status](https://travis-ci.org/miw-upm/apaw.svg?branch=develop)](https://travis-ci.org/miw-upm/apaw)
+[![DevOps](https://github.com/miw-upm/apaw/actions/workflows/test-sonar.yml/badge.svg)](https://github.com/miw-upm/apaw/actions/workflows/test-sonar.yml)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3Aapaw&metric=alert_status)](https://sonarcloud.io/dashboard?id=es.upm.miw%3Aapaw)
 [![BCH compliance](https://bettercodehub.com/edge/badge/miw-upm/apaw?branch=develop)](https://bettercodehub.com/)
 
@@ -27,7 +26,8 @@
 * [Diapositivas en docs/miw-apaw-slides.pdf](docs/miw-apaw-slides.pdf)   
 
 ### :movie_camera: Videos (www.youtube.com/miw-upm)
-* Lista de reproducción: **APAW (Curso 2020-21). Arquitectura y Patrones para Aplicaciones Web**
+
+* Lista de reproducción: **APAW. Arquitectura y Patrones para Aplicaciones Web**
 
 ### :page_with_curl: Enunciado de la práctica
 > La practica consiste en ampliar de forma colaborativa una aplicación: https://github.com/miw-upm/apaw-practice.  
