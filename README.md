@@ -46,7 +46,7 @@ Crear un **:one: issue#** (por ejemplo: **Team model**). Debe colocarse el diagr
 del issue y debe estar **siempre actualizado**. Para resolverlo se utilizará un flujo de trabajo ramificado, y una vez
 finalizado e incorporado a **develop** y añadido el **tiempo consumido**, se debe avisar al profesor mediante
 **Slack** dando en el mensaje privado la **url del issue**, si es correcto el **profesor autorizará** el cierre del
-issue se podrá continuar, sino, se deberán realizar los cambios.
+issue y se podrá continuar, sino, se deberán realizar los cambios.
 
 * Crear 4 documentos. No puede haber 2 documentos, con el mismo nombre en toda la aplicación, ni dos atributos dentro de
   la misma práctica.
@@ -59,7 +59,7 @@ issue se podrá continuar, sino, se deberán realizar los cambios.
 
 * Crear el modelo de entidades.
 * Crear los DAOs (Repositorios).
-* Crear una clase para poblar las BD: **Seeder&lt;_Story_>Service** e integrarlo con **DatabaseSeederService**.
+* Crear una clase para poblar las BD: **&lt;_Story_>SeederService** e integrarlo con **DatabaseSeederService**.
 
 #### 4. Crear 5 end-points (mediante :three:..:seven: issue#) (4 ptos)
 

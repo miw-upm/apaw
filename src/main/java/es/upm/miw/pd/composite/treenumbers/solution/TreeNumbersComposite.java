@@ -27,12 +27,17 @@ public class TreeNumbersComposite implements TreeNumbers {
 
     @Override
     public int sum() {
-        return this.treeNumbersList.stream().mapToInt(TreeNumbers::sum).sum();
+        return this.treeNumbersList.stream()
+                .mapToInt(TreeNumbers::sum)
+                .sum();
     }
 
     @Override
     public int higher() {
-        return this.treeNumbersList.stream().mapToInt(TreeNumbers::higher).max().orElseThrow(NoSuchElementException::new);
+        return this.treeNumbersList.stream()
+                .mapToInt(TreeNumbers::higher)
+                .max()
+                .orElseThrow(NoSuchElementException::new);
     }
 
     @Override
