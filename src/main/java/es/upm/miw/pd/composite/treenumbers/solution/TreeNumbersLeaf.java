@@ -1,7 +1,7 @@
 package es.upm.miw.pd.composite.treenumbers.solution;
 
 public class TreeNumbersLeaf implements TreeNumbers {
-    private int valor;
+    private final int valor;
 
     public TreeNumbersLeaf(int valor) {
         this.valor = valor;

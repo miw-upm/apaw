@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Article {
 
-    private long id;
+    private final long id;
 
     private List<Long> phones;
 
@@ -97,7 +97,7 @@ public class Article {
     }
 
     public static class Builder {
-        private Article article;
+        private final Article article;
 
         public Builder(long id) {
             this.article = new Article(id);
@@ -146,7 +146,6 @@ public class Article {
         public Article build() {
             return article;
         }
-
 
     }
 

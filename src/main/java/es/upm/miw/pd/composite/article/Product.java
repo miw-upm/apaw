@@ -2,7 +2,7 @@ package es.upm.miw.pd.composite.article;
 
 public abstract class Product {
 
-    private int id;
+    private final int id;
 
     private String reference;
 

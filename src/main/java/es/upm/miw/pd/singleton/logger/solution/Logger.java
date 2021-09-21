@@ -25,7 +25,7 @@ public final class Logger {
     }
 
     public void clear() {
-        this.logs = new Date().toString() + "\n";
+        this.logs = new Date() + "\n";
     }
 
 }

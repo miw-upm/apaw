@@ -9,14 +9,15 @@ class PublisherNewsTest {
     @Test
     void testSubscribe() {
         PublisherNews publisherNew = new PublisherNews();
-        Consumer<String> subcriptor = System.out::println;
-        publisherNew.subscribe(subcriptor);
+        Consumer<String> subscript = msg -> System.out.println("one: " + msg);
+        publisherNew.subscribe(subscript);
+        publisherNew.subscribe(msg -> System.out.println("two: " + msg));
         publisherNew.next("test1");
         publisherNew.next("test2");
         publisherNew.next("test3");
-        publisherNew.unsubscribe(subcriptor);
+        publisherNew.unsubscribe(subscript);
         publisherNew.next("test4");
-        publisherNew.subscribe(subcriptor);
+        publisherNew.subscribe(subscript);
         publisherNew.next("test5");
     }
 }

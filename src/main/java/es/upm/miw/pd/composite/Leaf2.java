@@ -9,7 +9,7 @@ public class Leaf2 extends Component {
 
     @Override
     public String view(String cabecera) {
-        return cabecera + "-" + this.toString() + "\n";
+        return cabecera + "-" + this + "\n";
     }
 
     @Override

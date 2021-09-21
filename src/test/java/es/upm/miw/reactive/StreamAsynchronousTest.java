@@ -1,26 +1,10 @@
 package es.upm.miw.reactive;
 
 import es.upm.miw.rective.StreamAsynchronous;
-import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Test;
-import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-import java.time.Duration;
-
 class StreamAsynchronousTest {
-
-    @Test
-    void testStringNumberStream() {
-        LogManager.getLogger(this.getClass()).info("Before subscribe...");
-        new StreamAsynchronous().stringNumberStream().subscribe(
-                msg -> LogManager.getLogger(this.getClass()).info("Consumer: " + msg), //onNext
-                throwable -> LogManager.getLogger(this.getClass()).info("Error: " + throwable.getMessage()), //onError
-                () -> LogManager.getLogger(this.getClass()).info("Completed") //onComplete
-        );
-        LogManager.getLogger(this.getClass()).info("... After subscribe");
-        Mono.delay(Duration.ofSeconds(2)).block(); // two seconds active wait
-    }
 
     @Test
     void testStringNumberStreamVerifier() {

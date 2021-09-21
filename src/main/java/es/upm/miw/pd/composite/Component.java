@@ -1,7 +1,7 @@
 package es.upm.miw.pd.composite;
 
 public abstract class Component {
-    private String name;
+    private final String name;
 
     public Component(String name) {
         this.name = name;

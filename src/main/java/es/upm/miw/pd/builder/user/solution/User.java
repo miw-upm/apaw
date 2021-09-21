@@ -95,7 +95,7 @@ public class User {
 
     public static class Builder {
 
-        private User user;
+        private final User user;
 
         private Builder(String id, String nick, String name) {
             this.user = new User();
@@ -135,7 +135,7 @@ public class User {
 
         public Builder tag(String tag) {
             if (this.user.tags == null) {
-                this.user.tags = new ArrayList<String>();
+                this.user.tags = new ArrayList<>();
             }
             this.user.tags.add(tag);
             return this;

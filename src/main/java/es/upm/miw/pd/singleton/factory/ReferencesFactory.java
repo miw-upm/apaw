@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class ReferencesFactory {
 
-    private Map<String, Integer> references;
+    private final Map<String, Integer> references;
 
     private int reference;
 

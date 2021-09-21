@@ -4,7 +4,7 @@ import es.upm.miw.pd.composite.article.Article;
 
 public class TreeArticlesLeaf implements TreeArticles {
 
-    private Article article;
+    private final Article article;
 
     public TreeArticlesLeaf(Article article) {
         this.article = article;
@@ -27,12 +27,12 @@ public class TreeArticlesLeaf implements TreeArticles {
 
     @Override
     public void add(TreeArticles treeArticles) {
-        // Do nothing because is leaf
+        // Do nothing because it is a leaf
     }
 
     @Override
     public void remove(TreeArticles treeArticles) {
-        // Do nothing because is leaf
+        // Do nothing because it is a leaf
     }
 
 }

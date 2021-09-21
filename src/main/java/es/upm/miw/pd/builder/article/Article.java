@@ -1,13 +1,14 @@
 package es.upm.miw.pd.builder.article;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Article {
 
-    private long id;
+    private final long id;
 
-    private List<Long> phones;
+    private final List<Long> phones = new ArrayList<>();
 
     private String reference;
 

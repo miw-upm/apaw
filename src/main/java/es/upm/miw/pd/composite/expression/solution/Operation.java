@@ -2,9 +2,9 @@ package es.upm.miw.pd.composite.expression.solution;
 
 public abstract class Operation implements Expression {
 
-    private Expression expression1;
+    private final Expression expression1;
 
-    private Expression expression2;
+    private final Expression expression2;
 
     public Operation(Expression expression1, Expression expression2) {
         this.expression1 = expression1;

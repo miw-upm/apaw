@@ -6,9 +6,9 @@ import java.util.NoSuchElementException;
 
 public class TreeNumbersComposite implements TreeNumbers {
 
-    private String name;
+    private final String name;
 
-    private List<TreeNumbers> treeNumbersList;
+    private final List<TreeNumbers> treeNumbersList;
 
     public TreeNumbersComposite(String name) {
         this.name = name;

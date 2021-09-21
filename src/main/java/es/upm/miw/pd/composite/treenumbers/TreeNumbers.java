@@ -10,7 +10,7 @@ public class TreeNumbers {
 
     private String name;
 
-    private List<TreeNumbers> treeNumbersList;
+    private final List<TreeNumbers> treeNumbersList;
 
     public TreeNumbers(String name) {
         this.name = name;
@@ -23,14 +23,14 @@ public class TreeNumbers {
     }
 
     public boolean isComposite() {
-        return treeNumbersList != null;
+        return this.treeNumbersList != null;
     }
 
     public void add(TreeNumbers treeNumbers) {
-        if (!this.isComposite()) {
-            throw new UnsupportedOperationException("Unsupported operation in leaf");
-        } else {
+        if (this.isComposite()) {
             this.treeNumbersList.add(treeNumbers);
+        } else {
+            throw new UnsupportedOperationException("Unsupported operation in leaf");
         }
     }
 
@@ -50,7 +50,9 @@ public class TreeNumbers {
 
     public int sum() {
         if (this.isComposite()) {
-            return this.treeNumbersList.stream().mapToInt(TreeNumbers::sum).sum();
+            return this.treeNumbersList.stream()
+                    .mapToInt(TreeNumbers::sum)
+                    .sum();
         } else {
             return this.number;
         }
@@ -58,7 +60,10 @@ public class TreeNumbers {
 
     public int higher() {
         if (this.isComposite()) {
-            return this.treeNumbersList.stream().mapToInt(TreeNumbers::higher).max().orElseThrow(NoSuchElementException::new);
+            return this.treeNumbersList.stream()
+                    .mapToInt(TreeNumbers::higher)
+                    .max()
+                    .orElseThrow(NoSuchElementException::new);
         } else {
             return this.number;
         }

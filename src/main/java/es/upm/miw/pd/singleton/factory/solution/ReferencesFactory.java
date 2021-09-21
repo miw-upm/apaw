@@ -5,9 +5,13 @@ import java.util.Map;
 
 public class ReferencesFactory {
 
-    private static final ReferencesFactory factory = new ReferencesFactory();
+    private static final ReferencesFactory factory;
 
-    private Map<String, Integer> references;
+    static {
+        factory = new ReferencesFactory();
+    }
+
+    private final Map<String, Integer> references;
 
     private int reference;
 
@@ -21,7 +25,7 @@ public class ReferencesFactory {
     }
 
     public int getReference(String key) {
-        return references.computeIfAbsent(key, k -> reference++);
+        return references.computeIfAbsent(key, k -> this.reference++);
     }
 
     public void removeReference(String key) {

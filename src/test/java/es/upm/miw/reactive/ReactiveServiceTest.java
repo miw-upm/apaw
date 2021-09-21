@@ -214,15 +214,22 @@ class ReactiveServiceTest {
     void testChain() {
         StepVerifier
                 .create(new ReactiveService().chain(new User()))
-                .consumeNextWith(user -> System.out.println(user.getMobile()))
+                .consumeNextWith(user -> System.out.println("Test with StepVerifier: " + user))
                 .verifyComplete();
     }
 
     @Test
-    void testJustOrEmpty() {
+    void testJustOrEmptyWithNull() {
         StepVerifier
                 .create(new ReactiveService().justOrEmpty(null))
-                //.consumeNextWith(System.out::println)
+                .verifyComplete();
+    }
+
+    @Test
+    void testJustOrEmptyWithoutNull() {
+        StepVerifier
+                .create(new ReactiveService().justOrEmpty("666"))
+                .consumeNextWith(System.out::println)
                 .verifyComplete();
     }
 

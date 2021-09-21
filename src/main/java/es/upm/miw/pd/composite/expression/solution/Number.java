@@ -2,7 +2,7 @@ package es.upm.miw.pd.composite.expression.solution;
 
 public class Number implements Expression {
 
-    private int value;
+    private final int value;
 
     public Number(int value) {
         this.value = value;

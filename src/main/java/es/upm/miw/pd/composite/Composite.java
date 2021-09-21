@@ -1,7 +1,7 @@
 package es.upm.miw.pd.composite;
 
 public class Composite extends Component {
-    private java.util.List<Component> list;
+    private final java.util.List<Component> list;
 
     public Composite(String name) {
         super(name);
@@ -11,7 +11,7 @@ public class Composite extends Component {
     @Override
     public String view(String head) {
         StringBuilder result = new StringBuilder();
-        result.append(head + "-" + this.getName() + ":" + "\n");
+        result.append(head).append("-").append(this.getName()).append(":").append("\n");
         for (Component item : list) {
             result.append(item.view(head + "  "));
         }

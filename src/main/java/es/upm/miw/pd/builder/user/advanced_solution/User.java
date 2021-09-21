@@ -95,7 +95,7 @@ public class User {
 
     public static class Builder implements UserBuilders.Id, UserBuilders.Name, UserBuilders.Nick, UserBuilders.Optionals {
 
-        private User user;
+        private final User user;
 
         public Builder() {
             this.user = new User();
@@ -146,7 +146,7 @@ public class User {
         @Override
         public UserBuilders.Optionals tag(String tag) {
             if (this.user.tags == null) {
-                this.user.tags = new ArrayList<String>();
+                this.user.tags = new ArrayList<>();
             }
             this.user.tags.add(tag);
             return this;

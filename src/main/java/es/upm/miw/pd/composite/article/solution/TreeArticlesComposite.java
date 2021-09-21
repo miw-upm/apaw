@@ -5,11 +5,11 @@ import java.util.List;
 
 public class TreeArticlesComposite implements TreeArticles {
 
-    private int id;
+    private final int id;
 
-    private String reference;
+    private final String reference;
 
-    private List<TreeArticles> treeArticlesList;
+    private final List<TreeArticles> treeArticlesList;
 
     public TreeArticlesComposite(int id, String reference) {
         this.id = id;
