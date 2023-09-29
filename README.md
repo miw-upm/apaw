@@ -5,7 +5,6 @@
 ### Estado del código
 [![DevOps](https://github.com/miw-upm/apaw/actions/workflows/test-sonar.yml/badge.svg)](https://github.com/miw-upm/apaw/actions/workflows/test-sonar.yml)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3Aapaw&metric=alert_status)](https://sonarcloud.io/dashboard?id=es.upm.miw%3Aapaw)
-[![BCH compliance](https://bettercodehub.com/edge/badge/miw-upm/apaw?branch=develop)](https://bettercodehub.com/)
 
 ### Tecnologías necesarias
 `Java` `Maven` `GitHub` `GitHub Actions CI` `Sonarcloud` `Better Code Hub` `Slack` `Spring-boot` `Heroku` `OpenAPI`
