@@ -36,24 +36,21 @@
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
 		<!-- Java -->
-		<java.version>11</java.version>
+		<maven.compile.source>17</maven.compile.source>
 		<deploy>${project.artifactId}-${project.version}</deploy>
 		<!-- Maven -->
 		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-		<!-- Maven. integration test -->
 		<maven.compiler.version>3.8.1</maven.compiler.version>
-		<!-- Maven. integration test -->
-		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
-		<maven-failsafe-plugin.version>2.21.0</maven-failsafe-plugin.version>
-		<junit-platform-surefire-provider.version>1.2.0</junit-platform-surefire-provider.version>
+		<maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+		<maven-failsafe-plugin.version>3.1.2</maven-failsafe-plugin.version>
 		<!-- Test -->
-		<junit-jupiter-engine.version>5.6.2</junit-jupiter-engine.version>
+		<junit-jupiter-engine.version>5.10.0</junit-jupiter-engine.version>
 		<!-- coverage report -->
-		<jacoco.version>0.8.5</jacoco.version>
+		<jacoco.version>0.8.10</jacoco.version>
 		<!-- Logs -->
-        <log4j.version>2.13.3</log4j.version>
+        <log4j.version>2.20.0</log4j.version>
 		<!-- project reactor -->
-        <projectreactor.version>3.3.10.RELEASE</projectreactor.version>
+        <projectreactor.version>3.5.10</projectreactor.version>
 	</properties>
 
 	<dependencies>
@@ -99,8 +96,9 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven.compiler.version}</version>
 				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+					<source>${maven.compile.source}</source>
+					<target>${maven.compile.source}</target>
+					<release>${maven.compile.source}</release>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -127,25 +125,11 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven-surefire-plugin.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.junit.platform</groupId>
-						<artifactId>junit-platform-surefire-provider</artifactId>
-						<version>${junit-platform-surefire-provider.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>${maven-failsafe-plugin.version}</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.junit.platform</groupId>
-						<artifactId>junit-platform-surefire-provider</artifactId>
-						<version>${junit-platform-surefire-provider.version}</version>
-					</dependency>
-				</dependencies>
 				<executions>
 					<execution>
 						<goals>
