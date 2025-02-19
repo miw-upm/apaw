@@ -1,28 +1,35 @@
 ## [Máster en Ingeniería Web por la Universidad Politécnica de Madrid (miw-upm)](http://miw.etsisi.upm.es)
+
 ## Arquitectura y Patrones para Aplicaciones Web
-> Este proyecto es un apoyo docente de la asignatura. Cada release liberada corresponde al código utilizado en clase del curso indicado
+
+> Este proyecto es un apoyo docente de la asignatura. Cada release liberada corresponde al código utilizado en clase del
+> curso indicado
 
 ### Estado del código
-[![DevOps](https://github.com/miw-upm/apaw/actions/workflows/test-sonar.yml/badge.svg)](https://github.com/miw-upm/apaw/actions/workflows/test-sonar.yml)
+[![DevOps](https://github.com/miw-upm/apaw/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/miw-upm/apaw/actions/workflows/continuous-integration.yml)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3Aapaw&metric=alert_status)](https://sonarcloud.io/dashboard?id=es.upm.miw%3Aapaw)
 
 ### Tecnologías necesarias
+
 `Java` `Maven` `GitHub` `GitHub Actions CI` `Sonarcloud` `Better Code Hub` `Slack` `Spring-boot` `Heroku` `OpenAPI`
 
 ### :gear: Instalación del proyecto
+
 1. Clonar el repositorio en tu equipo, **mediante consola**:
+
 ```sh
 > cd <folder path>
 > git clone https://github.com/miw-upm/apaw
 ```
+
 2. Importar el proyecto mediante **IntelliJ IDEA**
     1. **Open Project**, y seleccionar la carpeta del proyecto.
     1. Marcar **Create Project from external model**, elegir **Maven**.
-   1. **Next** … **Finish**.
-
+    1. **Next** … **Finish**.
 
 ### :book: Diapositivas (/docs)
-* [Diapositivas en docs/miw-apaw-slides.pdf](docs/miw-apaw-slides.pdf)   
+
+* [Diapositivas en docs/miw-apaw-slides.pdf](docs/miw-apaw-slides.pdf)
 
 ### :movie_camera: Videos (www.youtube.com/miw-upm)
 
@@ -89,11 +96,11 @@ issue y se podrá continuar, sino, se deberán realizar los cambios.
         * Simplificar el código.
         * Eliminar comentarios.
         * Estructuras anidadas: <3.
-      * Complejidad ciclomática: <8-12.
-   * Métricas.
-      * Paquete: <20 clases.
-      * Clases: <500-200 líneas, <20 métodos.
-      * Métodos: <3-4 parámetros, <15 líneas.
+        * Complejidad ciclomática: <8-12.
+    * Métricas.
+        * Paquete: <20 clases.
+        * Clases: <500-200 líneas, <20 métodos.
+        * Métodos: <3-4 parámetros, <15 líneas.
     * Eliminar redundancias (copy & paste).
     * Eliminar código muerto.
     * Tratamiento de errores.
