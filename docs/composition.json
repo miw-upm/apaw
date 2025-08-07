@@ -1,0 +1,18 @@
+[ {
+  "id" : "ed7d3f5c-ab11-43f7-9398-957828892b89",
+  "nickname" : "nick",
+  "embeddable" : {
+    "number" : 1,
+    "value" : "1"
+  },
+  "embeddableList" : [ {
+    "number" : 2,
+    "value" : "2"
+  }, {
+    "number" : 3,
+    "value" : "3"
+  } ]
+}, {
+  "id" : "62c63b7f-34d5-44de-863d-8d5c223ec6bc",
+  "nickname" : "nick"
+} ]

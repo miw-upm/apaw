@@ -1,28 +1,54 @@
 name: CI
 on:
   push:
-    branches: [develop]
+    branches:
+      - develop
+
 jobs:
-  devops:
-    name: Test - Unit & Integration & SonarCloud Scan & Slack WebHook
-    runs-on: ubuntu-22.04 # macos-latest macos-11 windows-2019 ubuntu-20.04
+  ci:
+    name: Tests & CodeQL & SonarCloud
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+
     steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
-      - uses: actions/setup-java@v4
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
         with:
-          distribution: zulu
+          fetch-depth: 0
+
+      - name: ☕ Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
           java-version: 21
-      - name: Unit & Integration Tests
-        run: mvn -B verify # -B: --batch-mode
-      - name: Sonar
-        if: success() # always() failure() success()
+          cache: maven
+
+      - name: 🏷️ Extract artifact from pom
+        run: echo "ARTIFACT=$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)" >> $GITHUB_ENV
+
+      - name: 🛡️ Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: java
+          queries: security-extended
+
+      - name: ✅ Run Unit Test & Integration Test & Functional Test
+        run: mvn -B verify
+
+      - name: 🔍 CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:java"
+
+      - name: 📊 Sonar Analysis
         run: >
-          mvn -B verify -DskipTests sonar:sonar
-          -Dsonar.projectKey=es.upm.miw:apaw
-          -Dsonar.organization=miw-upm-github
-          -Dsonar.host.url=https://sonarcloud.io
-          -Dsonar.login=$SONAR_TOKEN
+          mvn -B sonar:sonar 
+          -Dsonar.projectKey=miw-upm-github_${{ env.ARTIFACT }}
+          -Dsonar.organization=miw-upm-github 
+          -Dsonar.host.url=https://sonarcloud.io 
+          -Dsonar.token=${{ secrets.SONAR_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

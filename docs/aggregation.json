@@ -1,0 +1,19 @@
+[
+  {
+    "id" : "089a8fdf-7905-46ac-8d39-eaea6eac578a",
+    "nickname" : "nick",
+    "anyDocument" : "DBRef(any,68644e3f-83a2-42a0-b404-9cef5cf8eedb)",
+    "anyDocumentList" : [
+        "DBRef(any,fa3e5a48-3948-44ed-8084-41ec99653575)",
+        "DBRef(any,769069c2-9929-4a82-a10d-ad29abc8b28e)"
+    ]
+  }, {
+    "id" : "2b224c91-9e2b-4686-84e8-fda8cbe5aaff",
+    "nickname" : "nick",
+    "anyDocument" : "DBRef(any,68644e3f-83a2-42a0-b404-9cef5cf8eedb)",
+    "anyDocumentList" : [
+      "DBRef(any,fa3e5a48-3948-44ed-8084-41ec99653575)",
+      "DBRef(any,0654d0eb-88ad-4b8c-adcb-c8e79bfd2ecc)"
+    ]
+  }
+]

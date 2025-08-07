@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>apaw</artifactId>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.3</version>
+        <relativePath/>
+    </parent>
+
     <groupId>es.upm.miw</groupId>
+    <artifactId>apaw</artifactId>
     <version>2.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-
     <name>${project.groupId}.${project.artifactId}</name>
-    <description>Proyecto para apoyo docente a la asignatura Arquitectura y Patrones para Aplicaciones Web (MIW-UPM)
-    </description>
-    <url>http://github.com/miw-upm/apaw</url>
+    <url>http://github.com/miw-upm/${project.artifactId}</url>
 
     <licenses>
         <license>
@@ -25,8 +31,11 @@
             <name>Jesus Bernal</name>
             <id>J.Bernal</id>
             <email>j.bernal@upm.es</email>
-            <organization>MIW-UPM</organization>
-            <organizationUrl>http://miw.etsisi.upm.es</organizationUrl>
+            <organization>MIW UPM</organization>
+            <roles>
+                <role>Architect</role>
+                <role>Developer</role>
+            </roles>
         </developer>
     </developers>
 
@@ -34,73 +43,103 @@
         <!-- Encode -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
         <!-- Java -->
         <maven.compile.source>21</maven.compile.source>
         <deploy>${project.artifactId}-${project.version}</deploy>
         <!-- Maven -->
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-        <maven.compiler.version>3.13.0</maven.compiler.version>
-        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
-        <maven-failsafe-plugin.version>3.5.2</maven-failsafe-plugin.version>
-        <!-- Test -->
-        <junit-jupiter-engine.version>5.11.4</junit-jupiter-engine.version>
+        <maven-surefire-plugin.version>3.5.3</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>3.5.3</maven-failsafe-plugin.version>
         <!-- coverage report -->
-        <jacoco.version>0.8.12</jacoco.version>
-        <!-- Logs -->
-        <log4j.version>2.20.0</log4j.version>
-        <!-- project reactor -->
-        <projectreactor.version>3.5.10</projectreactor.version>
+        <jacoco.version>0.8.13</jacoco.version>
+        <!-- Official Plugin Sonar -->
+        <sonar-maven-plugin-version>5.1.0.4751</sonar-maven-plugin-version>
+        <!-- mongodb -->
+        <de.flapdoodle.embed.mongo.spring3x.version>4.20.0</de.flapdoodle.embed.mongo.spring3x.version>
+        <!-- OpenAPI -->
+        <springdoc-openapi-starter-webmvc-ui.version>2.8.9</springdoc-openapi-starter-webmvc-ui.version>
     </properties>
 
     <dependencies>
-        <!-- Logs -->
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!-- Spring MVC -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <!-- Actuator -->
+        <!-- http://localhost:8080/actuator/info   -->
+        <!-- http://localhost:8080/actuator/health -->
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j-impl</artifactId>
-            <version>${log4j.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!-- OpenAPI http://localhost:8080/swagger-ui.html -->
+        <!-- OpenAPI http://localhost:8080/v3/api-docs -->
+        <!-- OpenAPI http://localhost:8081/v3/api-docs.yaml (yaml)  -->
         <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-core</artifactId>
-            <version>${projectreactor.version}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
         </dependency>
-        <!-- Test -->
+        <!-- Lombok -->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit-jupiter-engine.version}</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- Database mongodb -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <!-- Mongodb embedded -->
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo.spring3x</artifactId>
+            <version>${de.flapdoodle.embed.mongo.spring3x.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- ======================= Spring Test =================================== -->
         <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-test</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <version>${projectreactor.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.version}</version>
-                <configuration>
-                    <source>${maven.compile.source}</source>
-                    <target>${maven.compile.source}</target>
-                    <release>${maven.compile.source}</release>
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+            <!-- sonar plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonar-maven-plugin-version}</version>
+            </plugin>
+            <!-- coverage report -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -125,15 +164,49 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <argLine>
+                        -javaagent:${settings.localRepository}/org/mockito/mockito-core/${mockito.version}/mockito-core-${mockito.version}.jar
+                        -Xshare:off
+                    </argLine>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-failsafe-plugin.version}</version>
                 <executions>
+                    <!-- 1) Integration Tests -->
                     <execution>
+                        <id>integration-tests</id>
+                        <phase>integration-test</phase>
                         <goals>
                             <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/*IT.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <!-- 2) Functional Tests -->
+                    <execution>
+                        <id>functional-tests</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/*FT.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <!-- 3) Verificación final (reporta fallos si algún IT o FT falla) -->
+                    <execution>
+                        <id>verify-all</id>
+                        <phase>verify</phase>
+                        <goals>
                             <goal>verify</goal>
                         </goals>
                     </execution>
@@ -141,4 +214,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
