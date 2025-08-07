@@ -1,11 +1,9 @@
-package es.upm.miw.apaw.persistence.mongodb;
+package es.upm.miw.apaw.persistence.mongodb.repositories;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import es.upm.miw.apaw.persistence.mongodb.documents.AggregationDocument;
 import es.upm.miw.apaw.persistence.mongodb.documents.AnyDocument;
-import es.upm.miw.apaw.persistence.mongodb.repositories.AggregationRepository;
-import es.upm.miw.apaw.persistence.mongodb.repositories.AnyRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
