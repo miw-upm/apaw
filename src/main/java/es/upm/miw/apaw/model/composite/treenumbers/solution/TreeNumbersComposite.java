@@ -1,13 +1,15 @@
 package es.upm.miw.apaw.model.composite.treenumbers.solution;
 
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@ToString
 public class TreeNumbersComposite implements TreeNumbers {
 
     private final String name;
-
     private final List<TreeNumbers> treeNumbersList;
 
     public TreeNumbersComposite(String name) {
@@ -45,9 +47,5 @@ public class TreeNumbersComposite implements TreeNumbers {
         return this.treeNumbersList.size();
     }
 
-    @Override
-    public String toString() {
-        return "[" + this.name + "]";
-    }
 
 }

@@ -1,15 +1,18 @@
 [
   {
-    "id" : "68644e3f-83a2-42a0-b404-9cef5cf8eedb",
-    "value" : "any"
-  }, {
-    "id" : "fa3e5a48-3948-44ed-8084-41ec99653575",
-    "value" : "any1"
-  }, {
-    "id" : "769069c2-9929-4a82-a10d-ad29abc8b28e",
-    "value" : "any2"
-  }, {
-    "id" : "0654d0eb-88ad-4b8c-adcb-c8e79bfd2ecc",
-    "value" : "any3"
+    "id": "68644e3f-83a2-42a0-b404-9cef5cf8eedb",
+    "value": "any"
+  },
+  {
+    "id": "fa3e5a48-3948-44ed-8084-41ec99653575",
+    "value": "any1"
+  },
+  {
+    "id": "769069c2-9929-4a82-a10d-ad29abc8b28e",
+    "value": "any2"
+  },
+  {
+    "id": "0654d0eb-88ad-4b8c-adcb-c8e79bfd2ecc",
+    "value": "any3"
   }
 ]

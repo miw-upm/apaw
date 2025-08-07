@@ -6,6 +6,7 @@
 > curso indicado
 
 ### Estado del código
+
 [![DevOps](https://github.com/miw-upm/apaw/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/miw-upm/apaw/actions/workflows/continuous-integration.yml)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=es.upm.miw%3Aapaw&metric=alert_status)](https://sonarcloud.io/dashboard?id=es.upm.miw%3Aapaw)
 

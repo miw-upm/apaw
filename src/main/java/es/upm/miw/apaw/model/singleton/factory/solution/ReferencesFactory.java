@@ -1,10 +1,13 @@
 package es.upm.miw.apaw.model.singleton.factory.solution;
 
+import lombok.Getter;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class ReferencesFactory {
 
+    @Getter
     private static final ReferencesFactory factory;
 
     static {
@@ -18,10 +21,6 @@ public class ReferencesFactory {
     private ReferencesFactory() {
         this.references = new HashMap<>();
         this.reference = 0;
-    }
-
-    public static ReferencesFactory getFactory() {
-        return factory;
     }
 
     public int getReference(String key) {

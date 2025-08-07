@@ -1,17 +1,18 @@
 package es.upm.miw.apaw.model.singleton.logger;
 
+import lombok.Getter;
+import lombok.ToString;
+
 import java.util.Date;
 
+@Getter
+@ToString
 public final class Logger {
 
     private String logs;
 
     public Logger() {
         this.clear();
-    }
-
-    public String getLogs() {
-        return this.logs;
     }
 
     public void addLog(String log) {

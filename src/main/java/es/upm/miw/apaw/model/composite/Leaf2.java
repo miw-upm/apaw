@@ -3,13 +3,13 @@ package es.upm.miw.apaw.model.composite;
 
 public class Leaf2 extends Component {
 
-    protected Leaf2(String nombre) {
-        super(nombre);
+    protected Leaf2(String name) {
+        super(name);
     }
 
     @Override
-    public String view(String cabecera) {
-        return cabecera + "-" + this + "\n";
+    public String view(String head) {
+        return head + "-" + this + "\n";
     }
 
     @Override

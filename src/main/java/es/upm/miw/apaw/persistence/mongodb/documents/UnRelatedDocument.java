@@ -20,7 +20,7 @@ import java.util.UUID;
 @Document //(collection = "unrelated_documents")
 public class UnRelatedDocument {
     public static final String TRANSIENT = "no persistent";
-    @Id
+    @Id //El valor no nos importa. No hay razón para cambiarlo
     private UUID id;
     @Indexed(unique = true)
     private String nickname;

@@ -33,9 +33,4 @@ public class Composite extends Component {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "C:" + this.getName().toLowerCase();
-    }
-
 }

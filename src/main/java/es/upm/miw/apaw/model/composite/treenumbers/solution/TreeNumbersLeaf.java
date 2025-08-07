@@ -1,5 +1,8 @@
 package es.upm.miw.apaw.model.composite.treenumbers.solution;
 
+import lombok.ToString;
+
+@ToString
 public class TreeNumbersLeaf implements TreeNumbers {
     private final int valor;
 
@@ -32,9 +35,5 @@ public class TreeNumbersLeaf implements TreeNumbers {
         return 1;
     }
 
-    @Override
-    public String toString() {
-        return "Leaf[" + valor + "]";
-    }
 
 }

@@ -1,9 +1,12 @@
 package es.upm.miw.apaw.model.composite.treenumbers;
 
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@ToString
 public class TreeNumbers {
 
     private final List<TreeNumbers> treeNumbersList;
@@ -67,12 +70,4 @@ public class TreeNumbers {
         }
     }
 
-    @Override
-    public String toString() {
-        return "TreeNumbers{" +
-                "number=" + number +
-                ", name='" + name + '\'' +
-                ", treeNumbersList=" + treeNumbersList +
-                '}';
-    }
 }

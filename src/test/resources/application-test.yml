@@ -7,3 +7,9 @@ de:
     mongodb:
       embedded:
         version: 7.0.16
+
+# H2 Embedded
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
