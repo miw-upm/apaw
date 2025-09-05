@@ -45,7 +45,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.resources.sourceEncoding>UTF-8</project.resources.sourceEncoding>
         <!-- Java -->
-        <maven.compile.source>21</maven.compile.source>
+        <java.version>21</java.version>
         <deploy>${project.artifactId}-${project.version}</deploy>
         <!-- Maven -->
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
@@ -54,11 +54,11 @@
         <!-- coverage report -->
         <jacoco.version>0.8.13</jacoco.version>
         <!-- Official Plugin Sonar -->
-        <sonar-maven-plugin-version>5.1.0.4751</sonar-maven-plugin-version>
+        <sonar-maven-plugin-version>5.2.0.4988</sonar-maven-plugin-version>
         <!-- mongodb -->
         <de.flapdoodle.embed.mongo.spring3x.version>4.20.0</de.flapdoodle.embed.mongo.spring3x.version>
         <!-- OpenAPI -->
-        <springdoc-openapi-starter-webmvc-ui.version>2.8.9</springdoc-openapi-starter-webmvc-ui.version>
+        <springdoc-openapi-starter-webmvc-ui.version>2.8.11</springdoc-openapi-starter-webmvc-ui.version>
     </properties>
 
     <dependencies>
