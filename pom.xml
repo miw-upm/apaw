@@ -56,7 +56,7 @@
         <!-- Official Plugin Sonar -->
         <sonar-maven-plugin-version>5.2.0.4988</sonar-maven-plugin-version>
         <!-- mongodb -->
-        <de.flapdoodle.embed.mongo.spring3x.version>4.20.0</de.flapdoodle.embed.mongo.spring3x.version>
+        <de.flapdoodle.embed.mongo.spring3x.version>4.21.0</de.flapdoodle.embed.mongo.spring3x.version>
         <!-- OpenAPI -->
         <springdoc-openapi-starter-webmvc-ui.version>2.8.11</springdoc-openapi-starter-webmvc-ui.version>
     </properties>
