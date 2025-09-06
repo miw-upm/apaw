@@ -23,7 +23,8 @@ class OptionalDemoTest {
 
     @Test
     void readByIdAssuredWithExceptionThrow() {
-        assertThrows(RuntimeException.class, () -> new OptionalDemo().readByIdAssuredWithException("0"));
+        OptionalDemo demo = new OptionalDemo();
+        assertThrows(RuntimeException.class, () -> demo.readByIdAssuredWithException("0"));
     }
 
     @Test

@@ -1,7 +1,5 @@
 package es.upm.miw.apaw.model.composite.expression.solution;
 
-import es.upm.miw.apaw.model.composite.expression.solution.*;
-import es.upm.miw.apaw.model.composite.expression.solution.Number;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

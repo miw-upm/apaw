@@ -1,6 +1,5 @@
 package es.upm.miw.apaw.model.singleton.factory;
 
-import es.upm.miw.apaw.model.singleton.factory.ReferencesFactory;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

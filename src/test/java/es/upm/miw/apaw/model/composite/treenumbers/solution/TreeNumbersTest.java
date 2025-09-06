@@ -1,8 +1,5 @@
 package es.upm.miw.apaw.model.composite.treenumbers.solution;
 
-import es.upm.miw.apaw.model.composite.treenumbers.solution.TreeNumbers;
-import es.upm.miw.apaw.model.composite.treenumbers.solution.TreeNumbersComposite;
-import es.upm.miw.apaw.model.composite.treenumbers.solution.TreeNumbersLeaf;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -75,7 +72,8 @@ class TreeNumbersTest {
 
     @Test
     void testAddLeaf() {
-        assertThrows(UnsupportedOperationException.class, () -> this.leaf.add(new TreeNumbersLeaf(2)));
+        TreeNumbersLeaf node = new TreeNumbersLeaf(2);
+        assertThrows(UnsupportedOperationException.class, () -> this.leaf.add(node));
     }
 
 }
