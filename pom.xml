@@ -199,7 +199,6 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-failsafe-plugin.version}</version>
                 <executions>
-                    <!-- 1) Integration Tests -->
                     <execution>
                         <id>integration-tests</id>
                         <phase>integration-test</phase>
@@ -212,7 +211,6 @@
                             </includes>
                         </configuration>
                     </execution>
-                    <!-- 2) Functional Tests -->
                     <execution>
                         <id>functional-tests</id>
                         <phase>integration-test</phase>
@@ -225,7 +223,6 @@
                             </includes>
                         </configuration>
                     </execution>
-                    <!-- 3) Verificación final (reporta fallos si algún IT o FT falla) -->
                     <execution>
                         <id>verify-all</id>
                         <phase>verify</phase>

@@ -1,6 +1,6 @@
 package es.upm.miw.apaw.rest;
 
-import org.apache.logging.log4j.LogManager;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -11,15 +11,17 @@ import java.util.stream.Stream;
 
 @RestController
 @RequestMapping(BasicResource.BASIC)
+@Log4j2
 public class BasicResource {
     public static final String BASIC = "/basic";
     public static final String ID_ID = "/{id}";
     public static final String NAME = "/name";
+    public static final String NAME_ID = "/{name}";
     public static final String CRITERIA = "/criteria";
 
     @PostMapping
     public Dto create(@RequestBody Dto dto) {
-        LogManager.getLogger(this.getClass()).info(() -> "===>>> create: " + dto);
+        log.info(() -> "===>>> create: " + dto);
         return dto;
     }
 
@@ -33,15 +35,25 @@ public class BasicResource {
                 .price(BigDecimal.TEN).build();
     }
 
+    @GetMapping(NAME + NAME_ID)
+    public Dto readByName(@PathVariable String name) {
+        return Dto.builder()
+                .id(UUID.randomUUID())
+                .name(name)
+                .gender(Gender.FEMALE)
+                .bornDate(LocalDateTime.now())
+                .price(BigDecimal.TEN).build();
+    }
+
     @PutMapping(ID_ID)
     public Dto update(@PathVariable UUID id, @RequestBody Dto dto) {
-        LogManager.getLogger(this.getClass()).info(() -> "===>>> update: " + id + ", " + dto);
+        log.info(() -> "===>>> update: " + id + ", " + dto);
         return dto;
     }
 
     @PutMapping(ID_ID + NAME)
     public Dto updateName(@PathVariable(value = "id") UUID id, @RequestBody Dto dto) {
-        LogManager.getLogger(this.getClass()).info(() -> "===>>> update: " + id + ", " + dto.getName());
+        log.info(() -> "===>>> update: " + id + ", " + dto.getName());
         return Dto.builder()
                 .id(id)
                 .name(dto.getName())
@@ -59,7 +71,7 @@ public class BasicResource {
 
     @DeleteMapping(ID_ID)
     public void delete(@PathVariable UUID id) {
-        LogManager.getLogger(this.getClass()).info(() -> "===>>> delete: " + id);
+        log.info(() -> "===>>> delete: " + id);
     }
 
     @GetMapping
@@ -71,7 +83,7 @@ public class BasicResource {
         );
     }
 
-    @GetMapping (CRITERIA)
+    @GetMapping(CRITERIA)
     public Stream<Dto> findByNullSafe(@ModelAttribute DtoSearchCriteria criteria) {
         return Stream.of(
                 Dto.builder().id(UUID.randomUUID()).name(criteria.getName()).gender(criteria.getGender()).bornDate(LocalDateTime.now()).price(criteria.getPrice()).build(),

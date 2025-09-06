@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.web.reactive.server.EntityExchangeResult;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.math.BigDecimal;
@@ -40,20 +41,20 @@ class BasicResourceFunctionalWebTestClientFT {
                 .bornDate(LocalDateTime.now())
                 .price(BigDecimal.TEN)
                 .build();
-
-        webTestClient.post()
+        EntityExchangeResult<Dto> result = webTestClient.post()
                 .uri(BASIC)
                 .bodyValue(dto)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(Dto.class)
-                .value(body -> {
-                    assertThat(body).isNotNull();
-                    assertThat(body.getId()).isEqualTo(ID);
-                    assertThat(body.getName()).isEqualTo("daemon");
-                    assertThat(body.getGender()).isEqualTo(Gender.FEMALE);
-                    assertThat(body.getBornDate()).isNotNull();
-                });
+                .returnResult();
+        log.info(() -> "Código HTTP devuelto: " + result.getStatus());
+        Dto body = result.getResponseBody();
+        assertThat(body).isNotNull();
+        assertThat(body.getId()).isEqualTo(ID);
+        assertThat(body.getName()).isEqualTo("daemon");
+        assertThat(body.getGender()).isEqualTo(Gender.FEMALE);
+        assertThat(body.getBornDate()).isNotNull();
     }
 
     @Test
@@ -80,6 +81,21 @@ class BasicResourceFunctionalWebTestClientFT {
                     assertThat(body.getName()).isEqualTo("read");
                     assertThat(body.getGender()).isEqualTo(Gender.FEMALE);
                     assertThat(body.getBornDate()).isNotNull();
+                });
+    }
+
+    @Test
+    void testReadByName() {
+        String name = "daemon";
+        webTestClient.get()
+                .uri(BASIC + NAME + NAME_ID, name)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(Dto.class)
+                .value(dto -> {
+                    assertThat(dto).isNotNull();
+                    assertThat(dto.getId()).isNotNull();
+                    assertThat(dto.getName()).isEqualTo(name);
                 });
     }
 

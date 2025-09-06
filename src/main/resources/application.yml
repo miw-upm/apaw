@@ -1,6 +1,8 @@
 spring:
   profiles:
+    # Profile ----------------------------------------
     active: dev
+  # ------------------------------------------------
   output:
     ansi:
       enabled: ALWAYS
