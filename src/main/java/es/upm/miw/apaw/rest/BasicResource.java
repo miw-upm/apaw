@@ -15,7 +15,7 @@ public class BasicResource {
     public static final String BASIC = "/basic";
     public static final String ID_ID = "/{id}";
     public static final String NAME = "/name";
-    public static final String SEARCH = "/search";
+    public static final String CRITERIA = "/criteria";
 
     @PostMapping
     public Dto create(@RequestBody Dto dto) {
@@ -28,8 +28,8 @@ public class BasicResource {
         return Dto.builder()
                 .id(id)
                 .name("read")
-                .gender( Gender.FEMALE)
-                .bornDate( LocalDateTime.now())
+                .gender(Gender.FEMALE)
+                .bornDate(LocalDateTime.now())
                 .price(BigDecimal.TEN).build();
     }
 
@@ -45,8 +45,8 @@ public class BasicResource {
         return Dto.builder()
                 .id(id)
                 .name(dto.getName())
-                .gender( Gender.FEMALE)
-                .bornDate( LocalDateTime.now())
+                .gender(Gender.FEMALE)
+                .bornDate(LocalDateTime.now())
                 .price(BigDecimal.TEN).build();
     }
 
@@ -70,4 +70,14 @@ public class BasicResource {
                 Dto.builder().id(UUID.randomUUID()).name(name).gender(Gender.MALE).bornDate(LocalDateTime.now()).price(BigDecimal.TEN).build()
         );
     }
+
+    @GetMapping (CRITERIA)
+    public Stream<Dto> findByNullSafe(@ModelAttribute DtoSearchCriteria criteria) {
+        return Stream.of(
+                Dto.builder().id(UUID.randomUUID()).name(criteria.getName()).gender(criteria.getGender()).bornDate(LocalDateTime.now()).price(criteria.getPrice()).build(),
+                Dto.builder().id(UUID.randomUUID()).name(criteria.getName()).gender(criteria.getGender()).bornDate(LocalDateTime.now()).price(criteria.getPrice()).build(),
+                Dto.builder().id(UUID.randomUUID()).name(criteria.getName()).gender(criteria.getGender()).bornDate(LocalDateTime.now()).price(criteria.getPrice()).build()
+        );
+    }
+
 }

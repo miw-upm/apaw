@@ -1,24 +1,16 @@
 package es.upm.miw.apaw.rest;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.UUID;
 
-@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Dto {
-    private UUID id;
+public class DtoSearchCriteria {
     private String name;
     private Gender gender;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime bornDate;
     private BigDecimal price;
 }
