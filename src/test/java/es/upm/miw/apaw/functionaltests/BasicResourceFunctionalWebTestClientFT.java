@@ -1,4 +1,4 @@
-package es.upm.miw.apaw.functionaltest;
+package es.upm.miw.apaw.functionaltests;
 
 import es.upm.miw.apaw.rest.Dto;
 import es.upm.miw.apaw.rest.Gender;
