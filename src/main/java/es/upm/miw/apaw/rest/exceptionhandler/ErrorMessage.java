@@ -1,15 +1,19 @@
 package es.upm.miw.apaw.rest.exceptionhandler;
 
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Getter
+@Data
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class ErrorMessage {
 
-    private final String error;
-    private final String message;
-    private final Integer code;
+    private String error;
+    private String message;
+    private Integer code;
 
     public ErrorMessage(Exception exception, Integer code) {
         this.error = exception.getClass().getSimpleName();
