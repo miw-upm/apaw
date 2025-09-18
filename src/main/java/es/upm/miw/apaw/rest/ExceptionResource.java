@@ -1,6 +1,7 @@
 package es.upm.miw.apaw.rest;
 
 
+import es.upm.miw.apaw.rest.exceptionhandler.BadRequestException;
 import es.upm.miw.apaw.rest.exceptionhandler.ErrorMessage;
 import es.upm.miw.apaw.rest.exceptionhandler.NotFoundException;
 import jakarta.validation.Valid;
@@ -23,11 +24,10 @@ public class ExceptionResource {
     public static final String ID_ID = "/{id}";
 
     @GetMapping
-    public ResponseEntity<Object> findByName(@RequestParam String name) {
-        if (name == null || name.isBlank()) {
-            IllegalArgumentException ex =
-                    new IllegalArgumentException("El parámetro 'name' no puede estar vacío");
-
+    public ResponseEntity<Object> findByNameException(@RequestParam String name) {
+        try {
+            this.mockFindByNameService(name);
+        } catch (Exception ex) {
             return ResponseEntity
                     .badRequest()
                     .contentType(MediaType.APPLICATION_JSON)
@@ -42,16 +42,25 @@ public class ExceptionResource {
                 Dto.builder().id(UUID.randomUUID()).name(name).gender(Gender.MALE)
                         .bornDate(LocalDateTime.now()).price(BigDecimal.TEN).build()
         ).toList();
-
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(result);
     }
 
+    private void mockFindByNameService(String name) {
+        if (name.isBlank()) {
+            throw new BadRequestException("El parámetro 'name' no puede estar vacío");
+        }
+    }
+
 
     @GetMapping(ID_ID)
     public ValidatedDto read(@PathVariable UUID id) {
+        return this.mockReadService(id);
+    }
+
+    private ValidatedDto mockReadService(UUID id) {
         if (id.equals(UUID.fromString("aaaaaaaa-bbbb-cccc-dddd-eeeeffff0000"))) {
             throw new NotFoundException("id:" + id);
         }

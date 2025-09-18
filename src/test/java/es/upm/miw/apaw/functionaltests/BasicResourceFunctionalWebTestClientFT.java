@@ -33,6 +33,26 @@ class BasicResourceFunctionalWebTestClientFT {
     private WebTestClient webTestClient;
 
     @Test
+    void testCreateHttp() {
+        Dto dto = Dto.builder()
+                .id(ID)
+                .name("daemon")
+                .gender(Gender.FEMALE)
+                .bornDate(LocalDateTime.now())
+                .price(BigDecimal.TEN)
+                .build();
+        EntityExchangeResult<String> result = webTestClient.post()
+                .uri(BASIC)
+                .bodyValue(dto)
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody(String.class)
+                .returnResult();
+        log.info(() -> "HTTP Status: " + result.getStatus());
+        log.info(() -> "JSON: " + result.getResponseBody());
+    }
+
+    @Test
     void testCreate() {
         Dto dto = Dto.builder()
                 .id(ID)
@@ -41,20 +61,19 @@ class BasicResourceFunctionalWebTestClientFT {
                 .bornDate(LocalDateTime.now())
                 .price(BigDecimal.TEN)
                 .build();
-        EntityExchangeResult<Dto> result = webTestClient.post()
+        webTestClient.post()
                 .uri(BASIC)
                 .bodyValue(dto)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(Dto.class)
-                .returnResult();
-        log.info(() -> "Código HTTP devuelto: " + result.getStatus());
-        Dto body = result.getResponseBody();
-        assertThat(body).isNotNull();
-        assertThat(body.getId()).isEqualTo(ID);
-        assertThat(body.getName()).isEqualTo("daemon");
-        assertThat(body.getGender()).isEqualTo(Gender.FEMALE);
-        assertThat(body.getBornDate()).isNotNull();
+                .value(body -> {
+                    assertThat(body).isNotNull();
+                    assertThat(body.getId()).isEqualTo(ID);
+                    assertThat(body.getName()).isEqualTo("daemon");
+                    assertThat(body.getGender()).isEqualTo(Gender.FEMALE);
+                    assertThat(body.getBornDate()).isNotNull();
+                });
     }
 
     @Test

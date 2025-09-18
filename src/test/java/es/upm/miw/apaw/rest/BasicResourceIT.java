@@ -43,6 +43,16 @@ class BasicResourceIT {
     }
 
     @Test
+    void testReadByName() {
+        Dto result = basicResource.readByName("name");
+        assertThat(result.getId()).isNotNull();
+        assertThat(result.getName()).isEqualTo("name");
+        assertThat(result.getGender()).isEqualTo(Gender.FEMALE);
+        assertThat(result.getBornDate()).isNotNull();
+        assertThat(result.getPrice()).isEqualTo(BigDecimal.TEN);
+    }
+
+    @Test
     void testUpdate() {
         Dto dto = new Dto(ID, "updated", Gender.FEMALE, LocalDateTime.now(), BigDecimal.ONE);
         Dto result = basicResource.update(ID, dto);
