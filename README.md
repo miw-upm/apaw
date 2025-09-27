@@ -57,7 +57,7 @@ issue y se podrá continuar, sino, se deberán realizar los cambios.
 
 * Crear 4 documentos. No puede haber 2 documentos, con el mismo nombre en toda la aplicación, ni dos atributos dentro de
   la misma práctica.
-    * Cada documento: >=3 atributos, y en total >= 12 atributos, con al menos uno **LocalDateTime o LocalDate**,
+    * Cada documento: >=3 atributos, y en total >= 15 atributos, con al menos uno **LocalDateTime o LocalDate**,
       **Boolean** y uno **numérico (Integer, Double, Long o BigDecimal)**.
     * Los atributos para manejo de dinero deben ser BigDecimal.
     * Relaciones necesarias: 1..n, n..1 y n..n.
@@ -75,12 +75,11 @@ issue y se podrá continuar, sino, se deberán realizar los cambios.
 * Repartidos proporcionalmente entre el modelo.
 * Los end-points deben estar 100% probados y los servicios también.
 
-#### 5. Búsquedas y Patrones (4,5 ptos)
+#### 5. Búsquedas (4,5 ptos)
 
 * Una vez finalizado los seis issues anteriores, se debe avisar al profesor por **Slack**, y el profesor añadirá :
     * :eight:..:nine: issues# para realizar end-points de búsquedas. **Recordar que en búsquedas, a cualquier nivel,
       resource, service, repository... siempre se coloca en el tipo de lo devuelto**.
-    * :keycap_ten:..:one::one: issues# con la aplicación de dos patrones.
 
 ### :white_check_mark: Criterios de evaluación
 
