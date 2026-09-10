@@ -1,120 +1,178 @@
-## [Máster en Ingeniería Web por la Universidad Politécnica de Madrid (miw-upm)](http://miw.etsisi.upm.es)
+# [Máster en Ingeniería Web por la Universidad Politécnica de Madrid (miw-upm)](http://miw.etsisi.upm.es)
 
 ## Arquitectura y Patrones para Aplicaciones Web
 
-> Este proyecto es un apoyo docente de la asignatura. Cada release liberada corresponde al código utilizado en clase del
-> curso indicado
+> Este repositorio es el de gestión de la práctica.
 
 ### Estado del código
 
-[![DevOps](https://github.com/miw-upm/apaw/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/miw-upm/apaw/actions/workflows/continuous-integration.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=miw-upm-github_apaw&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=miw-upm-github_apaw)
-
 ### Tecnologías necesarias
 
-`Java` `Maven` `GitHub` `GitHub Actions CI` `Sonarcloud` `Better Code Hub` `Slack` `Spring-boot` `Heroku` `OpenAPI`
+`Java` `Maven` `GitHub` `GitHub Actions CI` `Sonarcloud` `Slack` `Spring-boot` `OpenAPI` `Docker` `AWS`
 
 ### :gear: Instalación del proyecto
 
-1. Clonar el repositorio en tu equipo, **mediante consola**:
+1. Clonar los repositorios en tu equipo, **mediante consola**:
 
 ```sh
 > cd <folder path>
-> git clone https://github.com/miw-upm/apaw
+> git clone https://github.com/miw-upm/apaw-*
 ```
 
 2. Importar el proyecto mediante **IntelliJ IDEA**
     1. **Open Project**, y seleccionar la carpeta del proyecto.
-    1. Marcar **Create Project from external model**, elegir **Maven**.
-    1. **Next** … **Finish**.
 
-### :book: Diapositivas (/docs)
+## :page_with_curl: Enunciado de la práctica
 
-* [Diapositivas en docs/miw-apaw-slides.pdf](docs/miw-apaw-slides.pdf)
+> La práctica consiste en ampliar de forma colaborativa una aplicación basada en microservicios, pero solo se manejará
+> el Back-End, sin Front-end.  
+> NOTA. Todo el software deberá estar en ingles.
 
-### :movie_camera: Videos (www.youtube.com/miw-upm)
+El ecosistema está montado con Docker, con 4 microservicios: `apaw-gateway`, `apaw-eureka`, `apaw-practice` y
+`apaw-user`, mas un pryecto de test: `apaw-test`.
 
-* Lista de reproducción: **APAW. Arquitectura y Patrones para Aplicaciones Web**
+- **`apaw-practice`** — arquitectura hexagonal. Es donde desarrollas tu tema.
+- **`apaw-user`** — arquitectura en tres capas. Gestiona usuarios. Lo amplías tú cuando lo necesites.
+- **`apaw-gateway`** (Spring reactive, único puerto expuesto) y **`apaw-eureka`**.
+- **PostgreSQL**: un motor compartido, una base de datos por API (`apawpracticedb`, `apawuserdb`).
+- Todo sobre **Docker** en una instancia Lightsail de AWS.
+- **`apaw-test`** — proyecto para Tests Funcionales globales
 
-### :page_with_curl: Enunciado de la práctica
+Trabajo **individual** sobre **repositorios compartidos** por toda la clase.
 
-> La practica consiste en ampliar de forma colaborativa una aplicación: https://github.com/miw-upm/apaw-practice.  
-> **NOTA. Todo el software deberá estar en ingles.**
+Los issues del proyecto de gestión estarán centralizados en: https://github.com/miw-upm/apaw.
+Por eso, los mensajes de los commits deben tener la coletilla: `miw-upm/apaw#666`, con el número de issue adecuado.
+La url del proyecto de gestión es: https://github.com/users/miw-upm/projects/24.
 
-#### 1. Clonar el proyecto y crear una etiqueta en GitHub con el nombre de la ampliación
+Se presenta un diagrama de despliegue:
+![deploy](docs/deploy.png)
 
-Por ejemplo: `story:sport`, `story:team`... no puede haber repetidas. En todos los issues# creados, se deberá asociar
-dicha etiqueta, además de la etiquita de estimación (puntos). Los nombres de los paquetes, deben coincidir exactamante
-con la historia, ejemplo, `story:winter-games`, paquete: `winter_games`.
+### 1. Clonar los cinco proyectos
 
-#### 2. Diseñar el Modelo (0,5 pto)
+* https://github.com/miw-upm/apaw-eureka
+* https://github.com/miw-upm/apaw-gateway
+* https://github.com/miw-upm/apaw-user
+* https://github.com/miw-upm/apaw-practice
+* https://github.com/miw-upm/apaw-test
 
-Crear un **:one: issue#** (por ejemplo: **Team model**). Debe colocarse el diagrama de clases del modelo en los detalles
-del issue y debe estar **siempre actualizado**. Para resolverlo se utilizará un flujo de trabajo ramificado, y una vez
-finalizado e incorporado a **develop** y añadido el **tiempo consumido**, se debe avisar al profesor mediante
-**Slack** dando en el mensaje privado la **url del issue**, si es correcto el **profesor autorizará** el cierre del
-issue y se podrá continuar, sino, se deberán realizar los cambios.
+Deberán crearse los docker necesarios para hacerlo funcionar localmente.
 
-* Crear 4 documentos. No puede haber 2 documentos, con el mismo nombre en toda la aplicación, ni dos atributos dentro de
-  la misma práctica.
-    * Cada documento: >=3 atributos, y en total >= 15 atributos, con al menos uno **LocalDateTime o LocalDate**,
-      **Boolean** y uno **numérico (Integer, Double, Long o BigDecimal)**.
-    * Los atributos para manejo de dinero deben ser BigDecimal.
-    * Relaciones necesarias: 1..n, n..1 y n..n.
+### 2. Epic
 
-#### 3. Diseñar la persistencia (**:two: issue#**) (1 pto)
+Cada alumno deberá crear un `Epic` con el título de la ampliación, y contendrá una serie de sub-issues (Feature, Story,
+Chore o Bugfix) para alcanzar los objetivos.
 
-* Crear el modelo de entidades.
-* Crear los DAOs (Repositorios).
-* Crear una clase para poblar las BD: **&lt;_Story_>SeederService** e integrarlo con **DatabaseSeederService**.
+Por ejemplo: `Invoicing`, `Appoiments`, `Expenses`... no puede haber repetidos. Los nombres de los paquetes, deben
+coincidir exactamante con la historia, ejemplo, `invoicing`, `appoiments`. Dentro de cada paquete no puede haber clases
+con nombre repetidos entre todas las prácticas.
+Así antes de elegir un nombre, revisar que no ha sido utilizado. Se buscan nombre coherentes, no vale poner sufijos para
+evitar colisiones.
 
-#### 4. Crear 5 end-points (mediante :three:..:seven: issue#) (4 ptos)
+> A modo de ejemplo, existe un `Epic`, llamado `LegalProcedure`, que se ha desarrollado completamente.
 
-* **GET, POST, PUT, DELETE** (0,75 ptos/end-point).
-* **PATCH** (1 pto).
-* Repartidos proporcionalmente entre el modelo.
-* Los end-points deben estar 100% probados y los servicios también.
+### 3. Modelo
 
-#### 5. Búsquedas (4,5 ptos)
+Dos entidades relacionadas entre sí, ambas dentro de tu tema, y referencia a usuario (se puede utilizar cualquier
+multiplicidad).
+Nos debemos apoyar en la IA para elegir adecuadamente o que nos de ideas, pero luego se debe defender.
 
-* Una vez finalizado los seis issues anteriores, se debe avisar al profesor por **Slack**, y el profesor añadirá :
-    * :eight:..:nine: issues# para realizar end-points de búsquedas. **Recordar que en búsquedas, a cualquier nivel,
-      resource, service, repository... siempre se coloca en el tipo de lo devuelto**.
+Reglas:
 
-### :white_check_mark: Criterios de evaluación
+- **Mínimo 5 atributos** por entidad. Los eliges tú.
+- **Tipos de atributos variados**: LocalDate, String, Boolean, Integer o BigDecimal...
+- **Limitación de atributos variados**: únicos, autocreados, opcionales, por defecto...
+- **Relación unidireccional.** Prohibidas las relaciones cíclicas.
+- **Relación entre los modelos: 1-n, n-1 o n-n.** Prohibida la 1-1.
+- **La dirección la eliges y la justificas** según qué concepto depende de cuál.
+- **`UserSnapshot`**, al menos un modelo relacionado con `UserSnapshot`, con cualquier multiplicidad.
+- **`UserSnapshot`** compartido entre todos. Si se necesita ampliar, se puede.
 
-* Uso correcto del flujo de trabajo ramificado. **Hasta -3 ptos**.
-* Adecuación de la temporalidad de desarrollo según el enunciado. **Hasta -3 ptos**.
-* Mantenimiento de calidad del código según GitHub Actions y Sonar. Cobertura >= 80%. **Hasta -3 ptos**. Todos los
-  aspectos vistos en teoría, y poniendo espeacial enfásis en:
-    * Formatear.
-        * Herramienta del IDE.
-        * Líneas en blanco.
-        * Ordenar métodos.
-        * Repasar nombres de clases, métodos, atributos, parámetros y variables.
-    * Sencillez del código.
-        * Simplificar el código.
-        * Eliminar comentarios.
-        * Estructuras anidadas: <3.
-        * Complejidad ciclomática: <8-12.
-    * Métricas.
-        * Paquete: <20 clases.
-        * Clases: <500-200 líneas, <20 métodos.
-        * Métodos: <3-4 parámetros, <15 líneas.
-    * Eliminar redundancias (copy & paste).
-    * Eliminar código muerto.
-    * Tratamiento de errores.
-    * Calidad de la arquitectura (GRASP, SOLID, **patrones**...).
-* Gestión adecuada, completa y equilibrada (estimación, tiempo real...) durante el desarrollo. **Hasta -3 ptos**.
-* Uso del ingles. **Hasta -1 pto**.
+Una vez aceptado por el profesor, se debe subir a `apaw/docs` la imagen UML del modelo con formato `png`.
+
+#### Paquetes
+
+```
+model.<tutema>          entidades, enumerados, DTOs de entrada y salida
+model                   UserSnapshot (común a toda la clase)
+```
+
+#### Modelo de referencia, resuelto y no elegible
+
+![modelo Legal Procedure](docs/legal-procedure.png)
+
+### :clap: Entraga parcial del modelo en UML
+> Debe estar cerrado y con el visto bueno del profesor hasta las siguientes fechas:
+* **Entrega Progresiva**: Hasta el **sabado 3 de octubre de 2026**.
+* **Entrega Global**: Hasta el **viernes 18 de diciembre de 2026**.
+* **Entrega Extraordinaria**: **Hasta el viernes 28 de mayo de 2027**.
+
+### 4. Modelo en Java en `apaw-practice`
+Una vez aceptado por el profesor, se debe subir a `apaw/docs` la imagen UML del modelo con formato `png` y debe estar
+en la descripción del issue creado para tal fin.
+
+Con un nuevo Feature, programar el modelo en Java en `apaw-practice`.
+
+### 5. Persistencia (nuevo Feature)
+
+La navegabilidad entre entidades JPA **la decides tú**, y no tiene por qué coincidir con la del dominio. En el modelo
+manda la dependencia conceptual; en persistencia mandan los accesos.
+
+- `fetch = LAZY` explícito, aunque sea el valor por defecto.
+- En GET /{id} cargas un procedimiento, el mapper toca la colección, JPA lanza una consulta más. Total: 2 consultas.
+  Aceptable.
+- En el findCriteria que devuelve 50 procedimientos, cargas los 50 con una consulta, y el mapper toca la colección de
+  cada uno: 50 consultas más. Total: 51. **A evitar**.
+
+### 6. CRUD completo de la entidad secundaria (nuevo Feature)
+
+- POST — crea. `ConflictException` si ya existe otra con el mismo valor en el/los atributo único.
+- GET /{id} — devuelve una. `NotFound`  si no existe.
+- PUT /{id} — sustituye el recurso completo, de los atributos actualizables. `NotFound` si no existe,
+  `ConflictException` si el cambio rompe la unicidad.
+- DELETE /{id} — elimina. `ConflictException` si la entidad está siendo usada por alguna entidad principal: no se borra
+  algo que está referenciado.
+- GET — lista todas, con orden determinista.
+- PATCH — modificación parcial. Solo se actualizan los campos presentes en la petición; los ausentes quedan intactos.
+  Libre el tipo de patch
+
+### 7. Creación de la entidad principal (nuevo Feature)
+
+La creación de la entidad principal recibe un DTO propio (CreationLegalProcedure en el ejemplo), distinto de la entidad
+de dominio:
+
+- No lleva atributos calculados ni asignados por el sistema, como fechas de creación.
+- No lleva el UserSnapshot, sino el identificador de usuario. El caso de uso lo resuelve contra apaw-user y valida que
+  exista.
+- No lleva objetos de la entidad secundaria, sino sus identificadores. Las entidades secundarias ya existen; la creación
+  las asocia, no las crea.
+- La lista de identificadores no puede venir vacía si la cardinalidad de tu modelo exige al menos uno.
+
+### 8. FindCriteria (nuevo Feature)
+
+Un DTO de criterios para búsquedas, con almenos **cuatro campos, todos opcionales y nullsafe**: el que llega a `null` no filtra.
+
+Los cuatro deben cubrir estos tipos:
+
+- Un atributo de la entidad principal.
+- Un criterio derivado, no un campo directo (el `opened` del ejemplo se calcula sobre `closingDate`).
+- Un atributo de la **entidad relacionada**, que obliga a atravesar la relación.
+- Un atributo de **usuario**, que vive en `apaw-user`. Una sola llamada a `apaw-user`.
+
+### 9. Report (nuevo Feature)
+
+Una **proyección de lectura**, nunca entidades de dominio. Debe cumplir a la vez:
+
+- Combina las dos entidades.
+- Agrupa y agrega.
+- Ordena por el valor agregado.
+- Si lleva `UserSnapshot`, se hidrata en una sola llamada a `apaw-user`.
 
 ### :clap: Entraga de la práctica
 
 Indicar como texto en la subida:
 
-* Nombre de la historía:
+* Nombre de la Epic:
 * Cuenta de GitHub:
 * Nombre aparecen en los commits:
-* Estimación total y tiempo total consumido:
 
 > **NOTA. Acordarse de dar al botón de envío.**
