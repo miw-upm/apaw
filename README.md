@@ -210,7 +210,10 @@ Los cuatro deben cubrir estos tipos:
 - Un atributo de la **entidad relacionada**, que obliga a atravesar la relación.
 - Un atributo de **usuario**, que vive en `apaw-user`. Una sola llamada a `apaw-user`.
 
-> Finalmente añadir tests
+OJO!!! aquí la IA te la lia un poco. Si se debe cambiar `apaw-user` se utilizará em mismo nº de feature.
+CUIDADO!!! la IA se me puso a tocar el `apaw-user` por detras y sin avisarme, aunque el proyecto era sobre `apaw-practice`.
+
+> Finalmente añadir tests (*IT) con mocks
 
 ### 9. Report (nuevo Feature)
 
