@@ -5,11 +5,12 @@
 > Este repositorio es el de gestión de la práctica.
 
 ### Estado del código
-| Microservicio     | CI                                                                                                                                                    | Calidad                                                                                                                                                                                                     | Despliegue                                                                                                                      |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| **APAW User**     | [![CI](https://github.com/miw-upm/apaw-user/actions/workflows/ci.yml/badge.svg)](https://github.com/miw-upm/apaw-user/actions/workflows/ci.yml)       | [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=miw-upm-github_apaw-user&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=miw-upm-github_apaw-user)         | [![AWS](http://108.131.15.169:8080/api/apaw-user/system/version-badge)](http://108.131.15.169:8080/api/apaw-user/system)        |
+
+| Microservicio     | CI                                                                                                                                                      | Calidad                                                                                                                                                                                                     | Despliegue                                                                                                                       |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| **APAW User**     | [![CI](https://github.com/miw-upm/apaw-user/actions/workflows/ci.yml/badge.svg)](https://github.com/miw-upm/apaw-user/actions/workflows/ci.yml)         | [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=miw-upm-github_apaw-user&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=miw-upm-github_apaw-user)         | [![AWS](http://108.131.15.169:8080/api/apaw-user/system/version-badge)](http://108.131.15.169:8080/api/apaw-user/system)         |
 | **APAW Practice** | [![CI](https://github.com/miw-upm/apaw-practice/actions/workflows/ci.yml/badge.svg)](https://github.com/miw-upm/apaw-practice/actions/workflows/ci.yml) | [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=miw-upm-github_apaw-practice&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=miw-upm-github_apaw-practice) | [![AWS](http://108.131.15.169:8080/api/apaw-practice/system/version-badge)](http://108.131.15.169:8080/api/apaw-practice/system) |
-|                   | **GitHub Actions** | **SonarCloud**   | **AWS Lightsail**  |
+|                   | **GitHub Actions**                                                                                                                                      | **SonarCloud**                                                                                                                                                                                              | **AWS Lightsail**                                                                                                                |
 
 ### Tecnologías necesarias
 
@@ -106,7 +107,9 @@ model                   UserSnapshot (común a toda la clase)
 ![modelo Legal Procedure](docs/legal-procedure.png)
 
 ### :clap: Entraga parcial del modelo en UML
+
 > Debe estar cerrado y con el visto bueno del profesor hasta las siguientes fechas:
+
 * **Entrega Progresiva**: Hasta el **sabado 3 de octubre de 2026**.
 * **Entrega Global**: Hasta el **viernes 18 de diciembre de 2026**.
 * **Entrega Extraordinaria**: Hasta el **viernes 28 de mayo de 2027**.
@@ -116,10 +119,16 @@ model                   UserSnapshot (común a toda la clase)
 ![APAW Management](docs/apaw-management.png)
 
 ### 4. Modelo en Java en `apaw-practice`
+
 Una vez aceptado por el profesor, se debe subir a `apaw/docs` la imagen UML del modelo con formato `png` y debe estar
 en la descripción del issue creado para tal fin.
 
 Con un nuevo Feature, programar el modelo en Java en `apaw-practice`.
+
+1. RECORDAR!!! siempre, justo antes de fusionar con `develop`, lanzar todos los tests.
+2. SIEMPRE!!! para fusionar el issue con develop: `git merge --no-ff -m"merge miw-upm/apaw#3 into develop" feature/3` y
+   subir develop: `git push origin develop`, esperar a que `GitHub Actions` termine y sea OK.
+3. POR ULTIMO!!! anotar el tiempo consumido y cerrar el issue
 
 ### 5. Persistencia (nuevo Feature)
 
@@ -165,7 +174,8 @@ de dominio:
 
 ### 8. FindCriteria (nuevo Feature)
 
-Un DTO de criterios para búsquedas, con almenos **cuatro campos, todos opcionales y nullsafe**: el que llega a `null` no filtra.
+Un DTO de criterios para búsquedas, con almenos **cuatro campos, todos opcionales y nullsafe**: el que llega a `null` no
+filtra.
 
 Los cuatro deben cubrir estos tipos:
 
@@ -189,7 +199,8 @@ Una **proyección de lectura**, nunca entidades de dominio. Debe cumplir a la ve
 
 ### 10. Tests Funcionales (nuevo Feature)
 
-Añadir Tests Funcionales a `apaw-test` de todas las mejoras realizadas. Recordar apoyarse en el seeder para simplificar los tests.
+Añadir Tests Funcionales a `apaw-test` de todas las mejoras realizadas. Recordar apoyarse en el seeder para simplificar
+los tests.
 
 ### :clap: Entraga de la práctica
 
