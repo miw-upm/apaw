@@ -125,15 +125,30 @@ en la descripción del issue creado para tal fin.
 
 Con un nuevo Feature, programar el modelo en Java en `apaw-practice`.
 
+!!!NO hacer tests
+
 1. RECORDAR!!! siempre, justo antes de fusionar con `develop`, lanzar todos los tests.
 2. SIEMPRE!!! para fusionar el issue con develop: `git merge --no-ff -m"merge miw-upm/apaw#3 into develop" feature/3` y
    subir develop: `git push origin develop`, esperar a que `GitHub Actions` termine y sea OK.
 3. POR ULTIMO!!! anotar el tiempo consumido y cerrar el issue
 
+!!!NO subir las ramas issues al repositorio. Solo si necesitamos compartir el issue con alguien.
+
 ### 5. Persistencia (nuevo Feature)
 
 La navegabilidad entre entidades JPA **la decides tú**, y no tiene por qué coincidir con la del dominio. En el modelo
-manda la dependencia conceptual; en persistencia mandan los accesos.
+manda la dependencia conceptual; en persistencia mandan los accesos. Si no hay una razón concreta, mantendremos la
+relación del modelo.
+
+En este issue, sólo nos interesa las clases e interfaces, sin métodos para entender la arquitectura hexagoanl, ya que
+estos surgiran bajo demanda de hacer los end-points.
+
+!!!NO hacer tests
+
+1. Se crean los puertos: `*Gateway`, `*Finder` o `*Writer`.
+2. Se añade `*Entity`.
+3. Se añade `*Repository`.
+4. Se añade `*Adapter`.
 
 - `fetch = LAZY` explícito, aunque sea el valor por defecto.
 - En GET /{id} cargas un procedimiento, el mapper toca la colección, JPA lanza una consulta más. Total: 2 consultas.
