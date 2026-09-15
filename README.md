@@ -125,10 +125,13 @@ en la descripción del issue creado para tal fin.
 
 Con un nuevo Feature, programar el modelo en Java en `apaw-practice`.
 
+OJO!! la IA nos ofrece alternativas tentativas de nuestro estilo (doDefault), pero luego dan muchos problemas
+
 !!!NO hacer tests
 
-1. RECORDAR!!! siempre, justo antes de fusionar con `develop`, lanzar todos los tests.
-2. SIEMPRE!!! para fusionar el issue con develop: `git merge --no-ff -m"merge miw-upm/apaw#3 into develop" feature/3` y
+1. RECORDAR!!! añdir siempre la coletilla `miw-upm/apaw#5` en todos los `commits`.
+2. RECORDAR!!! siempre, justo antes de fusionar con `develop`, lanzar todos los tests.
+2. SIEMPRE!!! para fusionar el issue con develop: `git merge --no-ff -m"merge miw-upm/apaw#5 into develop" feature/5` y
    subir develop: `git push origin develop`, esperar a que `GitHub Actions` termine y sea OK.
 3. POR ULTIMO!!! anotar el tiempo consumido y cerrar el issue
 
@@ -157,6 +160,10 @@ estos surgiran bajo demanda de hacer los end-points.
   cada uno: 50 consultas más. Total: 51. **A evitar**.
 
 ### 6. CRUD completo de la entidad secundaria (nuevo Feature)
+
+Se va notando que la IA cada vez nos da una respuesta certera a la primera, solo necesita entender nuestra arquitectura.
+
+Para mejoras mas grande, plantearse hacer aportaciones parciales a `develop`.
 
 - POST — crea. `ConflictException` si ya existe otra con el mismo valor en atributo único.
 - GET /{id} — devuelve una. `NotFound`  si no existe.
