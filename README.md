@@ -191,8 +191,12 @@ de dominio:
 - No lleva objetos de la entidad secundaria, sino sus identificadores. Las entidades secundarias ya existen; la creación
   las asocia, no las crea.
 - La lista de identificadores no puede venir vacía si la cardinalidad de tu modelo exige al menos uno.
+-
 
-> Finalmente añadir tests
+Aquí la IA no acierta demasiado, pero a lo mejor, ya teniendo un ejemplo, podría ir mejor.
+
+> Finalmente añadir tests. Recordar que en este caso solo hay *IT, y se debe mockear el UserFinder. No se puede hacer *
+> FT
 
 ### 8. FindCriteria (nuevo Feature)
 
