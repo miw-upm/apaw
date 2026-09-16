@@ -14,13 +14,13 @@
 
 ### Tecnologías necesarias
 
-`Java` `Maven` `GitHub` `GitHub Actions` `Sonarcloud` `Slack` `Spring-Boot` `Spring-cloude` `GitHub Packages` `OpenAPI`
+`Java` `Maven` `GitHub` `GitHub Actions` `SonarCloud` `Slack` `Spring-Boot` `Spring-Cloud` `GitHub Packages` `OpenAPI`
 `JPA` `PostgreSQL` `Docker` `Eureka` `Gateway` `AWS Lightsail`
 
 ### :gear: Proyectos
 
 - [🧩 APAW user](https://github.com/miw-upm/apaw-user)
-- [🧩 APAW practice](https://github.com/miw-upm/apaw-prectice)
+- [🧩 APAW practice](https://github.com/miw-upm/apaw-practice)
 
 
 - [⚙️ APAW Eureka](https://github.com/miw-upm/apaw-eureka)
@@ -33,10 +33,10 @@
 
 > La práctica consiste en ampliar de forma colaborativa una aplicación basada en microservicios, pero solo se manejará
 > el Back-End, sin Front-end.  
-> NOTA. Todo el software deberá estar en ingles, pero la documentación complementaria puede estar en español.
+> NOTA. Todo el software deberá estar en inglés, pero la documentación complementaria puede estar en español.
 
 El ecosistema está montado con Docker, con 4 microservicios: `apaw-gateway`, `apaw-eureka`, `apaw-practice` y
-`apaw-user`, un motor de BD de postgres en Docker, mas un proyecto de test: `apaw-test`.
+`apaw-user`, un motor de BD de postgres en Docker, más un proyecto de test: `apaw-test`.
 
 - **`apaw-practice`**. Arquitectura hexagonal. Microservicio principal de desarrollo.
 - **`apaw-user`**. Arquitectura en 3-capas. Gestiona usuarios. Ampliaciones puntuales.
@@ -77,8 +77,8 @@ Deberán crearse los docker necesarios para hacerlo funcionar localmente, no olv
 Cada alumno deberá crear un `Epic` con el título de la ampliación, y contendrá una serie de sub-issues (Feature, Story,
 Chore o Bugfix) para alcanzar los objetivos.
 
-Por ejemplo: `Invoicing`, `Appoiments`, `Expenses`... no puede haber repetidos. Los nombres de los paquetes, deben
-coincidir exactamante con la historia, ejemplo, `invoicing`, `appoiments`. Dentro de cada paquete no puede haber clases
+Por ejemplo: `Invoicing`, `Appointments`, `Expenses`... no puede haber repetidos. Los nombres de los paquetes deben
+coincidir exactamente con la historia, ejemplo, `invoicing`, `appointments`. Dentro de cada paquete no puede haber clases
 con nombre repetidos entre todas las prácticas.
 Así antes de elegir un nombre, revisar que no ha sido utilizado. Se buscan nombre coherentes, no vale poner sufijos para
 evitar colisiones.
@@ -109,11 +109,11 @@ Una vez aceptado por el profesor, se debe subir a `apaw/docs` la imagen UML del 
 
 ![modelo Legal Procedure](docs/legal-procedure.png)
 
-##### :clap: Entraga parcial del modelo en UML
+##### :clap: Entrega parcial del modelo en UML
 
 > Debe estar cerrado y con el visto bueno del profesor hasta las siguientes fechas:
 
-* **Entrega Progresiva**: Hasta el **sabado 3 de octubre de 2026**.
+* **Entrega Progresiva**: Hasta el **sábado 3 de octubre de 2026**.
 * **Entrega Global**: Hasta el **viernes 18 de diciembre de 2026**.
 * **Entrega Extraordinaria**: Hasta el **viernes 28 de mayo de 2027**.
 
@@ -130,15 +130,15 @@ Con un nuevo _Feature_, programar el modelo en Java en `apaw-practice`.
 
 **!!!NO hacer tests**
 
-1. RECORDAR!!! añdir siempre la coletilla `miw-upm/apaw#5` en todos los `commits`.
+1. RECORDAR!!! añadir siempre la coletilla `miw-upm/apaw#5` en todos los `commits`.
 2. RECORDAR!!! siempre, justo antes de fusionar con `develop`, lanzar todos los tests.
 3. SIEMPRE!!! para fusionar el _issue_ con _develop_ **Not Fast Forward**: `--no-ff`.   
    `git merge --no-ff -m"merge miw-upm/apaw#5 into develop" feature/5`
 4. Subir develop con rapidez y esperar a que `GitHub Actions` termine y sea OK.   
    `git push origin develop`
-5. POR ULTIMO!!! anotar el tiempo consumido y cerrar el issue
+5. POR ÚLTIMO!!! anotar el tiempo consumido y cerrar el issue
 
-!!!NO subir las ramas issues al repositorio. Solo si necesitamos compartir el issue con alguien.
+!!!NO subir las ramas de issues al repositorio. Solo si necesitamos compartir el issue con alguien.
 
 #### 5. Persistencia (nuevo _Feature_)
 
@@ -146,7 +146,7 @@ La navegabilidad entre entidades JPA **la decides tú**, y no tiene por qué coi
 manda la dependencia conceptual; en persistencia mandan los accesos. Si no hay una razón concreta, mantendremos la
 relación del modelo.
 
-En este issue, sólo nos interesa las clases e interfaces, sin métodos para entender la arquitectura hexagoanl, ya que
+En este issue, solo nos interesan las clases e interfaces, sin métodos para entender la arquitectura hexagonal, ya que
 estos surgiran bajo demanda por hacer los end-points.
 
 **!!!NO hacer tests**
@@ -166,7 +166,7 @@ estos surgiran bajo demanda por hacer los end-points.
 
 Se va notando que la IA cada vez nos da una respuesta certera a la primera, solo necesita entender nuestra arquitectura.
 
-Para mejoras mas grande, plantearse hacer aportaciones parciales a `develop`.
+Para mejoras más grandes, plantearse hacer aportaciones parciales a `develop`.
 
 - POST — crea. `ConflictException` si ya existe otra con el mismo valor en atributo único.
 - GET /{id} — devuelve una. `NotFound`  si no existe.
@@ -213,7 +213,7 @@ Una **proyección de lectura**, nunca entidades de dominio. Debe cumplir a la ve
 
 #### 9. FindCriteria (nuevo _Feature_)
 
-Un DTO de criterios para búsquedas, con almenos **cuatro campos, todos opcionales y nullsafe**: el que llega a `null` no
+Un DTO de criterios para búsquedas, con al menos **cuatro campos, todos opcionales y nullsafe**: el que llega a `null` no
 filtra.
 
 Los cuatro deben cubrir estos tipos:
@@ -223,7 +223,7 @@ Los cuatro deben cubrir estos tipos:
 - Un atributo de la **entidad relacionada**, que obliga a atravesar la relación.
 - Un atributo de **usuario**, que vive en `apaw-user`. Una sola llamada a `apaw-user`.
 
-OJO!!! aquí la IA te la lia un poco. Si se debe cambiar `apaw-user` se utilizará em mismo nº de feature.   
+OJO!!! aquí la IA te la lía un poco. Si se debe cambiar `apaw-user` se utilizará el mismo nº de feature.   
 CUIDADO!!! la IA se me puso a tocar el `apaw-user` por detras y sin avisarme, aunque el proyecto era sobre
 `apaw-practice`.
 
@@ -234,7 +234,7 @@ CUIDADO!!! la IA se me puso a tocar el `apaw-user` por detras y sin avisarme, au
 Añadir Tests Funcionales a `apaw-test` de todas las mejoras realizadas. Recordar apoyarse en el seeder para simplificar
 los tests.
 
-### :clap: Entraga de la práctica
+### :clap: Entrega de la práctica
 
 Indicar como texto en la subida:
 
