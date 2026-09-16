@@ -236,6 +236,8 @@ los tests.
 
 ### :clap: Entrega de la práctica
 
+![Gestión final](docs/apaw-management-end.png)
+
 Indicar como texto en la subida:
 
 * Nombre de la Epic:
