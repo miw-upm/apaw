@@ -29,7 +29,6 @@
 
 - [✅ APAW Test](https://github.com/miw-upm/apaw-test)
 
-
 ## :page_with_curl: Enunciado de la práctica
 
 > La práctica consiste en ampliar de forma colaborativa una aplicación basada en microservicios, pero solo se manejará
@@ -58,6 +57,7 @@ Trabajo **individual** sobre **repositorios compartidos** por toda la clase.
 - **Gestión del proyecto**: https://github.com/users/miw-upm/projects/24.
 
 ### Diagrama de despliegue
+
 ![deploy](docs/deploy.png)
 
 ### Pasos a seguir
@@ -98,6 +98,7 @@ Reglas:
 - **Limitación de atributos variados**: únicos, autocreados, opcionales, por defecto...
 - **Relación unidireccional.** Prohibidas las relaciones cíclicas.
 - **Relación entre los modelos: 1-n, n-1 o n-n.** Prohibida la 1-1.
+- **Relación de _AGREGACION_**, ya que la de composición no se realiza el CRUD de la entidad secundaria.
 - **La dirección la eliges y la justificas** según qué concepto depende de cuál.
 - **`UserSnapshot`**, al menos un modelo relacionado con `UserSnapshot`, con cualquier multiplicidad.
 - **`UserSnapshot`** compartido entre todos. Si se necesita ampliar, se puede.
@@ -131,10 +132,10 @@ Con un nuevo _Feature_, programar el modelo en Java en `apaw-practice`.
 
 1. RECORDAR!!! añdir siempre la coletilla `miw-upm/apaw#5` en todos los `commits`.
 2. RECORDAR!!! siempre, justo antes de fusionar con `develop`, lanzar todos los tests.
-3. SIEMPRE!!! para fusionar el _issue_ con _develop_ **Not Fast Forward**: `--no-ff`.
-`git merge --no-ff -m"merge miw-upm/apaw#5 into develop" feature/5`
-4. Subir develop con rapidez y esperar a que `GitHub Actions` termine y sea OK.
-`git push origin develop`
+3. SIEMPRE!!! para fusionar el _issue_ con _develop_ **Not Fast Forward**: `--no-ff`.   
+   `git merge --no-ff -m"merge miw-upm/apaw#5 into develop" feature/5`
+4. Subir develop con rapidez y esperar a que `GitHub Actions` termine y sea OK.   
+   `git push origin develop`
 5. POR ULTIMO!!! anotar el tiempo consumido y cerrar el issue
 
 !!!NO subir las ramas issues al repositorio. Solo si necesitamos compartir el issue con alguien.
@@ -196,10 +197,21 @@ de dominio:
 
 Aquí la IA no acierta demasiado, pero a lo mejor, ya teniendo un ejemplo, podría ir mejor.
 
-> Finalmente añadir tests. Recordar que en este caso solo hay *IT, y se debe mockear el UserFinder. No se puede hacer *
-> FT
+> Finalmente añadir tests. Recordar que en este caso solo hay *IT, y se debe mockear el UserFinder. No se puede hacer
+> *FT
 
-#### 8. FindCriteria (nuevo _Feature_)
+#### 8. Report (nuevo _Feature_)
+
+Una **proyección de lectura**, nunca entidades de dominio. Debe cumplir a la vez:
+
+- Combina las dos entidades.
+- Agrupa y agrega.
+- Ordena por el valor agregado.
+- Si lleva `UserSnapshot`, se hidrata en una sola llamada a `apaw-user`.
+
+> Finalmente añadir tests
+
+#### 9. FindCriteria (nuevo _Feature_)
 
 Un DTO de criterios para búsquedas, con almenos **cuatro campos, todos opcionales y nullsafe**: el que llega a `null` no
 filtra.
@@ -211,22 +223,11 @@ Los cuatro deben cubrir estos tipos:
 - Un atributo de la **entidad relacionada**, que obliga a atravesar la relación.
 - Un atributo de **usuario**, que vive en `apaw-user`. Una sola llamada a `apaw-user`.
 
-OJO!!! aquí la IA te la lia un poco. Si se debe cambiar `apaw-user` se utilizará em mismo nº de feature.
+OJO!!! aquí la IA te la lia un poco. Si se debe cambiar `apaw-user` se utilizará em mismo nº de feature.   
 CUIDADO!!! la IA se me puso a tocar el `apaw-user` por detras y sin avisarme, aunque el proyecto era sobre
 `apaw-practice`.
 
-> Finalmente añadir tests (*IT) con mocks
-
-#### 9. Report (nuevo _Feature_)
-
-Una **proyección de lectura**, nunca entidades de dominio. Debe cumplir a la vez:
-
-- Combina las dos entidades.
-- Agrupa y agrega.
-- Ordena por el valor agregado.
-- Si lleva `UserSnapshot`, se hidrata en una sola llamada a `apaw-user`.
-
-> Finalmente añadir tests
+> Finalmente añadir tests (*IT) con mocks si atacan a apaw-user
 
 #### 10. Tests Funcionales (nuevo _Feature_)
 
