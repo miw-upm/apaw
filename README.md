@@ -10,50 +10,59 @@
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | **APAW User**     | [![CI](https://github.com/miw-upm/apaw-user/actions/workflows/ci.yml/badge.svg)](https://github.com/miw-upm/apaw-user/actions/workflows/ci.yml)         | [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=miw-upm-github_apaw-user&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=miw-upm-github_apaw-user)         | [![AWS](http://108.131.15.169:8080/api/apaw-user/system/version-badge)](http://108.131.15.169:8080/api/apaw-user/system)         |
 | **APAW Practice** | [![CI](https://github.com/miw-upm/apaw-practice/actions/workflows/ci.yml/badge.svg)](https://github.com/miw-upm/apaw-practice/actions/workflows/ci.yml) | [![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=miw-upm-github_apaw-practice&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=miw-upm-github_apaw-practice) | [![AWS](http://108.131.15.169:8080/api/apaw-practice/system/version-badge)](http://108.131.15.169:8080/api/apaw-practice/system) |
-|                   | **GitHub Actions**                                                                                                                                      | **SonarCloud**                                                                                                                                                                                              | **AWS Lightsail**                                                                                                                |
+|                   | **GitHub Actions**                                                                                                                                      | **SonarCloud**                                                                                                                                                                                              | **AWS Lightsail - staging**                                                                                                      |
 
 ### Tecnologías necesarias
 
-`Java` `Maven` `GitHub` `GitHub Actions CI` `Sonarcloud` `Slack` `Spring-boot` `OpenAPI` `Docker` `AWS`
+`Java` `Maven` `GitHub` `GitHub Actions` `Sonarcloud` `Slack` `Spring-Boot` `Spring-cloude` `GitHub Packages` `OpenAPI`
+`JPA` `PostgreSQL` `Docker` `Eureka` `Gateway` `AWS Lightsail`
 
-### :gear: Instalación del proyecto
+### :gear: Proyectos
 
-1. Clonar los repositorios en tu equipo, **mediante consola**:
+- [🧩 APAW user](https://github.com/miw-upm/apaw-user)
+- [🧩 APAW practice](https://github.com/miw-upm/apaw-prectice)
 
-```sh
-> cd <folder path>
-> git clone https://github.com/miw-upm/apaw-*
-```
 
-2. Importar el proyecto mediante **IntelliJ IDEA**
-    1. **Open Project**, y seleccionar la carpeta del proyecto.
+- [⚙️ APAW Eureka](https://github.com/miw-upm/apaw-eureka)
+- [⚙️ APAW Gateway](https://github.com/miw-upm/apaw-gateway)
+
+
+- [✅ APAW Test](https://github.com/miw-upm/apaw-test)
+
 
 ## :page_with_curl: Enunciado de la práctica
 
 > La práctica consiste en ampliar de forma colaborativa una aplicación basada en microservicios, pero solo se manejará
 > el Back-End, sin Front-end.  
-> NOTA. Todo el software deberá estar en ingles.
+> NOTA. Todo el software deberá estar en ingles, pero la documentación complementaria puede estar en español.
 
 El ecosistema está montado con Docker, con 4 microservicios: `apaw-gateway`, `apaw-eureka`, `apaw-practice` y
-`apaw-user`, mas un pryecto de test: `apaw-test`.
+`apaw-user`, un motor de BD de postgres en Docker, mas un proyecto de test: `apaw-test`.
 
-- **`apaw-practice`** — arquitectura hexagonal. Es donde desarrollas tu tema.
-- **`apaw-user`** — arquitectura en tres capas. Gestiona usuarios. Lo amplías tú cuando lo necesites.
-- **`apaw-gateway`** (Spring reactive, único puerto expuesto) y **`apaw-eureka`**.
-- **PostgreSQL**: un motor compartido, una base de datos por API (`apawpracticedb`, `apawuserdb`).
-- Todo sobre **Docker** en una instancia Lightsail de AWS.
-- **`apaw-test`** — proyecto para Tests Funcionales globales
+- **`apaw-practice`**. Arquitectura hexagonal. Microservicio principal de desarrollo.
+- **`apaw-user`**. Arquitectura en 3-capas. Gestiona usuarios. Ampliaciones puntuales.
+- **`apaw-gateway`**. Con Spring reactive, único puerto expuesto.
+- **`apaw-eureka`**. Gestiona el registro de todos los microservicios.
+- **`PostgreSQL`**. Motor de BD compartido, pero una base de datos por API: `apawpracticedb` y `apawuserdb`.
+- **`AWS Lightsail`**. Instancia de despliegue en la nube con `Docker`.
+- **`apaw-test`**. Proyecto para Tests Funcionales globales.
 
 Trabajo **individual** sobre **repositorios compartidos** por toda la clase.
 
-Los issues del proyecto de gestión estarán centralizados en: https://github.com/miw-upm/apaw.
-Por eso, los mensajes de los commits deben tener la coletilla: `miw-upm/apaw#666`, con el número de issue adecuado.
-La url del proyecto de gestión es: https://github.com/users/miw-upm/projects/24.
+### Gestión del proyecto
 
-Se presenta un diagrama de despliegue:
+> La gestión se realizará mediante Scrum.
+
+- **Gestión de issues**: https://github.com/miw-upm/apaw. Por eso, los mensajes de los commits deben tener la coletilla:
+  `miw-upm/apaw#666`, con el número de issue adecuado.
+- **Gestión del proyecto**: https://github.com/users/miw-upm/projects/24.
+
+### Diagrama de despliegue
 ![deploy](docs/deploy.png)
 
-### 1. Clonar los cinco proyectos
+### Pasos a seguir
+
+#### 1. Clonar los cinco proyectos
 
 * https://github.com/miw-upm/apaw-eureka
 * https://github.com/miw-upm/apaw-gateway
@@ -61,9 +70,9 @@ Se presenta un diagrama de despliegue:
 * https://github.com/miw-upm/apaw-practice
 * https://github.com/miw-upm/apaw-test
 
-Deberán crearse los docker necesarios para hacerlo funcionar localmente.
+Deberán crearse los docker necesarios para hacerlo funcionar localmente, no olvideis el docker de BD
 
-### 2. Epic
+#### 2. Epic
 
 Cada alumno deberá crear un `Epic` con el título de la ampliación, y contendrá una serie de sub-issues (Feature, Story,
 Chore o Bugfix) para alcanzar los objetivos.
@@ -76,7 +85,7 @@ evitar colisiones.
 
 > A modo de ejemplo, existe un `Epic`, llamado `LegalProcedure`, que se ha desarrollado completamente.
 
-### 3. Modelo
+#### 3. Modelo
 
 Dos entidades relacionadas entre sí, ambas dentro de tu tema, y referencia a usuario (se puede utilizar cualquier
 multiplicidad).
@@ -95,18 +104,11 @@ Reglas:
 
 Una vez aceptado por el profesor, se debe subir a `apaw/docs` la imagen UML del modelo con formato `png`.
 
-#### Paquetes
-
-```
-model.<tutema>          entidades, enumerados, DTOs de entrada y salida
-model                   UserSnapshot (común a toda la clase)
-```
-
-#### Modelo de referencia, resuelto y no elegible
+##### Modelo de referencia, resuelto y no elegible
 
 ![modelo Legal Procedure](docs/legal-procedure.png)
 
-### :clap: Entraga parcial del modelo en UML
+##### :clap: Entraga parcial del modelo en UML
 
 > Debe estar cerrado y con el visto bueno del profesor hasta las siguientes fechas:
 
@@ -114,39 +116,39 @@ model                   UserSnapshot (común a toda la clase)
 * **Entrega Global**: Hasta el **viernes 18 de diciembre de 2026**.
 * **Entrega Extraordinaria**: Hasta el **viernes 28 de mayo de 2027**.
 
-### :card_index_dividers: Preparación del proyecto de gestión, referencia de Procedimiento Legal
+##### :card_index_dividers: Preparación del proyecto de gestión, referencia de Procedimiento Legal
 
 ![APAW Management](docs/apaw-management.png)
 
-### 4. Modelo en Java en `apaw-practice`
+#### 4. Modelo en Java en `apaw-practice`
 
 Una vez aceptado por el profesor, se debe subir a `apaw/docs` la imagen UML del modelo con formato `png` y debe estar
 en la descripción del issue creado para tal fin.
 
-Con un nuevo Feature, programar el modelo en Java en `apaw-practice`.
+Con un nuevo _Feature_, programar el modelo en Java en `apaw-practice`.
 
-OJO!! la IA nos ofrece alternativas tentativas de nuestro estilo (doDefault), pero luego dan muchos problemas
-
-!!!NO hacer tests
+**!!!NO hacer tests**
 
 1. RECORDAR!!! añdir siempre la coletilla `miw-upm/apaw#5` en todos los `commits`.
 2. RECORDAR!!! siempre, justo antes de fusionar con `develop`, lanzar todos los tests.
-2. SIEMPRE!!! para fusionar el issue con develop: `git merge --no-ff -m"merge miw-upm/apaw#5 into develop" feature/5` y
-   subir develop: `git push origin develop`, esperar a que `GitHub Actions` termine y sea OK.
-3. POR ULTIMO!!! anotar el tiempo consumido y cerrar el issue
+3. SIEMPRE!!! para fusionar el _issue_ con _develop_ **Not Fast Forward**: `--no-ff`.
+`git merge --no-ff -m"merge miw-upm/apaw#5 into develop" feature/5`
+4. Subir develop con rapidez y esperar a que `GitHub Actions` termine y sea OK.
+`git push origin develop`
+5. POR ULTIMO!!! anotar el tiempo consumido y cerrar el issue
 
 !!!NO subir las ramas issues al repositorio. Solo si necesitamos compartir el issue con alguien.
 
-### 5. Persistencia (nuevo Feature)
+#### 5. Persistencia (nuevo _Feature_)
 
 La navegabilidad entre entidades JPA **la decides tú**, y no tiene por qué coincidir con la del dominio. En el modelo
 manda la dependencia conceptual; en persistencia mandan los accesos. Si no hay una razón concreta, mantendremos la
 relación del modelo.
 
 En este issue, sólo nos interesa las clases e interfaces, sin métodos para entender la arquitectura hexagoanl, ya que
-estos surgiran bajo demanda de hacer los end-points.
+estos surgiran bajo demanda por hacer los end-points.
 
-!!!NO hacer tests
+**!!!NO hacer tests**
 
 1. Se crean los puertos: `*Gateway`, `*Finder` o `*Writer`.
 2. Se añade `*Entity`.
@@ -159,7 +161,7 @@ estos surgiran bajo demanda de hacer los end-points.
 - En el findCriteria que devuelve 50 procedimientos, cargas los 50 con una consulta, y el mapper toca la colección de
   cada uno: 50 consultas más. Total: 51. **A evitar**.
 
-### 6. CRUD completo de la entidad secundaria (nuevo Feature)
+#### 6. CRUD completo de la entidad secundaria (nuevo _Feature_)
 
 Se va notando que la IA cada vez nos da una respuesta certera a la primera, solo necesita entender nuestra arquitectura.
 
@@ -180,7 +182,7 @@ Para mejoras mas grande, plantearse hacer aportaciones parciales a `develop`.
 > que se apoye en el seeder para su simplicidad. Contar que los tests deben tener en cuenta que el seeder puede crecer,
 > pero no se puede cambiar el contenido existente.
 
-### 7. Creación de la entidad principal (nuevo Feature)
+#### 7. Creación de la entidad principal (nuevo _Feature_)
 
 La creación de la entidad principal recibe un DTO propio (CreationLegalProcedure en el ejemplo), distinto de la entidad
 de dominio:
@@ -191,14 +193,13 @@ de dominio:
 - No lleva objetos de la entidad secundaria, sino sus identificadores. Las entidades secundarias ya existen; la creación
   las asocia, no las crea.
 - La lista de identificadores no puede venir vacía si la cardinalidad de tu modelo exige al menos uno.
--
 
 Aquí la IA no acierta demasiado, pero a lo mejor, ya teniendo un ejemplo, podría ir mejor.
 
 > Finalmente añadir tests. Recordar que en este caso solo hay *IT, y se debe mockear el UserFinder. No se puede hacer *
 > FT
 
-### 8. FindCriteria (nuevo Feature)
+#### 8. FindCriteria (nuevo _Feature_)
 
 Un DTO de criterios para búsquedas, con almenos **cuatro campos, todos opcionales y nullsafe**: el que llega a `null` no
 filtra.
@@ -211,11 +212,12 @@ Los cuatro deben cubrir estos tipos:
 - Un atributo de **usuario**, que vive en `apaw-user`. Una sola llamada a `apaw-user`.
 
 OJO!!! aquí la IA te la lia un poco. Si se debe cambiar `apaw-user` se utilizará em mismo nº de feature.
-CUIDADO!!! la IA se me puso a tocar el `apaw-user` por detras y sin avisarme, aunque el proyecto era sobre `apaw-practice`.
+CUIDADO!!! la IA se me puso a tocar el `apaw-user` por detras y sin avisarme, aunque el proyecto era sobre
+`apaw-practice`.
 
 > Finalmente añadir tests (*IT) con mocks
 
-### 9. Report (nuevo Feature)
+#### 9. Report (nuevo _Feature_)
 
 Una **proyección de lectura**, nunca entidades de dominio. Debe cumplir a la vez:
 
@@ -226,7 +228,7 @@ Una **proyección de lectura**, nunca entidades de dominio. Debe cumplir a la ve
 
 > Finalmente añadir tests
 
-### 10. Tests Funcionales (nuevo Feature)
+#### 10. Tests Funcionales (nuevo _Feature_)
 
 Añadir Tests Funcionales a `apaw-test` de todas las mejoras realizadas. Recordar apoyarse en el seeder para simplificar
 los tests.
