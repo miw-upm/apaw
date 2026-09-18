@@ -1,8 +1,17 @@
+server:
+  port: 8088
+
+info:
+  app:
+    artifact: "@project.artifactId@"
+    version: "@project.version@"
+    build: "@maven.build.timestamp@"
+
 spring:
+  application:
+    name: apaw
   profiles:
-    # Profile ----------------------------------------
-    active: dev
-  # ------------------------------------------------
+    default: dev
   output:
     ansi:
       enabled: ALWAYS
@@ -10,12 +19,15 @@ spring:
     type: none
   jackson:
     default-property-inclusion: NON_NULL
-
-info:
-  app:
-    artifact: "@project.artifactId@"
-    version: "@project.version@"
-    build: "@maven.build.timestamp@"
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/dbapaw
+    username: postgres
+    password: ${POSTGRES_PASSWORD:postgres}
 
 logging:
   level:

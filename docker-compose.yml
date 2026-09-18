@@ -1,0 +1,32 @@
+services:
+  apaw-user:
+    build: .
+    image: apaw-user:latest
+    restart: always
+    ports:
+      - "8088:8088"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/dbapaw
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://apaw-eureka:8761/eureka/
+    networks:
+      - apawnet
+
+networks:
+  apawnet:
+    external: true
+
+#> docker compose up --build -d
+#> docker network create apawnet
+
+# CONSOLA & COMANDOS Postgres
+#> docker exec -it postgres  psql -U postgres
+#  \?   Help
+#  \l   Database list
+#  \connect <db> <usr>
+#  \dt   Table list
+#  \d <table> ;  describe
+#  \q   exit
+#  create database <db>;
+#  drop database <db>;
+#  select * from <table>;
+#  delete from <table>;
