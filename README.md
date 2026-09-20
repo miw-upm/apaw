@@ -145,7 +145,9 @@ Con un nuevo _Feature/?_, programar el modelo en Java en `apaw-practice`.
 
 La navegabilidad entre entidades JPA **la decides tú**, y no tiene por qué coincidir con la del dominio. En el modelo
 manda la dependencia conceptual; en persistencia mandan los accesos. Si no hay una razón concreta, mantendremos la
-la misma relación.
+la misma relación. Se intentará mantener relaciones unidireccionales, y llevar la relación de las tablas al `N`.
+Si las consultas se vuelven frecuentes en ambos sentidos, se podría plantear una relación bidireccional, pero 
+vigilaremos los niveles de acceso. En el dominio del modelo sólo relaciones unidireccionales + `*Report`.
 
 En este issue, solo nos interesan las clases e interfaces, sin métodos, para entender la arquitectura hexagonal, ya que
 los métodos surgiran bajo demanda por hacer los end-points.
@@ -162,14 +164,18 @@ los métodos surgiran bajo demanda por hacer los end-points.
   Aceptable.
 - En el findCriteria que devuelve 50 procedimientos, cargas los 50 con una consulta, y el mapper toca la colección de
   cada uno: 50 consultas más. Total: 51. **A evitar**.
+- Debemos pensar sobre los accesos, no olvideis, que las BD estan en otra instancia y atraviesan Internet.
 
 #### :six: CRUD completo de la entidad secundaria (nuevo _Feature_)
 
 Se va notando que la IA cada vez nos da una respuesta certera a la primera, solo necesita entender nuestra arquitectura.
 
-**Hacemos un commit, de la programación primera de la IA**, luego mas commits con las rectificaciones.
+**Hacemos un commit, de la programación primera de la IA**, luego mas commits con las rectificaciones!!!. **Esto es
+FUNDAMENTAL, aquí se evalua el aporte real del alumno.**
 
-Para mejoras más grandes, plantearse hacer aportaciones parciales a `develop`.
+Para mejoras más grandes, plantearse hacer aportaciones parciales a `develop`. Por ejemplo, en este caso, en la
+descripción del Feauture, se plantea como una checklist (-[ ]... markdown), y por cada punto resuelto, lo incorporamos 
+a develop.
 
 - `POST` — crea. `ConflictException` si ya existe otra con el mismo valor en atributo único.
 - `GET /{id}` — devuelve una. `NotFound`  si no existe.
