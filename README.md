@@ -31,27 +31,29 @@
 
 ## :page_with_curl: Enunciado de la práctica
 
+> [!IMPORTANT]
 > La práctica consiste en ampliar de forma colaborativa una aplicación basada en microservicios, pero solo se manejará
 > el Back-End, sin Front-end.  
-> NOTA. Todo el software deberá estar en inglés, pero la documentación complementaria puede estar en español.
+> Todo el software deberá estar en inglés, pero la documentación complementaria puede estar en español.
+
+> [!CAUTION]
+> **Trabajo individual** sobre **repositorios compartidos** mediante el **flujo ramificado** por toda la clase. Si el alumno
+> no sabe trabajar con el flujo de trabajo pedido, su cuenta será bloqueada hasta la siguiente evaluación.
 
 El ecosistema está montado con Docker, con 4 microservicios: `apaw-gateway`, `apaw-eureka`, `apaw-practice` y
-`apaw-user`, un motor de BD de postgres en Docker, más un proyecto de test: `apaw-test`.
+`apaw-user`, un motor de BD de postgres gestionado por AWS, más un proyecto de test: `apaw-test`.
 
 - **`apaw-practice`**. Arquitectura hexagonal. Microservicio principal de desarrollo.
 - **`apaw-user`**. Arquitectura en 3-capas. Gestiona usuarios. Ampliaciones puntuales.
 - **`apaw-gateway`**. Con Spring reactive, único puerto expuesto.
 - **`apaw-eureka`**. Gestiona el registro de todos los microservicios.
-- **`PostgreSQL`**. Motor de BD compartido, pero una base de datos por API: `apawpracticedb` y `apawuserdb`.
+- **`PostgreSQL`**. Motor de BD gestionado por AWS, pero una base de datos por API: `apawpracticedb` y `apawuserdb`.
 - **`AWS Lightsail`**. Instancia de despliegue en la nube con `Docker`.
 - **`apaw-test`**. Proyecto para Tests Funcionales globales.
 
-### Trabajo _individual_ sobre _repositorios compartidos_ mediante el _flujo ramificado_ por toda la clase.
-
-### Trabajo _individual_ sobre _repositorios compartidos_ mediante el _flujo bifurcado_ para aquellos que no saben trabajar con ramificado.
-
 ### Gestión del proyecto
 
+> [!IMPORTANT]
 > La gestión se realizará mediante Scrum.
 
 - **Gestión de issues**: https://github.com/miw-upm/apaw. Por eso, los mensajes de los commits deben tener la coletilla:
@@ -76,20 +78,21 @@ Deberán crearse los docker necesarios para hacerlo funcionar localmente, antes 
 
 #### :two: Epic
 
-Cada alumno deberá crear un `Epic` con el título de la ampliación, y contendrá una serie de sub-issues (Feature, Story,
-Chore o Bugfix) para alcanzar los objetivos.
+Cada alumno deberá crear un `Epic` con el título de la ampliación, y contendrá una serie de sub-issues (**Feature, Story,
+Chore o Bugfix**) para alcanzar los objetivos.
 
 Por ejemplo: `Invoicing`, `Appointments`, `Expenses`... no puede haber repetidos. Los nombres de los paquetes deben
-coincidir exactamente con el epic, ejemplo, `invoicing`, `appointments`. Dentro de cada paquete no puede haber
+coincidir exactamente con la épica, ejemplo, `invoicing`, `appointments`. Dentro de cada paquete no puede haber
 clases con nombre repetidos entre todas las prácticas.
 Así antes de elegir un nombre, revisar que no ha sido utilizado. Se buscan nombre coherentes, no vale poner sufijos para
 evitar colisiones.
 
+> [!NOTE]
 > A modo de ejemplo, existe un `Epic`, llamado `Legal Procedure`, que se ha desarrollado completamente.
 
 #### :three: Modelo
 
-Crear un nuevo _feature/?_ e incluir la imagen UML en la descripción.
+Crear un nuevo **feature/?** e incluir la imagen UML en la descripción.
 
 Dos entidades relacionadas entre sí, ambas dentro de tu tema, y referencia a usuario con cualquier multiplicidad.
 Nos debemos apoyar en la IA para elegir adecuadamente o que nos de ideas, pero luego se debe supervisar y entender a la
@@ -113,11 +116,11 @@ Reglas:
 
 ##### :clap: Entrega parcial del modelo en UML
 
+> [!WARNING]
 > Debe estar cerrado y con el visto bueno del profesor hasta las siguientes fechas y según la evaluación:
-
-* **Entrega Progresiva**: Hasta el **sábado 3 de octubre de 2026**.
-* **Entrega Global**: Hasta el **viernes 18 de diciembre de 2026**.
-* **Entrega Extraordinaria**: Hasta el **viernes 28 de mayo de 2027**.
+> - **Entrega Progresiva**: Hasta el **sábado 3 de octubre de 2026**.
+> - **Entrega Global**: Hasta el **viernes 18 de diciembre de 2026**.
+> - **Entrega Extraordinaria**: Hasta el **viernes 28 de mayo de 2027**.
 
 ##### :card_index_dividers: Preparación del proyecto de gestión, referencia de Procedimiento Legal
 
@@ -129,17 +132,16 @@ Debe estar en la descripción del issue `Modelo en UML` la imagen del modelo: *.
 
 Con un nuevo _Feature/?_, programar el modelo en Java en `apaw-practice`.
 
-**!!!NO hacer tests**
+> [!WARNING]
+> **NO hacer tests** ni  subir las ramas de issues al repositorio. Solo si necesitamos compartir el issue con alguien.
 
-1. RECORDAR!!! añadir siempre la coletilla `miw-upm/apaw#5` en todos los `commits`.
-2. RECORDAR!!! siempre, justo antes de fusionar con `develop`, lanzar todos los tests.
-3. SIEMPRE!!! para fusionar el _issue_ con _develop_ **NO Fast Forward**: `--no-ff`.   
-   `git merge --no-ff -m"merge miw-upm/apaw#5 into develop" feature/5`
-4. Subir develop con rapidez y esperar a que `GitHub Actions` termine y sea OK.   
-   `git push origin develop`
-5. POR ÚLTIMO!!! anotar el tiempo consumido y cerrar el issue.
-
-!!!NO subir las ramas de issues al repositorio. Solo si necesitamos compartir el issue con alguien.
+> [!TIP] 
+> 1. Añadir siempre la coletilla `miw-upm/apaw#?` con el número de issue en todos los `commits`.
+> 1. Siempre, justo antes de fusionar con `develop`, lanzar todos los tests.
+> 1. Para fusionar el _issue_ con _develop_ **NO Fast Forward**: `--no-ff`.   
+>    `git merge --no-ff -m"merge miw-upm/apaw#? into develop" feature/?`
+> 1. Subir develop con rapidez y esperar a que `GitHub Actions` termine y sea OK. `git push origin develop`
+> 1. Anotar el tiempo consumido y cerrar el issue.
 
 #### :five: Persistencia (nuevo _Feature_)
 
@@ -152,19 +154,20 @@ vigilaremos los niveles de acceso. En el dominio del modelo sólo relaciones uni
 En este issue, solo nos interesan las clases e interfaces, sin métodos, para entender la arquitectura hexagonal, ya que
 los métodos surgiran bajo demanda por hacer los end-points.
 
-**!!!NO hacer tests**
+> [!WARNING]
+> **NO hacer tests**
 
-1. Se crean los puertos: `*Gateway`, `*Finder` o `*Writer`.
-2. Se añade `*Entity`.
-3. Se añade `*Repository`.
-4. Se añade `*Adapter`.
-
-- `fetch = LAZY` explícito, aunque sea el valor por defecto.
-- En `GET /{id}` cargas un procedimiento, el mapper toca la colección, JPA lanza una consulta más. Total: 2 consultas.
-  Aceptable.
-- En el findCriteria que devuelve 50 procedimientos, cargas los 50 con una consulta, y el mapper toca la colección de
+> [!TIP]
+> 1. Se crean los puertos: `*Gateway`, `*Finder` o `*Writer`.
+> 2. Se añade `*Entity`.
+> 3. Se añade `*Repository`.
+> 4. Se añade `*Adapter`.
+> - `fetch = LAZY` explícito, aunque sea el valor por defecto.
+> - En `GET /{id}` cargas un procedimiento, el mapper toca la colección, JPA lanza una consulta más. Total: 2 consultas.
+ **Aceptable**. 
+> - En el findCriteria que devuelve 50 procedimientos, cargas los 50 con una consulta, y el mapper toca la colección de
   cada uno: 50 consultas más. Total: 51. **A evitar**.
-- Debemos pensar sobre los accesos, no olvideis, que las BD estan en otra instancia y atraviesan Internet.
+> - Debemos pensar sobre los accesos, no olvideis, que las BD estan en otra instancia y atraviesan Internet.
 
 #### :six: CRUD completo de la entidad secundaria (nuevo _Feature_)
 
@@ -187,6 +190,7 @@ a develop.
 - `PATCH` — modificación parcial. Solo se actualizan los campos presentes en la petición; los ausentes quedan intactos.
   Libre el tipo de patch.
 
+> [!NOTE]
 > Una vez que se ha programado todo y hemos llegado a un reparto adecuado de las responsabilidades, se van a añadir
 > una población en el **seeder** básica. Se debe seguir la filosofia del seeder. Después, se realizan los **tests**
 > indicando que se apoye en el seeder para su simplicidad. Contar que los tests deben tener en cuenta que el seeder
@@ -205,7 +209,8 @@ entidad de dominio:
 - La lista de identificadores no puede venir vacía si la cardinalidad de tu modelo exige al menos uno.
 - Siempre una sola llamada a `apaw-user`.
 
-> Finalmente añadir tests. Recordar que en este caso solo hay *IT, y se debe mockear el UserFinder. 
+> [!NOTE]
+> Finalmente añadir tests. Recordar que en este caso solo hay *IT, y se debe mockear el **UserFinder**. 
 
 #### :eight: Report (nuevo _Feature_)
 
@@ -216,6 +221,7 @@ Una **proyección de lectura**, nunca entidades de dominio. Debe cumplir a la ve
 - Ordena por el valor agregado.
 - Si lleva `UserSnapshot`, se hidrata en una sola llamada a `apaw-user`.
 
+> [!NOTE]
 > Finalmente añadir tests
 
 #### :nine: FindCriteria (nuevo _Feature_)
@@ -235,6 +241,7 @@ OJO!!! aquí la IA te la lía un poco. Si se debe cambiar `apaw-user` se utiliza
 **CUIDADO!!!** la IA se me puso a tocar el `apaw-user` por detras y sin avisarme, aunque el proyecto era sobre
 `apaw-practice`.
 
+> [!NOTE]
 > Finalmente añadir tests (*IT) con mocks si atacan a apaw-user
 
 #### :keycap_ten: Tests Funcionales (nuevo _Feature_)
@@ -252,4 +259,5 @@ Indicar como texto en la subida:
 * Cuenta de GitHub:
 * Nombre aparecen en los commits:
 
-> **NOTA. Acordarse de dar al botón de envío.**
+> [!WARNING]
+> **Acordarse de dar al botón de envío.**
